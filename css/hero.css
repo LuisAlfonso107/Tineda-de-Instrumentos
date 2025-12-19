@@ -2,8 +2,7 @@
     position: relative;
     width: 100%;
     height: 500px;
-    background-image: url('https://images.unsplash.com/photo-1550985543-f47f38aee65d?q=80&w=2070&auto=format&fit=crop');
-    /* Guitarra eléctrica de fondo */
+    background-image: url('../img/bajo.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -12,7 +11,7 @@
     
     align-items: center;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .hero-content {
@@ -26,43 +25,45 @@
 }
 
 .hero-content h1 {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
     color: #FFD700;
     /* Amarillo */
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     margin-bottom: 20px;
-    /* Espacio antes de la parte blanca */
+    /* Espacioblanca antes de la parte  */
     position: relative;
-    z-index: 3;
+    z-index: 2;
 }
 
 .hero-divider {
     background: white;
-    width: 80%;
+    width: 100%;
     /* No ocupa todo el ancho */
-    padding: 30px 20px;
+    padding: 10px 20px;
     /* Forma de trapecio: base ancha abajo, estrecha arriba */
     clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
     position: relative;
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    -webkit-box-shadow: #8A2BE2 3px 0px 36px -3px;
+    box-shadow: #8A2BE2 3px 0px 38px -3px;
     /* Pegado al fondo si se quiere, o flotando */
 }
 
 .hero-subtitle {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
     color: #8A2BE2;
     /* Morado */
     text-transform: uppercase;
     margin: 0;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .hero-subtitle-reflection {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5rem;
     color: #8A2BE2;
     /* Morado */
     text-transform: uppercase;
@@ -97,10 +98,10 @@
 }
 
 .feature-item i {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #FFD700;
     /* Iconos amarillos */
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
 /* Responsive */
