@@ -5,15 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../img/favicon/favicon.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../css/checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/checkout.css">
   <title>Checkout</title>
 </head>
 
 <body>
-
 
   <header id="header"></header>
 
@@ -34,30 +32,30 @@
               <h3 data-idioma="checkout.billingAddress">Dirección de facturación</h3>
               <label for="fname"><i class="fa fa-user"></i> <span data-idioma="checkout.fullName">Nombre
                   completo</span></label>
-              <input type="text" id="fname" name="firstname" data-idioma="checkout.fullNamePlaceholder"
+              <input class="inputCheckout" type="text" id="fname" name="firstname" data-idioma="checkout.fullNamePlaceholder"
                 data-idioma-placeholder placeholder="Tu nombre">
               <label for="email"><i class="fa fa-envelope"></i> <span data-idioma="checkout.emailLabel">Correo
                   electronico</span></label>
-              <input type="text" id="email" name="email" data-idioma="checkout.emailPlaceholder" data-idioma-placeholder
+              <input class="inputCheckout" type="text" id="email" name="email" data-idioma="checkout.emailPlaceholder" data-idioma-placeholder
                 placeholder="@example.com">
               <label for="adr"><i class="fa-solid fa-address-book"></i> <span
                   data-idioma="checkout.addressLabel">Dirección</span></label>
-              <input type="text" id="adr" name="address" data-idioma="checkout.addressPlaceholder"
+              <input class="inputCheckout" type="text" id="adr" name="address" data-idioma="checkout.addressPlaceholder"
                 data-idioma-placeholder placeholder="-">
               <label for="city"><i class="fa fa-institution"></i> <span
                   data-idioma="checkout.cityLabel">Ciudad</span></label>
-              <input type="text" id="city" name="city" data-idioma="checkout.cityPlaceholder" data-idioma-placeholder
+              <input class="inputCheckout" type="text" id="city" name="city" data-idioma="checkout.cityPlaceholder" data-idioma-placeholder
                 placeholder="Tu ciudad">
 
               <div class="row">
                 <div class="col-50">
                   <label for="state" data-idioma="checkout.stateLabel">Estado</label>
-                  <input type="text" id="state" name="state" data-idioma="checkout.statePlaceholder"
+                  <input class="inputCheckout" type="text" id="state" name="state" data-idioma="checkout.statePlaceholder"
                     data-idioma-placeholder placeholder="-">
                 </div>
                 <div class="col-50">
                   <label for="zip" data-idioma="checkout.zipLabel">Código postal</label>
-                  <input type="text" id="zip" name="zip" data-idioma="checkout.zipPlaceholder" data-idioma-placeholder
+                  <input class="inputCheckout" type="text" id="zip" name="zip" data-idioma="checkout.zipPlaceholder" data-idioma-placeholder
                     placeholder="-">
                 </div>
               </div>
@@ -73,58 +71,44 @@
                 <i class="fa-brands fa-cc-discover" style="color:orange;"></i>
               </div>
               <label for="cname" data-idioma="checkout.cardName">Nombre en tarjeta </label>
-              <input type="text" id="cname" name="cardname" data-idioma="checkout.cardNamePlaceholder"
+              <input class="inputCheckout" type="text" id="cname" name="cardname" data-idioma="checkout.cardNamePlaceholder"
                 data-idioma-placeholder placeholder="-">
               <label for="ccnum" data-idioma="checkout.cardNumber">Número de tarjeta de crédito</label>
-              <input type="text" id="ccnum" name="cardnumber" data-idioma="checkout.cardNumberPlaceholder"
+              <input class="inputCheckout" type="text" id="ccnum" name="cardnumber" data-idioma="checkout.cardNumberPlaceholder"
                 data-idioma-placeholder placeholder="-">
               <label for="expmonth" data-idioma="checkout.expMonth">Mes de expiración</label>
-              <input type="text" id="expmonth" name="expmonth" data-idioma="checkout.expMonthPlaceholder"
+              <input class="inputCheckout" type="text" id="expmonth" name="expmonth" data-idioma="checkout.expMonthPlaceholder"
                 data-idioma-placeholder placeholder="-">
               <div class="row">
                 <div class="col-50">
                   <label for="expyear" data-idioma="checkout.expYear">Año de expiración</label>
-                  <input type="text" id="expyear" name="expyear" data-idioma="checkout.expYearPlaceholder"
+                  <input class="inputCheckout" type="text" id="expyear" name="expyear" data-idioma="checkout.expYearPlaceholder"
                     data-idioma-placeholder placeholder="-">
                 </div>
                 <div class="col-50">
                   <label for="cvv" data-idioma="checkout.cvv">CVV</label>
-                  <input type="text" id="cvv" name="cvv" data-idioma="checkout.cvvPlaceholder" data-idioma-placeholder
+                  <input class="inputCheckout" type="text" id="cvv" name="cvv" data-idioma="checkout.cvvPlaceholder" data-idioma-placeholder
                     placeholder="***">
                 </div>
               </div>
             </div>
 
           </div>
-          <label>
-            <input type="checkbox" checked="checked" name="sameadr"> <span data-idioma="checkout.sameAddress">La
-              dirección de envío es la misma que la de facturación</span>
-          </label>
-          <input type="submit" data-idioma="checkout.continueCheckout" data-idioma-value value="Continuar con el pago"
+          <input class="inputCheckout" type="submit" data-idioma="checkout.continueCheckout" data-idioma-value value="Continuar con el pago"
             class="btn">
         </form>
       </div>
     </div>
     <div class="col-25">
-      <div id="cargarInformacionDelCarrito" class="container">
-        <h4><span data-idioma="checkout.cart">Carrito</span> <span class="price" style="color:rgb(236, 233, 233)"><i
-              class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-        <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-        <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-        <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-        <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-        <hr>
-        <p><span data-idioma="checkout.total">Total</span> <span class="price"
-            style="color:rgb(236, 233, 233)"><b>$30</b></span></p>
-      </div>
+      <div id="cartCheckoutInfo"></div>
     </div>
   </div>
 
   <footer id="footer"></footer>
-
-  <script src="../js/idioma.js"></script>
-  <script src="../js/checkout.js"></script>
+  
   <script type="module" src="../js/main.js"></script>
+  <script src="../js/idioma.js"></script>
+  <script type="module" src="../js/checkout.js"></script>
 </body>
 
 </html>

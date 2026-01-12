@@ -1,0 +1,149 @@
+/* Títulos de sección */
+main h2 {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #444;
+}
+
+/* Contenedor de productos */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 1rem;
+}
+/* Estilo del reloj en headerTemplate */
+#datetimeDisplay  {
+  font-family: 'Montserrat', sans-serif;
+  color: #9370DB;                     
+  font-size: 14px;                      
+  font-weight: 800;                      
+} 
+
+/* Tarjeta de producto */
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.02);
+}
+
+.producto figure {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.producto img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.producto h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.producto p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: rgb(126, 126, 32);
+}
+.producto .precio {
+  font-weight: bold;
+  color: #e91e63;
+  margin-top: 0.5rem;
+}
+.cartAddItemBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9370DB;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  border: 2px solid #9370DB;
+  margin: 0.5rem;
+}
+.cartAddItemBtn i {
+  margin-right: 0.5rem;
+}
+.cartAddItemBtn:hover {
+  background-color: white;
+  color: #36454E;
+}
+.linkToDetails {
+  text-decoration: none;
+}
+/* Tablet: hasta 1300px */
+@media (max-width: 1300px) {
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Móvil: hasta 770px */
+@media (max-width: 770px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+@media (max-width: 480px) {
+  .producto figure {
+    height: 140px;
+  }
+}
+  .producto h3 {
+    font-size: 1rem;
+  }
+
+  .producto p {
+    font-size: 0.85rem;
+  }
+
+  .cartAddItemBtn {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+
+  #datetimeDisplay {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* Teléfonos pequeños: hasta 480px */
+@media (max-width: 480px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+
+@media (max-width: 480px) {
+  .producto figure {
+    height: 120px;
+  }
+
+  .cartAddItemBtn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+  }
+}}

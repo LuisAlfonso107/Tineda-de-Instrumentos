@@ -320,6 +320,7 @@
     }
 
     .social-icons {
+        flex-wrap: wrap;
         gap: 12px;
     }
 
@@ -337,6 +338,9 @@
         min-width: 55px;
         height: 38px;
         padding: 5px 8px;
+    }
+    .payment-icons {
+        flex-wrap: wrap;
     }
 }
 

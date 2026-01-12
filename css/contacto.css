@@ -1,0 +1,134 @@
+:root {
+    --dorado: #D4A857;
+    --dorado-suave: #FFD700;
+    --negro: #36454E;
+    --gris-oscuro: #2A2A2A;
+    --blanco: #ffffff;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: var(--negro);
+    color:var(--blanco);
+}
+/* ------------------ CONTENEDOR PRINCIPAL ------------------ */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+/* ------------------ GRID CONTACTO ------------------ */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+@media(max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ------------------ TARJETAS ------------------ */
+.card {
+    background: var(--gris-oscuro);
+    padding: 4rem;
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    
+}
+.card:hover {
+    border:solid var(--dorado);
+}
+.card p {
+    color: var(--blanco);
+}
+
+/* ------------------ FORMULARIO ------------------ */
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    left: -5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #555;
+    background: #111;
+    color: var(--blanco);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+form input:focus, form textarea:focus {
+    border-color: var(--dorado);
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 1rem;
+    background: var(--dorado);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+form button:hover {
+    background: var(--blanco);
+    color: var(--negro);
+}
+
+h2{
+    margin-bottom: 1rem;
+}
+ 
+/* ------------------ FAQ ------------------ */
+details {
+    background: var(--gris-oscuro);
+    border: 1px solid #333;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+details:hover {
+    border-color: var(--dorado);
+}
+details summary {
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+/* ------------------ MAPA ------------------ */
+iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 15px;
+}
+
+/* ------------------ BOTÓN WHATSAPP ------------------ */
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    z-index: 1;
+}
+.whatsapp:hover {
+    transform: scale(1.1);
+}
+    

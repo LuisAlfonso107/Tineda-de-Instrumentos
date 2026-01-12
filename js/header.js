@@ -64,10 +64,18 @@ export const header = {
             div.innerHTML = `<p>${item.nombre}</p>`;
 
             div.addEventListener("click", () => {
-                window.location.href = `../data/products.json?id=${item.id}`;
+                window.location.href = `../pages/paginaDetalle.html?id=${item.id}`;
             });
 
             contenedor.appendChild(div);
         });
-    }
-};
+    },
+
+render() {
+  const output = document.querySelector(`#${this.id}`);
+  if (output) {
+    output.innerHTML = this.getTemplate({ cartCount: cart.cartCount });
+    headerTemplate.initDateTime(); // Aquí se activa el reloj
+  }
+}
+}

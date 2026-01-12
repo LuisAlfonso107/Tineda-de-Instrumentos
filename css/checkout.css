@@ -1,9 +1,10 @@
  :root {
-            --dorado: #D4A857;
-            --dorado-suave: #FFD700;
-            --negro: #36454E;
-            --gris-oscuro: #2A2A2A;
-            --blanco: #ffffff;
+    --dorado: #D4A857;
+    --dorado-suave: #FFD700;
+    --negro: #36454E;
+    --gris-oscuro: #2A2A2A;
+    --blanco: #ffffff;
+}
 body {
   font-family: 'Montserrat', sans-serif;;
   background-color:var(--negro);
@@ -17,15 +18,15 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -16px;
-row-gap: 25px;
+  margin: 0;
+  row-gap: 0.5rem;
 }
 .row h3{
   margin: 1rem;
 }
 
 .col-25 {
-  flex: 25%;
+  flex: 30%;
 
 }
 
@@ -34,7 +35,7 @@ row-gap: 25px;
 }
 
 .col-75 {
-  flex: 75%;
+  flex: 70%;
 }
 
 .col-25,
@@ -47,11 +48,10 @@ row-gap: 25px;
   background-color: var(--gris-oscuro);
   padding: 5px 20px 15px 20px;
   border-radius: 15px;
-  margin: 2rem;
-
+  margin: 1rem;
 }
 
-input[type=text] {
+.inputCheckout {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px;
@@ -108,4 +108,4 @@ span.price {
   .col-25 {
     margin-bottom: 20px;
   }
-}}  
+}

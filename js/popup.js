@@ -4,10 +4,10 @@ function initPopup() {
 
     if (!popup || !btnCerrar) return;
 
-    // Aparece después de 1 segundo
+    // Aparece después de 7  segundo
     setTimeout(() => {
         popup.classList.add("activo");
-    }, 1000);
+    }, 7000);
 
     // Cerrar al hacer clic en el botón
     btnCerrar.addEventListener("click", () => {
