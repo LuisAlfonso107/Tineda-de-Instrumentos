@@ -31,7 +31,7 @@ export const headerTemplate = {
 
                 <div class="user-actions">
                     <a href="../pages/registro.html" style="  color: #9370DB;">
-                            <i class="far fa-user" style="font-size: 40px;"></i> <span data-idioma="header.myAccount">Mi cuenta</span> 
+                        <i class="far fa-user" style="font-size: 40px;"></i> <span data-idioma="header.myAccount">Mi cuenta</span> 
                     </a>
                     <a id="btnCart" href="#" style="color: #9370DB;">
                         <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> <span data-idioma="header.cart">Carrito</span>
