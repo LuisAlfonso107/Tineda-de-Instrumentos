@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon/favicon.png">
     <title>Symphony Store</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/hero.css">
 </head>
-<body> 
 
-    
+<body>
 
     <header id="header"></header>
 
     <nav id="navbar"></nav>
-        
+
     <main id="app">
+
         <section id="catalogo-container"></section>
         <div id="drawCart"></div>
     </main>
 
     <footer id="footer"></footer>
-     
+
     <script src="../js/idioma.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script src="js/popup.js"></script>
+    <script>
+        // Cargar el HTML del popup dinámicamente
+        fetch('pages/popup.html')
+            .then(response => response.text())
+            .then(html => {
+                document.body.insertAdjacentHTML('beforeend', html);
+                // Reinicializar el script del popup si es necesario o disparar un evento
+                if (window.initPopup) {
+                    window.initPopup();
+                }
+            });
+    </script>
 
 </body>
 

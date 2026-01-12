@@ -129,7 +129,7 @@ class I18n {
 }
 
 // Crea una instancia global
-const idioma = new I18n();
+idioma = new I18n();
 
 // Inicializa al cargar la página
 document.addEventListener('DOMContentLoaded', () => {

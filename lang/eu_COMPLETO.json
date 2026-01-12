@@ -116,6 +116,14 @@
     "language": {
         "select": "Hizkuntza hautatu"
     },
+    "hero": {
+        "title": "ZURE MUSIKA HEMEN HASTEN DA!",
+        "subtitle": "JARRI SOINUAN",
+        "delivery": "Bidalketa 24/48H",
+        "shipping": "Bidalketa Doan",
+        "warranty": "3 urteko bermea",
+        "payment": "Ordainketa Segurua"
+    },
     "products": {
         "categoryLabel": "Kategoria:",
         "priceLabel": "Prezioa:",
@@ -139,7 +147,26 @@
             "17": "Saxofoi Altua",
             "21": "Txirula Eztia",
             "28": "Gitarra Elektrikoa",
-            "29": "Biolontxeloa"
+            "29": "Biolontxeloa",
+            "3": "Arpa Zelta Eramangarria",
+            "4": "Ukelele Sopranoa",
+            "5": "Biolina 4/4",
+            "7": "Egurrezko Kongak",
+            "8": "Flamenko Kaxoia",
+            "10": "Sintetizadore Eramangarria",
+            "13": "Akordeoi Dinamikoa",
+            "15": "Baxu Akustikoa",
+            "16": "Nylon Harizko Arpa Klasikoa",
+            "18": "Tronpeta Funda",
+            "19": "Biolontxelo Estutxea",
+            "20": "Organo Elektronikoa",
+            "22": "Gaztaina Tradizionalak",
+            "23": "Kirtenadun Gaztainak",
+            "24": "Egurrezko Marakak",
+            "25": "Haurrentzako Perkusio Set-a",
+            "26": "Gitarra Funda",
+            "27": "Palanca Aurelia Arpa Funda",
+            "30": "Venezuelako Cuatroa"
         }
     },
     "cart": {

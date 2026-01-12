@@ -139,7 +139,26 @@
             "17": "Alto Saxophone",
             "21": "Recorder",
             "28": "Electric Guitar",
-            "29": "Cello"
+            "29": "Cello",
+            "3": "Portable Celtic Harp",
+            "4": "Soprano Ukulele",
+            "5": "Violin 4/4",
+            "7": "Wooden Congas",
+            "8": "Flamenco Cajon",
+            "10": "Portable Synthesizer",
+            "13": "Dynamic Accordion",
+            "15": "Acoustic Bass",
+            "16": "Classical Nylon String Harp",
+            "18": "Trumpet Case",
+            "19": "Cello Case",
+            "20": "Electronic Organ",
+            "22": "Traditional Castanets",
+            "23": "Handled Castanets",
+            "24": "Wooden Maracas",
+            "25": "Kids Percussion Set",
+            "26": "Guitar Gig Bag",
+            "27": "Palanca Aurelia Harp Case",
+            "30": "Venezuelan Cuatro"
         }
     },
     "cart": {
@@ -155,5 +174,13 @@
         "totalItem": "Total:",
         "remove": "Remove",
         "empty": "Your cart is empty. Explore our products and add something."
+    },
+    "hero": {
+        "title": "YOUR MUSIC STARTS HERE!",
+        "subtitle": "MAKE IT SOUND",
+        "delivery": "Delivery 24/48H",
+        "shipping": "Free Shipping",
+        "warranty": "3 Years Warranty",
+        "payment": "Secure Payment"
     }
 }

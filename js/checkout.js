@@ -1,3 +1,4 @@
+import { cart } from "../components/cart/cart.js"
 
 const form = document.getElementById("checkoutForm");
 
