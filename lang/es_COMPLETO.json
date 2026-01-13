@@ -136,7 +136,26 @@
       "17": "Saxofón alto",
       "21": "Flauta dulce",
       "28": "Guitarra Eléctrica",
-      "29": "Violonchelo"
+      "29": "Violonchelo",
+      "3": "Arpa celta portátil",
+      "4": "Ukelele soprano",
+      "5": "Violín 4/4",
+      "7": "Congas de madera",
+      "8": "Cajón flamenco",
+      "10": "Sintetizador portátil",
+      "13": "Acordeón dinámico",
+      "15": "Bajo Acústico",
+      "16": "Arpa clásica de cuerdas de nylon",
+      "18": "Funda de trompeta",
+      "19": "Case para violonchelo",
+      "20": "Órgano electrónico",
+      "22": "Castañuelas tradicionales",
+      "23": "Castañuelas con mango",
+      "24": "Maracas de madera",
+      "25": "Set de percusión infantil",
+      "26": "Forro para guitarra",
+      "27": "Funda para arpa Palanca Aurelia",
+      "30": "Cuatro Venezolano"
     }
   },
   "cart": {
@@ -155,5 +174,13 @@
   },
   "language": {
     "select": "Seleccionar idioma"
+  },
+  "hero": {
+    "title": "TU MUSICA EMPIEZA AQUI!",
+    "subtitle": "HAZLA SONAR",
+    "delivery": "Entrega 24/48H",
+    "shipping": "Envío Gratuito",
+    "warranty": "3 años de garantía",
+    "payment": "Pago Seguro"
   }
 }

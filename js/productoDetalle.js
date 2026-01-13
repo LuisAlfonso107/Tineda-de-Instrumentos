@@ -1,50 +1,42 @@
-// js/productoDetalle.js
-
-import { productsController } from "./products.js";
-import { detalleTemplate } from "../components/paginaDetalle.template.js";
-import { cart } from "../components/cart/cart.js";
+import { productsController } from "./products.js"; // deonde estan lo productos 
+import { detalleTemplate } from "../components/paginaDetalle.template.js"; // el que los pinta 
+import { cart } from "../components/cart/cart.js"; // y donde guardamos lo que compramos 
 
 export const productoDetalleController = {
   container: document.getElementById("product-detail"),
 
   init() {
-    // Solo ejecutamos si estamos en la página de detalle (el contenedor existe)
+    // ¿Existe el puerto? 
     if (!this.container) {
-      return; // Salimos si no es la página correcta
+      return; // 
     }
 
-    // Si los datos no están cargados, se cargan
+    // Si los datos no están cargados, se cargan, este trae todos lo produtos 
     if (productsController.data.length === 0) {
       productsController.getData().then(() => this.render());
     } else {
-      this.render();
+      this.render(); // Se ejecuta SOLO cuando getData() termine 
     }
   },
 
   traerProductoURL() {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    return id ? Number(id) : null;
+    const params = new URLSearchParams(window.location.search); // Lee URL
+    const id = params.get("id");  
+    return id ? Number(id) : null;   
   },
 
-  render() {
+ render() {
     const id = this.traerProductoURL();
+    if (!id) return;
+    
+    const product = productsController.data.find(p => p.id === id);
 
-    if (!id) {
-      this. verError("No se encontró el ID del producto.");
-      return;
-    }
-
-    const result = productsController.getById(id);
-
-    if (result.status && result.data.length > 0) {
-      const product = result.data[0];
-      this.container.innerHTML = detalleTemplate.init(product);
-      this.agregarCarrito(product.id);
-    } else {
-      this.showError("Producto no encontrado.");
-    }
-  },
+    console.log(product);
+    
+    
+    this.container.innerHTML = detalleTemplate.init(product);
+    this.agregarCarrito(id);
+},
 
    agregarCarrito(productId) {
     const button = this.container.querySelector(".btn-add");
@@ -62,18 +54,10 @@ export const productoDetalleController = {
     }
   },
 
-  verError(message) {
-    this.container.innerHTML = `
-      <div style="text-align: center; padding: 40px; color: #666;">
-        <h2>Error</h2>
-        <p>${message}</p>
-        <a href="../index.html">Volver al catálogo</a>
-      </div>
-    `;
-  }
+
 };
 
-// Esto inicia el detalle AUTOMÁTICAMENTE solo en la página 
+// Esto inicia la pagina de detalle solo en esta  página 
 document.addEventListener("DOMContentLoaded", () => {
   productoDetalleController.init();
 });

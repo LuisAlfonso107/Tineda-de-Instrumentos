@@ -18,11 +18,12 @@ plan de archivos y carpetas:
 │   │   ├── style.css
 │   │   ├── template.js
 │   │   └── view.js
-│   ├── clientes.template.js
+│   ├── clientes .template.js
 │   ├── footer.template.js
 │   ├── header.template.js
 │   ├── login.template.js
 │   ├── navbar.template.js
+│   ├── paginaDetalle.template.js
 │   ├── registro.template.js
 │   └── usuarioCreado.template.js
 ├── css
@@ -33,35 +34,38 @@ plan de archivos y carpetas:
 │   ├── header.css
 │   ├── index.css
 │   ├── login.css
+│   ├── paginaDetalle.css
 │   ├── registro.css
 │   ├── usuarioCreado.css
 │   └── vars.css
 ├── data
 │   └── products.json
 ├── img
-│   ├── accesorios
-│   │── cuerdas
-│   ├── favicon
-│   ├── logos
-│   ├── teclados
-│   └── viento
 ├── index.html
 ├── js
 │   ├── checkout.js
 │   ├── contacto.js
 │   ├── footer.js
 │   ├── header.js
+│   ├── idioma.js
 │   ├── login.js
 │   ├── main.js
 │   ├── navbar.js
+│   ├── productoDetalle.js
 │   ├── products.js
 │   ├── registro.js
 │   └── usuarioCreado.js
+├── lang
+│   ├── en_COMPLETO.json
+│   ├── es_COMPLETO.json
+│   └── eu_COMPLETO.json
 ├── pages
 │   ├── checkout.html
 │   ├── contacto.html
+│   ├── footer.html
 │   ├── login.html
-│   ├── reguistro.html
+│   ├── paginaDetalle.html
+│   ├── registro.html
 │   └── usuarioCreado.html
 └── README.md
 ```
@@ -116,9 +120,9 @@ Proyecto desarrollado por el equipo ThunderCode:
 
 - Mirel (JSON y renderización de productos)
 
-- Alfonso (header y navbar)
+- Alfonso (Página detalles, header y navbar)
 
-- Stiwar (footer y diseño visual)
+- Stiwar (Utilidades Lang, footer y diseño visual)
 
 - Youssef (Checkout y Contacto)
 

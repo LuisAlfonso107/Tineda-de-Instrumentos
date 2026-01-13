@@ -14,10 +14,9 @@ export const navbar = {
     },
 
     render() {
-        let countCarr = 10
         let output = document.querySelector("#navbar")
         if (output) {
-            output.innerHTML = this.getTemplate({ count: countCarr })
+            output.innerHTML = this.getTemplate({})
 
             // NO BORRAR: Traduce el contenido nuevo del navbar
             if (window.idioma) {
@@ -52,7 +51,8 @@ export const navbar = {
                         if (section) {
                             section.scrollIntoView({ behavior: "smooth", block: "start" })
                         } else {
-                            window.location.hash = `#${targetId}`
+                            /* window.location.hash = `#${targetId}` */
+                            window.location.assign(`../index.html#${targetId}`)
                         }
                     }, 100)
                     return

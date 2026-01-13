@@ -1,17 +1,12 @@
 import { cartTemplate } from "./template.js"
 import { cartController } from "./controller.js"
-import { cartViewResume } from "./viewResume.js"
-import { cart } from "./cart.js"
+import { cartView } from "./view.js"
 
-export const cartView = {
-    id: `cart`,
-    divId: `cartDiv`,
-    idToDraw: `drawCart`,
-    idBtnCart: `btnCart`,
-    idBtnCloseCart: `btnCloseCart`,
-    idCartCount: `cartCount`,
-    idToDrawItems: `cartItems`,
-    statusVisible: false,
+export const cartViewResume = {
+    id: `cartCheckout`,
+    divId: `cartCheckoutDiv`,
+    idToDraw: `cartCheckoutInfo`,
+    statusVisible: true,
     statusValid: true,
     
     exists(){
@@ -32,36 +27,28 @@ export const cartView = {
                 footer:``
             }
             obj.items.forEach(function(value, index){
-                html.items+=cartTemplate.item(value)
+                html.items+=cartTemplate.itemResume(value)
             })
-            html.footer = cartTemplate.footer(obj)            
-            return cartTemplate.init(obj, html)
+            html.footer = cartTemplate.footerResume(obj)            
+            return cartTemplate.resumeCheckout(obj, html)
         } catch (error) {
             console.error('Error al cargar el template del carrito:', error)
         }
     },
 
     draw() {
+        
         let outputToDraw = document.querySelector(`#${this.idToDraw}`)
         if (outputToDraw) {
             outputToDraw.innerHTML = this.getTemplate()
             this.statusVisible = true
             this.addListeners()
         }
-        else {
-            console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
-        }
-    },
-
-    remove() {
-        let cartElement = document.querySelector(`#${this.id}`)
-        cartElement.remove()
-        this.statusVisible = false
     },
 
     updateCartCount() {
-        const cartCount = document.querySelector(`#${this.idCartCount}`)
-        const cartCountNumber = document.querySelector(`#cartCountNumber`)
+        const cartCount = document.querySelector(`#cartCount`)
+        const cartCountNumber = document.querySelector(`#cartCheckoutCountNumber`)
         if (cartCount) {
             cartCount.textContent = cartController.cartCount
         }
@@ -74,9 +61,9 @@ export const cartView = {
         const item = cartController.getItemById(id).status ? cartController.getItemById(id).data[0] : cartController.getItemById(id).status
         elementsHtml.priceItem.textContent = `€${item.totalPriceItem.toFixed(2)}`
         elementsHtml.ivaPriceItem.textContent = `€${item.totalIvaPriceItem.toFixed(2)}` 
-        const cartSubTotalIva = document.querySelector(`#cartSubTotalIva`)
-        const cartSubTotal = document.querySelector(`#cartSubTotal`)
-        const cartTotal = document.querySelector(`#cartTotal`)
+        const cartSubTotalIva = document.querySelector(`#cartCheckoutSubTotalIva`)
+        const cartSubTotal = document.querySelector(`#cartCheckoutSubTotal`)
+        const cartTotal = document.querySelector(`#cartCheckoutTotal`)
         if (cartSubTotalIva && cartSubTotal && cartTotal) {
             cartSubTotalIva.textContent = `€${cartController.subTotalIva.toFixed(2)}`  
             cartSubTotal.textContent = `€${cartController.subTotalItems.toFixed(2)}`  
@@ -85,36 +72,12 @@ export const cartView = {
         
     },
 
-    toggle(){
-        if(this.statusVisible && this.exists()){
-            this.remove()
-        }
-        else {
-            this.init()
-        }
-    },
-
-    addItem(id) {
-        cartController.addItem(id)
-        this.updateCartCount()
-
-        if (this.statusVisible) {
-            this.draw()
-        }
-
-        /* 
-            // NO BORRAR: Traduce el nuevo item agregado al carrito
-            if (window.idioma) {
-                window.idioma.translatePage();
-            } 
-         */       
-    },
-
     removeItem(id){
         cartController.removeItem(id)
         this.updateCartCount()
         this.draw()
-        cartViewResume.draw()      
+        cartController.cartCount === 0 ? window.location.assign('../index.html') : null
+        cartView.statusVisible ? cartView.draw() : null
     },
 
     changeQuantity(id, elementsHtml){
@@ -141,7 +104,7 @@ export const cartView = {
             cartController.changeQuantity(id, quantity)
             this.updateCartCount()
             this.updateTotals(id, elementsHtml)
-            cartViewResume.draw()
+            cartView.statusVisible ? cartView.draw() : null
         }
     },
 
@@ -164,26 +127,9 @@ export const cartView = {
         this.changeQuantity(id, elementsHtml)
     },
 
-    checkout(){
-        const cartCheckoutMsg = document.querySelector("#cartCheckoutMsg")
-        if (this.statusValid) {
-            window.location.assign('../pages/checkout.html')
-        }
-        else{
-            cartCheckoutMsg.textContent = `Cantidad no valida, verifica tus productos`
-        }
-    },
-
     addListeners(){
         const thisArg = this
-        const btnCloseCart = document.querySelector(`#${this.idBtnCloseCart}`)
-        if (btnCloseCart) {
-            btnCloseCart.addEventListener("click", function(e){
-                e.preventDefault()
-                thisArg.toggle()
-            })
-        }
-        const btnsRemoveItem = document.querySelectorAll(".cartRemoveItemBtn")
+        const btnsRemoveItem = document.querySelectorAll(".cartRemoveItemBtn.checkout")
         if (btnsRemoveItem) {
             btnsRemoveItem.forEach(function(value, index){
                 const bntElement = value
@@ -196,12 +142,12 @@ export const cartView = {
         } else {
             console.log(`no se encontraron los botones de eliminar items del carrito`);                        
         }
-        const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput")
-        const decreaseItemsBtns = document.querySelectorAll(".cartDecreaseItemBtn")
-        const increaseItemsBtns = document.querySelectorAll(".cartIncreaseItemBtn")
-        const msgQuantityItem = document.querySelectorAll(".cartQuantityMsg")
-        const totalIvaPriceItem = document.querySelectorAll(".totalIvaPriceItem")
-        const totalPriceItem = document.querySelectorAll(".totalPriceItem")
+        const inputsQuantityItem = document.querySelectorAll(".cartItemQuantityInput.checkout")
+        const decreaseItemsBtns = document.querySelectorAll(".cartDecreaseItemBtn.checkout")
+        const increaseItemsBtns = document.querySelectorAll(".cartIncreaseItemBtn.checkout")
+        const msgQuantityItem = document.querySelectorAll(".cartQuantityMsg.checkout")
+        const totalIvaPriceItem = document.querySelectorAll(".totalIvaPriceItem.checkout")
+        const totalPriceItem = document.querySelectorAll(".totalPriceItem.checkout")
         if (inputsQuantityItem) {
             inputsQuantityItem.forEach(function(value, index){
                 const inputElement = value
@@ -229,16 +175,6 @@ export const cartView = {
             })                        
         } else {
             console.log(`no se encontraron los inputs de cantidad de items del carrito`);                        
-        }
-        const btnCheckout = document.querySelector("#cartCheckoutBnt")
-        if (btnCheckout) {
-            btnCheckout.addEventListener("click", function(e){
-                e.preventDefault()
-                thisArg.checkout()
-            })            
-        }
-        else {
-            console.log(`no se encontro el boton de checkout`);                        
         }
     }
 

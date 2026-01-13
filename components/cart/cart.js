@@ -1,4 +1,5 @@
 import { cartView } from "./view.js"
+import { cartViewResume } from "./viewResume.js"
 import { cartController } from "./controller.js"
 
 export const cart = {
@@ -7,6 +8,7 @@ export const cart = {
     init(){
         cartController.init()
         cartView.updateCartCount()
+        cartViewResume.init()
     },
     toggle(){
         cartView.toggle()

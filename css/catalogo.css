@@ -69,49 +69,6 @@ main h2 {
   color: #e91e63;
   margin-top: 0.5rem;
 }
-<<<<<<< HEAD:css/catalogo.css
-
-=======
-.producto__btn {
-  display: inline-block;
-  padding: .5rem .75rem;
-  border: 1px solid #333;
-  background: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.producto__btn--add {
-  background: #0b5;
-  color: #fff;
-  border-color: #0a4;
-}
-.producto__btn--add:hover {
-  background: #0a4;
-}
-.producto__btn--view {
-  background: #08f;
-  color: #fff;
-  border-color: #07d;
-}
-.producto__btn--view:hover {
-  background: #07d;
-}
-.datetime-widget {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 1rem;
-  padding: 1rem;
-  border-left: 4px solid #0078d4;
-  background-color: #f9f9f9;
-}
-
-.datetime-widget select {
-  margin-bottom: 0.5rem;
-  padding: 0.3rem;
-}
->>>>>>> dev/stiwar:css/catalogo.component.css
 .cartAddItemBtn{
   display: flex;
   justify-content: center;
@@ -130,11 +87,13 @@ main h2 {
 .cartAddItemBtn i {
   margin-right: 0.5rem;
 }
-.cartAddItemBtn:hover{
+.cartAddItemBtn:hover {
   background-color: white;
-  color: black;
+  color: #36454E;
 }
-<<<<<<< HEAD:css/catalogo.css
+.linkToDetails {
+  text-decoration: none;
+}
 /* Tablet: hasta 1300px */
 @media (max-width: 1300px) {
   .catalogo {
@@ -188,5 +147,3 @@ main h2 {
     padding: 0.3rem 0.8rem;
   }
 }}
-=======
->>>>>>> dev/stiwar:css/catalogo.component.css

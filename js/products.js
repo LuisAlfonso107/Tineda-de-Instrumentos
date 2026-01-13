@@ -171,7 +171,7 @@ export const productsController = {
                 const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : ""
 
                 tarjeta.innerHTML = `
-                    <a data-id="${producto.id}" href="./pages/paginaDetalle.html?id=${producto.id}">
+                    <a class="linkToDetails" data-id="${producto.id}" href="./pages/paginaDetalle.html?id=${producto.id}">
                         <figure class="producto__media">
                         <img src="${imagen}" alt="${producto.nombre}">
                         </figure>
@@ -180,7 +180,6 @@ export const productsController = {
                         <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
                     </a> 
                     <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
-                
                 `
                 grid.appendChild(tarjeta)
             })

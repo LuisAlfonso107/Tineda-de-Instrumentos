@@ -8,7 +8,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     background: var(--negro);
-    color:var(--blanco)
+    color:var(--blanco);
 }
 /* ------------------ CONTENEDOR PRINCIPAL ------------------ */
 .container {
@@ -27,7 +27,6 @@ body{
         grid-template-columns: 1fr;
     }
 }
-
 /* ------------------ TARJETAS ------------------ */
 .card {
     background: var(--gris-oscuro);
@@ -86,7 +85,6 @@ h2{
     margin-bottom: 1rem;
 }
  
-
 /* ------------------ FAQ ------------------ */
 details {
     background: var(--gris-oscuro);
@@ -128,6 +126,7 @@ iframe {
     font-size: 30px;
     text-decoration: none;
     transition: 0.3s;
+    z-index: 1;
 }
 .whatsapp:hover {
     transform: scale(1.1);

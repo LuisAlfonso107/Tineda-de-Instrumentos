@@ -12,26 +12,7 @@ export const cartTemplate = {
                     </div>                    
                     <div id="cartItems" class="cartBody">
                         <div class="cartCoutItems">
-                            <h3><span id="cartCountNumber" class="cartCountNumber">${obj.cartCount}</span> Artículos</h3>
-                            <h3><span class="cartCountNumber">${obj.cartCount}</span> <span data-idioma="cart.items">Artículos</span></h3>
-                        </div>
-                        ${obj.itemsHtml ? obj.itemsHtml : this.isEmpty()}
-                    </div>
-                    <div class="cartFooter">
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal" data-idioma="cart.subTotalIva">Subtotal IVA:</div>
-                            <div class="cartSubTotalPrice">€${obj.subTotalIva.toFixed(2)}</div>
-                        </div>
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal" data-idioma="cart.subTotalProducts">Subtotal Productos:</div>
-                            <div class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
-                        </div>
-                        <div class="cartTotalRow">
-                            <div class="cartSubTotal" data-idioma="cart.total">Total:</div>
-                            <div class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
-                        </div>
-                        <div class="">
-                            <a class="cartCheckoutBtn" data-idioma="cart.checkout">Finalizar compra</a>
+                            <h3><span id="cartCountNumber" class="cartCountNumber">${obj.cartCount}</span> <span data-idioma="cart.items">Artículos</span></h3>
                         </div>
                         ${html.items ? html.items : this.isEmpty()}
                     </div>
@@ -49,19 +30,19 @@ export const cartTemplate = {
             </div>
             <div class="cartItemContent">
                 <div class="cartItemImg">
-                    <img src="${obj.imagenes[0]}" alt="${obj.nombre}">
+                    <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
                 </div>
                 <div class="cartItemDetails">
                     <div class="cartItemPrice">
-                        <p data-idioma="cart.priceUnit">Precio Unidad:</p>
+                        <p>Precio Unidad:</p>
                         <p>€${obj.precio.toFixed(2)}</p>
                     </div>
                     <div class="cartItemQuantity">
-                        <p data-idioma="cart.quantity">Cantidad:</p>
+                        <p>Cantidad:</p>
                         <div class="cartQuantityControls">    
                             <a href="#" class="cartDecreaseItemBtn" data-id="${obj.id}"><i class="fa fa-minus"></i></a>
                             <input type="text" class="cartItemQuantityInput" data-id="${obj.id}" value="${obj.quantity}"/>
-                            <a href="#" class="cartIncreaseItemBtn" data-id="${obj.id}"><i class="fa fa-plus"></i></a>
+                            <a href="#" class="cartIncreaseItemBtn" data-id="${obj.id}" data-action="increment"><i class="fa fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="cartItemQuantity">
@@ -78,7 +59,7 @@ export const cartTemplate = {
                 </div> 
             </div>
             <div class="cartItemFooter">
-                <a class="cartRemoveItemBtn" data-id="${obj.id}"><i class="fa fa-trash"></i> <span data-idioma="cart.remove">Eliminar</span></a>
+                <a class="cartRemoveItemBtn" data-id="${obj.id}"><i class="fa fa-trash"></i> Eliminar</a>
             </div>
         </div>
         `
@@ -105,10 +86,89 @@ export const cartTemplate = {
                     <div class="cartSubTotal">Total:</div>
                     <div id="cartTotal" class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
                 </div>
+                <div id="cartCheckoutMsg" class="cartCheckoutMsg"></div>
                 <div class="">
-                    <a id="cartCheckoutBnt"class="cartCheckoutBtn" disabled>Finalizar compra</a>
+                    <a id="cartCheckoutBnt"class="cartCheckoutBtn" disabled >Finalizar compra</a>
                 </div>
             </div>
         `
-    }
+    },
+    resumeCheckout(obj, html){
+        return `
+            <aside id="cartCheckout" class="cartCheckout">
+                <div id="cartCheckoutDiv" class="cartDiv">
+                    <div class="cartCheckoutHeader">
+                        <h2>Resumen de Pedido</h2>
+                    </div>                    
+                    <div id="cartItemsCheckout" class="cartBody">
+                        <div class="cartCoutItems">
+                            <h3><span id="cartCheckoutCountNumber" class="cartCountNumber">${obj.cartCount}</span> <span data-idioma="cart.items">Artículos</span></h3>
+                        </div>
+                        ${html.items ? html.items : this.isEmpty()}
+                    </div>
+                    ${html.items ? html.footer : ``}
+                </div>
+            <aside>
+        `
+    },
+    itemResume(obj) {
+        return `
+        <div class="cartItem" id="${obj.id}">
+            <div class="cartItemTitle">
+                <h3>${obj.nombre}</h3>
+            </div>
+            <div class="cartItemContent">
+                <div class="cartItemImg checkout">
+                    <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
+                </div>
+                <div class="cartItemDetails">
+                    <div class="cartItemPrice">
+                        <p>Precio Unidad:</p>
+                        <p>€${obj.precio.toFixed(2)}</p>
+                    </div>
+                    <div class="cartItemQuantity">
+                        <p>Cantidad:</p>
+                        <div class="cartQuantityControls">    
+                            <a href="#" class="cartDecreaseItemBtn checkout" data-id="${obj.id}"><i class="fa fa-minus"></i></a>
+                            <input type="text" class="cartItemQuantityInput checkout" data-id="${obj.id}" value="${obj.quantity}"/>
+                            <a href="#" class="cartIncreaseItemBtn checkout" data-id="${obj.id}" data-action="increment"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="cartItemQuantity">
+                        <p class="cartQuantityMsg checkout"></p>
+                    </div>
+                    <div class="cartItemIva">
+                        <p>IVA:</p>
+                        <p class="totalIvaPriceItem checkout" >€${obj.totalIvaPriceItem.toFixed(2)} </p>
+                    </div>
+                    <div class="cartItemTotalPrice">
+                        <p>Total:</p>
+                        <p class="totalPriceItem checkout">€${obj.totalPriceItem.toFixed(2)}</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="cartItemFooter">
+                <a class="cartRemoveItemBtn checkout" data-id="${obj.id}"><i class="fa fa-trash"></i> Eliminar</a>
+            </div>
+        </div>
+        `
+    },
+    footerResume(obj){
+        return `
+            <div class="cartFooter">
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Subtotal IVA:</div>
+                    <div id="cartCheckoutSubTotalIva" class="cartSubTotalPrice">€${obj.subTotalIva.toFixed(2)}</div>
+                </div>
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Subtotal Productos:</div>
+                    <div id="cartCheckoutSubTotal" class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
+                </div>
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal">Total:</div>
+                    <div id="cartCheckoutTotal" class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
+                </div>        
+            </div>
+        `
+    },
 }
