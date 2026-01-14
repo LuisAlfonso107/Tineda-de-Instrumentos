@@ -70,6 +70,43 @@ export const header = {
             contenedor.appendChild(div);
         });
     },
+    // Función para actualizar el enlace de cuenta (login / mi cuenta)
+login() {
+    const texto = document.getElementById("texto");
+    const icono = document.getElementById("icono");
+    const enlace = document.getElementById("link-cuenta");
+
+
+    const userStr = localStorage.getItem("currentUser");
+    const user = userStr ? JSON.parse(userStr) : null;
+
+    if (user && user.isActive) {
+
+        // para cunado el usuario está logueado y activo
+
+        texto.textContent = "Mi cuenta";
+        icono.style.color = "green";
+
+        enlace.onclick = () => {
+            if (user.role === "admin") {
+                window.location.href = "../pages/dashBoardAdmin.html";
+            } 
+            else if (user.role === "cliente") {   // ← nota: "cliente" en minúscula
+                window.location.href = "../pages/dashboardCliente.html";
+            }
+        
+        };
+    } 
+    else {
+        // para cuando no hay usuario logueado o no está activo
+        texto.textContent = "Iniciar sesión";
+        icono.style.color = "black";
+
+        enlace.onclick = () => {
+            window.location.href = "../pages/login.html";
+        };
+    }
+},
 
 render() {
   const output = document.querySelector(`#${this.id}`);

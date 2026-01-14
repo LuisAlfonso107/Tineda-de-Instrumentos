@@ -30,8 +30,8 @@ export const headerTemplate = {
                 <div class="separator"></div>
 
                 <div class="user-actions">
-                    <a href="../pages/registro.html" style="  color: #9370DB;">
-                        <i class="far fa-user" style="font-size: 40px;"></i> <span data-idioma="header.myAccount">Mi cuenta</span> 
+                  <a href="../pages/login.html" id="link-cuenta" style="color: #9370DB;"><i class="far fa-user" id="icono" style="font-size: 40px;"></i>
+                        <span id="texto" data-idioma="header.Iniciar seccion">Iniciar sesión</span>
                     </a>
                     <a id="btnCart" href="#" style="color: #9370DB;">
                         <i class="fas fa-shopping-cart" style="font-size: 40px;"></i> <span data-idioma="header.cart">Carrito</span>
