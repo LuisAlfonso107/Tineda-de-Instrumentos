@@ -49,6 +49,48 @@ if (usuarioSection) usuarioCreado.f();
 // 8. Login
 login.loginF();
 
+/*(function enableCategoryNav(){
+  // Scroll suave al hacer clic en el navbar
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    navbar.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href^='#']");
+      if (!link) return;
+      const targetId = link.getAttribute("href").slice(1); // sin '#'
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", `#${targetId}`);
+      }
+      // Si aún no existe (por cualquier razón), dejamos que el navegador gestione el hash.
+      // Cuando la sección aparezca, el bloque de hashchange se ocupará.
+    });
+  }
+
+  // Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
+  // navegamos cuando el DOM tenga la sección.
+  const navigateToHash = () => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Intento inmediato por si ya está renderizado:
+  navigateToHash();
+
+  // Reintento tras el render del catálogo (por si se llamó después):
+  // Este setTimeout es no invasivo y evita dependencias internas.
+  setTimeout(navigateToHash, 0);
+
+  // Además, reaccionamos a cambios de hash (navegación manual del usuario):
+  window.addEventListener("hashchange", navigateToHash);
+})();*/
+
   // Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
   // navegamos cuando el DOM tenga la sección.
   const navigateToHash = () => {

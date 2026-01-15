@@ -24,15 +24,9 @@ export const detalleTemplate = {
     const precioFinal = precio * (1 - descuento / 100);
     const precioConIVA = precioFinal * (1 + IVA / 100);
 
-    const stockTexto = stock > 0 
-      ? (stock <= 5 ? `¡Solo ${stock} en stock!` : `${stock} en stock`)
-      : 'Agotado';
-    const stockClase = stock > 0 
-      ? (stock <= 5 ? 'stock-low' : 'stock-available') 
-      : 'stock-out';
+   
 
     const tieneCaracteristicas = Object.keys(caracteristicas).length > 0;
-
     // TEMPLATE 
     return `
       <section class="product-detail" aria-labelledby="product-title">
@@ -67,7 +61,7 @@ export const detalleTemplate = {
           <p class="price-final">Precio: <strong>€${precioFinal.toFixed(2)}</strong></p>
           <p class="price-iva">Precio con IVA (${IVA}%): <strong>€${precioConIVA.toFixed(2)}</strong></p>
 
-          <p class="stock ${stockClase}">${stockTexto}</p>
+      
 
           <p class="description">${descripcion}</p>
           <button 

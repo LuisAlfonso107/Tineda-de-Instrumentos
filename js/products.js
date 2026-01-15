@@ -156,7 +156,11 @@ export const productsController = {
             seccion.id = categoriaId
 
             const titulo = document.createElement("h2")
-            titulo.textContent = categoria
+            const categoriaKey = categoria.trim().toLowerCase().replace(/\s+/g, "-");
+            const translatedSectionTitle = (window.idioma && idioma.getTranslation(`products.category.${categoriaKey}`)) || categoria;
+            titulo.textContent = translatedSectionTitle
+            // make the section title translatable on language change
+            titulo.setAttribute('data-idioma', `products.category.${categoriaKey}`)
             seccion.appendChild(titulo)
 
             const grid = document.createElement("div")
@@ -170,18 +174,29 @@ export const productsController = {
 
                 const imagen = (producto.imagenes && producto.imagenes[0]) ? producto.imagenes[0] : ""
 
-                tarjeta.innerHTML = `
+                        // Resolve translated strings when possible
+                        const translatedName = (window.idioma && idioma.getTranslation(`products.name.${producto.id}`)) || producto.nombre;
+                        const categoryKey = (producto.categoria || "").trim().toLowerCase().replace(/\s+/g, "-");
+                        const translatedCategory = (window.idioma && idioma.getTranslation(`products.category.${categoryKey}`)) || producto.categoria;
+
+                        tarjeta.innerHTML = `
                     <a class="linkToDetails" data-id="${producto.id}" href="./pages/paginaDetalle.html?id=${producto.id}">
                         <figure class="producto__media">
                         <img src="${imagen}" alt="${producto.nombre}">
                         </figure>
-                        <h3 class="producto__titulo">${producto.nombre}</h3>
-                        <p class="producto__categoria">Categoría: ${producto.categoria}</p>
-                        <p class="producto__precio">Precio: €${Number(producto.precio).toFixed(2)}</p>
+                                <h3 class="producto__titulo" data-idioma="products.name.${producto.id}">${translatedName}</h3>
+                                <p class="producto__categoria"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.${categoryKey}">${translatedCategory}</span></p>
+                                <p class="producto__precio"><span data-idioma="products.priceLabel">Precio:</span> €${Number(producto.precio).toFixed(2)}</p>
                     </a> 
-                    <a class="cartAddItemBtn" data-id="${producto.id}" href="#"><i class="fa-solid fa-cart-plus"></i>Agregar al carrito</a>
-                `
-                grid.appendChild(tarjeta)
+                        `
+                        const addBtn = document.createElement('a');
+                        addBtn.className = 'cartAddItemBtn';
+                        addBtn.href = '#';
+                        addBtn.dataset.id = producto.id;
+                        addBtn.innerHTML = `<i class="fa-solid fa-cart-plus"></i> <span data-idioma="products.addToCartBtn">Agregar al carrito</span>`;
+                        // append the add button inside the tarjeta, then append tarjeta once to the grid
+                        tarjeta.appendChild(addBtn);
+                        grid.appendChild(tarjeta);
             })
 
             seccion.appendChild(grid)

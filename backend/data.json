@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "youssef",
+      "email": "youssefakka999@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "name": "yoandres",
+      "email": "ylcruz.dev@gmail.com",
+      "password": "12345678",
+      "role": "client",
+      "isActive": true
+    },
+    {
+      "id": "3",
+      "name": "luis Alfonso",
+      "email": "luisalfonsogarcialagos9@gmail.com",
+      "password": "12345678",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "4",
+      "name": "Stiwar",
+      "email": "joimanrami@gmail.com",
+      "password": "12345678",
+      "role": "client",
+      "isActive": true
+    },
+    {
+      "id": "d2de",
+      "name": "stiwar troyano",
+      "email": "qwerty@qwert.com",
+      "password": "c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646",
+      "role": "client",
+      "isActive": true
+    },
+    {
+      "id": "8939",
+      "name": "Joiman troyano",
+      "email": "s3043maqi@mozmail.com",
+      "password": "cc5e8f35b6023e8267c6ae076395ec0935c74e13dfb73d650285d8c90fac71f2",
+      "role": "client",
+      "isActive": true
+    }
+  ]
+}

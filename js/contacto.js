@@ -50,7 +50,7 @@ form.addEventListener("submit", function(e) {
     // Función que muestra un mensaje de confirmación al usuario
     function mostrarMensajeEnviado() {
 
-    result.innerHTML = `<h3 style="color:red;">Su mensaje a sido enviado <i class="fa-regular fa-thumbs-up"></i></h3>`; 
+    result.innerHTML = `<h3 style="color:red;">Su mensaje ha sido enviado <i class="fa-regular fa-thumbs-up"></i></h3>`; 
 
 
 }
