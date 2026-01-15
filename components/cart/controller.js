@@ -20,6 +20,9 @@ export const cartController = {
             itemExists.status ? this.items[itemExists.indexItem] = item : this.items.unshift(item)
             this.updateState()
         }
+        else{
+            console.log(product); 
+        }
     },
     removeItem(id){
         let item = this.getItemById(id)
