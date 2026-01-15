@@ -4,12 +4,14 @@
         "contact": "HARREMANETAN",
         "myAccount": "Nire kontua",
         "cart": "Saskia"
+        ,"days": ["Igandea","Astelehena","Asteartea","Asteazkena","Osteguna","Ostirala","Larunbata"]
     },
     "navbar": {
-        "guitar": "Gitarra",
-        "amplification": "Anplifikazioa",
-        "effects": "Efektuak",
-        "bass": "Baxuak"
+        "strings": "Kordak",
+        "wind": "Haizea",
+        "percussion": "Perkusioa",
+        "keyboards": "Teklatuak eta pianoak",
+        "accessories": "Osagarriak"
     },
     "contact": {
         "title": "Kontaktu informazioa:",
@@ -176,11 +178,54 @@
         "subTotalProducts": "Produktu Azpitotala:",
         "total": "Guztira:",
         "checkout": "Erosketa amaitu",
+        "summaryTitle": "Eskariaren Laburpena",
         "priceUnit": "Unitateko Prezioa:",
         "quantity": "Kopurua:",
         "iva": "BEZ:",
         "totalItem": "Guztira:",
         "remove": "Ezabatu",
         "empty": "Zure saskia hutsik dago. Arakatu gure produktuak eta gehitu zerbait."
+    },
+
+    "auth": {
+        "invalidCredentials": "Balio gabeko kredentzialak",
+        "invalidEmail": "Posta elektroniko baliogabea",
+        "passwordTooShort": "Pasahitzak gutxienez 6 karaktere izan behar ditu",
+        "emailAlreadyRegistered": "Email hau dagoeneko erregistratuta dago",
+        "loginSuccess": "Saioa arrakastaz hasi da"
+    },
+    "login": {
+        "title": "Hasi saioa zure kontuan",
+        "subtitle": "Hasi saioa zure kontuan",
+        "emailLabel": "Posta elektronikoa",
+        "emailPlaceholder": "zureposta@adibidea.com",
+        "passwordLabel": "Pasahitza",
+        "passwordPlaceholder": "••••••••",
+        "remember": "Gogora ezazu",
+        "forgotPassword": "Pasahitza ahaztu duzu?",
+        "loginBtn": "Hasi saioa",
+        "orContinueWith": "edo jarraitu honarekin",
+        "firstTime": "Lehen aldiz hemen?",
+        "createAccountLink": "Kontua sortu",
+        "backToHome": "Itzuli hasierara"
+    },
+    "detail": {
+        "noCategory": "Kategoriarik gabe",
+        "noDescription": "Ez dago deskripziorik erabilgarri",
+        "outOfStock": "Agortuta",
+        "addToCart": "Gehitu saskira",
+        "techSpecs": "Zehaztapen teknikoak",
+        "discount": "{descuento}%eko deskontua"
+    },
+    "user": {
+        "greeting": "Kaixo, {name}!",
+        "latestInvoices": "Azken fakturak",
+        "orderStatusInTransit": "Bidean",
+        "orderTagTomorrow": "Bihar",
+        "help": "Arazoak? Laguntzeko hemen gaude"
+    },
+    "popup": {
+        "offerTitle": "Eskaintza Berezia!",
+        "offerText": "Harpidetu eta lortu zure lehen erosketa gaineko %10eko deskontua."
     }
 }

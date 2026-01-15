@@ -3,13 +3,20 @@
         "searchPlaceholder": "Search your instrument",
         "contact": "CONTACT US",
         "myAccount": "My account",
-        "cart": "Cart"
+        "cart": "Cart",
+        "title": "Site Title",
+        "nav": {
+            "home": "Home",
+            "products": "Products"
+        },
+        "days": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     },
     "navbar": {
-        "guitar": "Guitar",
-        "amplification": "Amplification",
-        "effects": "Effects",
-        "bass": "Bass"
+        "strings": "Strings",
+        "wind": "Wind",
+        "percussion": "Percussion",
+        "keyboards": "Keyboards and Pianos",
+        "accessories": "Accessories"
     },
     "contact": {
         "title": "Contact information:",
@@ -168,6 +175,7 @@
         "subTotalProducts": "Subtotal Products:",
         "total": "Total:",
         "checkout": "Checkout",
+        "summaryTitle": "Order Summary",
         "priceUnit": "Unit Price:",
         "quantity": "Quantity:",
         "iva": "VAT:",
@@ -183,4 +191,45 @@
         "warranty": "3 Years Warranty",
         "payment": "Secure Payment"
     }
-}
+
+    ,"auth": {
+        "invalidCredentials": "Invalid credentials",
+        "invalidEmail": "Invalid email",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "emailAlreadyRegistered": "This email is already registered",
+        "loginSuccess": "Login successful"
+    },
+    "login": {
+        "title": "Log in to your account",
+        "subtitle": "Log in to your account",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "••••••••",
+        "remember": "Remember me",
+        "forgotPassword": "Forgot your password?",
+        "loginBtn": "Log in",
+        "orContinueWith": "or continue with",
+        "firstTime": "First time here?"
+    },
+    "detail": {
+        "noCategory": "Uncategorized",
+        "noDescription": "No description available",
+        "outOfStock": "Out of stock",
+        "addToCart": "Add to cart",
+        "techSpecs": "Technical specifications",
+        "discount": "{descuento}% off"
+    },
+    "user": {
+        "greeting": "Hello, {name}!",
+        "latestInvoices": "Latest invoices",
+        "orderStatusInTransit": "On the way",
+        "orderTagTomorrow": "Tomorrow",
+        "help": "Problems? We're here to help"
+    },
+    "popup": {
+        "offerTitle": "Special Offer!",
+        "offerText": "Subscribe and get 10% off your first purchase."
+    }
+     
+ }
