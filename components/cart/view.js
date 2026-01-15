@@ -187,7 +187,7 @@ export const cartView = {
         if (btnsRemoveItem) {
             btnsRemoveItem.forEach(function(value, index){
                 const bntElement = value
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 bntElement.addEventListener("click", function(e){
                     e.preventDefault()
                     thisArg.removeItem(id)
@@ -213,7 +213,7 @@ export const cartView = {
                     ivaPriceItem: totalIvaPriceItem[index],
                     priceItem: totalPriceItem[index]
                 }
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
                     thisArg.changeQuantity(id, elementsHtml)

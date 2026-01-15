@@ -8,13 +8,15 @@ export const productsController = {
     async getData(){
         try {
             const result = {}
-            const response = await fetch("../data/products.json")
+            const response = await fetch("http://localhost:8000/products")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
             const data = await response.json()
-            const setLS = this.setLocalStorage(data)
-            if (setLS.status) {
+            /*const setLS =*/ this.setLocalStorage(data)
+            this.data = data           
+            
+            /* if (setLS.status) {
                 this.data = data
             }
             else{
@@ -25,7 +27,7 @@ export const productsController = {
                 else{   
                     console.log(getLS.msg)
                 }
-            }
+            } */
         }
         catch (error) {
             console.error('Hubo un problema con la petición fetch:', error);
@@ -192,7 +194,7 @@ export const productsController = {
         const btnsAddToCart = document.querySelectorAll(".cartAddItemBtn")
         if (btnsAddToCart.length > 0) {
             btnsAddToCart.forEach(btnElement => {
-                const id = Number(btnElement.dataset.id)
+                const id = btnElement.dataset.id
                 btnElement.addEventListener("click", e => {
                     e.preventDefault()
                     cart.addItem(id)
