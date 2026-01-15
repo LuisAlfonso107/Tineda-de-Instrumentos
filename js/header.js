@@ -87,9 +87,10 @@ login() {
         texto.textContent = "Mi cuenta";
         icono.style.color = "green";
 
-        enlace.onclick = () => {
+        enlace.onclick = (e) => {
+            e.preventDefault();
             if (user.role === "admin") {
-                window.location.href = "../pages/dashBoardAdmin.html";
+                enlace.href = "../pages/dashBoardAdmin.html";
             } 
             else if (user.role === "cliente") {   // ← nota: "cliente" en minúscula
                 window.location.href = "../pages/dashboardCliente.html";
