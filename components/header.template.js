@@ -47,28 +47,50 @@ export const headerTemplate = {
         </div>
         `
     },
+
+    // Variable para almacenar el ID del intervalo
+    dateTimeInterval: null,
+
 initDateTime() {
   const display = document.getElementById("datetimeDisplay");
   if (!display) return;
 
-  const lang = document.documentElement.lang || "es";
+    // Limpiar el intervalo anterior si existe
+    if (this.dateTimeInterval) {
+        clearInterval(this.dateTimeInterval);
+    }
 
-  const days = {
-    es: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
-    // en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    // eus: ["Igandea", "Astelehena", "Asteartea", "Asteazkena", "Osteguna", "Ostirala", "Larunbata"]
-  };
+    // Obtiene la lista de días desde las traducciones cargadas (header.days)
+    const daysFromLang = (window.idioma && idioma.translations && idioma.translations.header && Array.isArray(idioma.translations.header.days))
+        ? idioma.translations.header.days
+        : ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
-  function update() {
-    const now = new Date();
-    const day = now.getDay();
-    const date = now.toLocaleDateString(lang);
-    const time = now.toLocaleTimeString();
-    const dayName = days[lang]?.[day] || days["es"][day];
-    display.innerHTML = `${dayName}, ${date} - ${time}`;
-  }
+    // Map language to locale
+    const langToLocale = {
+        'es_COMPLETO': 'es-ES',
+        'en_COMPLETO': 'en-US',
+        'eu_COMPLETO': 'eu-ES'
+    };
+    const currentLang = window.idioma ? idioma.getCurrentLanguage() : 'es_COMPLETO';
+    const locale = langToLocale[currentLang] || 'es-ES';
 
-  update();
-  setInterval(update, 1000);
+    function update() {
+        const now = new Date();
+        const day = now.getDay();
+        const date = now.toLocaleDateString(locale);
+        const time = now.toLocaleTimeString(locale);
+        const dayName = daysFromLang[day] || daysFromLang[0];
+        display.innerHTML = `${dayName}, ${date} - ${time}`;
+    }
+
+    update();
+    this.dateTimeInterval = setInterval(update, 1000);
 }
+}
+
+// Exponer una función global para refrescar el reloj cuando cambie el idioma
+if (typeof window !== 'undefined') {
+    window.headerInitDateTime = function () {
+        try { headerTemplate.initDateTime(); } catch (e) { /* no-op si no está disponible */ }
+    }
 }

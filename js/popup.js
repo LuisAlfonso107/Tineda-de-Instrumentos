@@ -4,10 +4,18 @@ function initPopup() {
 
     if (!popup || !btnCerrar) return;
 
-    // Aparece después de 7  segundo
+    const yaLaVio = sessionStorage.getItem("ofertaVista");
+
+    if (yaLaVio === "true") {
+        return;
+    }
+
+    // Aparece después de 5 segundos
     setTimeout(() => {
         popup.classList.add("activo");
-    }, 7000);
+
+        sessionStorage.setItem("ofertaVista", "true");
+    }, 5000);
 
     // Cerrar al hacer clic en el botón
     btnCerrar.addEventListener("click", () => {

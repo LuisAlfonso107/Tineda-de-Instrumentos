@@ -4,12 +4,14 @@
     "contact": "CONTACTANOS",
     "myAccount": "Mi cuenta",
     "cart": "Carrito"
+    ,"days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
   },
   "navbar": {
-    "guitar": "Guitarra",
-    "amplification": "Amplificación",
-    "effects": "Efectos",
-    "bass": "Bajos"
+    "strings": "Cuerdas",
+    "wind": "Viento",
+    "percussion": "Percusión",
+    "keyboards": "Teclados y pianos",
+    "accessories": "Complementos y accesorios"
   },
   "contact": {
     "title": "Información de contacto :",
@@ -165,6 +167,7 @@
     "subTotalProducts": "Subtotal Productos:",
     "total": "Total:",
     "checkout": "Finalizar compra",
+    "summaryTitle": "Resumen de Pedido",
     "priceUnit": "Precio Unidad:",
     "quantity": "Cantidad:",
     "iva": "IVA:",
@@ -182,5 +185,45 @@
     "shipping": "Envío Gratuito",
     "warranty": "3 años de garantía",
     "payment": "Pago Seguro"
+  }
+
+  ,"auth": {
+    "invalidCredentials": "Credenciales inválidas",
+    "invalidEmail": "Email inválido",
+    "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+    "emailAlreadyRegistered": "Este email ya está registrado",
+    "loginSuccess": "Inicio de sesión exitoso"
+  },
+  "login": {
+    "title": "Inicia sesión en tu cuenta",
+    "subtitle": "Inicia sesión en tu cuenta",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tucorreo@ejemplo.com",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "remember": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "loginBtn": "Iniciar sesión",
+    "orContinueWith": "o continúa con",
+    "firstTime": "¿Primera vez aquí?"
+  },
+  "detail": {
+    "noCategory": "Sin categoría",
+    "noDescription": "Sin descripción disponible",
+    "outOfStock": "Agotado",
+    "addToCart": "Añadir al carrito",
+    "techSpecs": "Características técnicas",
+    "discount": "{descuento}% de descuento"
+  },
+  "user": {
+    "greeting": "¡Hola, {name}!",
+    "latestInvoices": "Últimas Facturas",
+    "orderStatusInTransit": "En camino",
+    "orderTagTomorrow": "Mañana",
+    "help": "¿Problemas? Estamos aquí para ayudarte"
+  },
+  "popup": {
+    "offerTitle": "¡Oferta Especial!",
+    "offerText": "Suscríbete y obtén un 10% de descuento en tu primera compra."
   }
 }

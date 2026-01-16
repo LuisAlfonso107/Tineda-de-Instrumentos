@@ -35,6 +35,14 @@ class I18n {
             // Aplica las traducciones a la página
             this.translatePage();
 
+            // Hooks para refrescar elementos que no usan data-idioma directamente
+            if (typeof window.headerInitDateTime === 'function') {
+                try { window.headerInitDateTime(); } catch (e) { /* no-op */ }
+            }
+            if (typeof window.refreshUITranslations === 'function') {
+                try { window.refreshUITranslations(); } catch (e) { /* no-op */ }
+            }
+
             // Actualiza el botón activo
             this.updateActiveButton();
 

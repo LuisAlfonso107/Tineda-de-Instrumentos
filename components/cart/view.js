@@ -47,6 +47,10 @@ export const cartView = {
             outputToDraw.innerHTML = this.getTemplate()
             this.statusVisible = true
             this.addListeners()
+            // Traduce elementos recién añadidos al DOM (placeholders y textos con data-idioma)
+            if (window.idioma) {
+                try { idioma.translatePage(); } catch (e) { /* no-op */ }
+            }
         }
         else {
             console.log(`no existe un div con el id: "${this.idToDraw}" para renderizar el carrito`);
