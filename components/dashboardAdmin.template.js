@@ -195,6 +195,15 @@ export const dashboardAdminTemplate = {
    
 
         `
+    },
+    confirmLogout() {
+        return `
+        <div class="modal">
+            <p>¿Estás seguro de que deseas cerrar sesión?</p>
+            <button id="confirm-logout">Sí</button>
+            <button id="cancel-logout">No</button>
+        </div>
+        `;
     }
     
 }

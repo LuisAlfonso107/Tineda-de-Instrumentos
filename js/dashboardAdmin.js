@@ -7,8 +7,9 @@ export const dashboardAdmin = {
    
     if (!this.container) return;
 
-    const users = JSON.parse(localStorage.getItem("currentUser"));
 
+
+    const users = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!users || !users.isActive || users.role !== "admin") {
       window.location.href = "../index.html"; 
@@ -31,7 +32,7 @@ export const dashboardAdmin = {
 
 
 
-/* 
+
 
 
 
@@ -54,6 +55,6 @@ if (botonCerrarSesion) {
     }
     window.location.href = "../index.html"; 
   });
-} */
+} 
 dashboardAdmin.init();
 

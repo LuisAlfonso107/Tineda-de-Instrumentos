@@ -17,14 +17,6 @@
       "isActive": true
     },
     {
-      "id": "3",
-      "name": "luis Alfonso",
-      "email": "luisalfonsogarcialagos9@gmail.com",
-      "password": "12345678",
-      "role": "admin",
-      "isActive": true
-    },
-    {
       "id": "4",
       "name": "Stiwar",
       "email": "joimanrami@gmail.com",
@@ -45,6 +37,14 @@
       "name": "Joiman troyano",
       "email": "s3043maqi@mozmail.com",
       "password": "cc5e8f35b6023e8267c6ae076395ec0935c74e13dfb73d650285d8c90fac71f2",
+      "role": "client",
+      "isActive": true
+    },
+    {
+      "id": "1f5f",
+      "name": "Luis Alfonso Garcia Lagos",
+      "email": "garcialagos20@gmail.com",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
       "role": "client",
       "isActive": true
     }

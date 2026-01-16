@@ -48,8 +48,8 @@ export const login = {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     if (remember) localStorage.setItem('rememberUser', email);
 
-                    if (user.role === 'admin') window.location.href = '/dashboardAdmin.html';
-                    else window.location.href = '/dashboardCliente.html';
+                    if (user.role === 'admin') window.location.href = '../pages/dashboardAdmin.html';
+                    else window.location.href = '../pages/dashboardCliente.html';
                 } catch (err) {
                     feedback.textContent = 'No se pudo conectar con el servidor';
                 }
