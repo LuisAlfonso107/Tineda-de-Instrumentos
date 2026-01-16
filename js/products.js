@@ -209,5 +209,194 @@ export const productsController = {
         if (window.idioma) {
             window.idioma.translatePage();
         }
-    }
+    },
+    validateProduct(product){
+        const result = {}
+        if (product.nombre === "" || typeof(product.nombre) !== "string"){
+            result.status = false
+            result.msg= "el nombre no es valido, debe ser un string no vacio"
+        }
+        else if(product.categoria === "" || typeof(product.categoria) !== "string"){
+            result.status = false
+            result.msg = "la ctegoria no es valida, debe ser un string no vacio"
+        }
+        else if(product.precio === "" || typeof(product.precio) !== "number"){
+            result.status = false
+            result.msg = "el precio no es valido, debe ser un number no vacio"  
+        }
+        else if(product.descuento === "" || typeof(product.descuento) !== "number"){
+            result.status = false
+            result.msg = "el descuento no es valido, debe ser un number no vacio"    
+        }
+        else if(product.IVA === "" || typeof(product.IVA) !== "number"){
+            result.status = false
+            result.msg = "el IVA no es valido, debe ser un number no vacio"     
+        }
+        else if(product.stock === "" || typeof(product.stock) !== "number" || Number.isInteger(product.stock)){
+            result.status = false
+            result.msg = "el stock no es valido, debe ser un numero entero no vacio"   
+        }
+            else if(product.status === "" || typeof(product.status) !== "string"){
+            result.status = false
+            result.msg = "el status no es valido, debe ser un string no vacio" 
+            
+        } else if(product.descripcion === "" || typeof(product.descripcion) !== "string"){
+            result.status = false
+            result.msg = "la descripcion no es valida, debe ser un string no vacio"     
+        }
+        else if(typeof(product.caracteristicas)!=="object" || product.caracteristicas === null || Object.keys(product.caracteristicas).length <= 0 ){
+            result.status = false
+            result.msg = "las caracteristicas no son validas, deben ser un objeto no vacio" 
+        }
+        else if(!Array.isArray(product.imagenes) && product.imagenes.length <= 0){
+            result.status = false
+            result.msg = "las imagenes no son validas, deben ser un Array no vacio" 
+        }
+        else{
+            result.status = true
+            result.msg = "datos de producto valido"
+        } 
+
+        return result
+
+    },
+    async createProduct(product) {
+        const result = {}
+        try {
+            
+            const validate = this.validateProduct(product)
+
+            if(validate.status){
+                const existsProduct = await this.existsProduct(product.nombre)
+                if(existsProduct.status){
+                    result.status = false
+                    result.msg = existsProduct.msg
+                }
+                else{
+                    const url = `http://localhost:8000/products`
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(product),
+                    }
+                    const response = await fetch(url, options);
+                    if(!response.ok){
+                        result.status=false
+                        result.msg="la red respondio con error: no se pudo registrar el producto"
+                        throw new Error ("la red respondio con error: no se pudo registrar el product") 
+                    }
+                    result.status=true
+                    result.msg="producto creado"
+                    result.data = await response.json()
+
+                }
+            }
+            else{
+                result.status = false
+                result.msg= validate.msg
+            }                    
+        }
+        catch (error) {
+            result.status=false
+            result.msg="un problema con createProduct"
+            console.error("un problema con createOrder:", error);
+        }  
+        return result    
+    },
+    async existsProduct(nombre){
+        const result={}
+        try {
+            const url = `http://localhost:8000/products?nombre=${nombre}`
+            const response = await fetch(url);
+            if(!response.ok){
+                result.status=false
+                result.msg="la red respondio con error"
+                throw new Error ("la red respondio con error")
+            }
+            const productData = await response.json()
+                // Evitar duplicar productos  
+            if(productData.length > 0){
+                result.status = true
+                result.msg = "producto existe"        
+            }
+            else{
+                result.status = false
+                result.msg = "producto no existe"
+            }
+        
+        } catch (error) {
+            result.status = false
+            result.msg = "un problema con existsProduct"
+            console.error("un problema con existsProduct:", error);
+        }
+        return result
+    },
+    async updateProduct(product) {
+        const result = {}
+        try {
+            
+            const validate = this.validateProduct(product)
+
+            if(validate.status){
+                
+                const url = `http://localhost:8000/products/${product.id}`
+                const options = {
+                    method: 'PUT',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(product),
+                }
+                const response = await fetch(url, options);
+                if(!response.ok){
+                    result.status=false
+                    result.msg="la red respondio con error: no se pudo registrar el producto"
+                    throw new Error ("la red respondio con error: no se pudo registrar el product") 
+                }
+                result.status=true
+                result.msg="producto actualizado"
+                result.data = await response.json()
+                
+            }
+            else{
+                result.status = false
+                result.msg= validate.msg
+            }                    
+        }
+        catch (error) {
+            result.status=false
+            result.msg="un problema con updateProduct"
+            console.error("un problema con updateProduct:", error);
+        }  
+        return result    
+    },
+    async deleteProduct(product) {
+        const result = {}
+        try {
+            const url = `http://localhost:8000/products/${product.id}`
+            const options = {
+                method: 'DELETE',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            }
+            const response = await fetch(url, options);
+            if(!response.ok){
+                result.status=false
+                result.msg="la red respondio con error: no se pudo eliminar el producto"
+                throw new Error ("la red respondio con error: no se pudo registrar el product") 
+            }
+            result.status=true
+            result.msg="producto Eliminado"
+            result.data = await response.json()
+        }
+        catch (error) {
+            result.status=false
+            result.msg="un problema con updateProduct"
+            console.error("un problema con updateProduct:", error);
+        }  
+        return result    
+    },
 }
