@@ -7,7 +7,7 @@ export const dashboardAdmin = {
    
     if (!this.container) return;
 
-    const users = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("currentUser"));
 
 
     if (!users || !users.isActive || users.role !== "admin") {

@@ -4,21 +4,21 @@ export const dashboardCliente = {
   container: document.getElementById("dashboardCliente-main"),
 
   init() {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const usuarioActivo = users.find(user => user.isActive === true);
+    const user = JSON.parse(localStorage.getItem("currentUser")) || [];
+    const usuarioActivo = user.isActive;
 
     // lo mando a admin 
-    if (usuarioActivo?.isActive === true && usuarioActivo.role === "admin") {
+    if (user?.isActive === true && user.role === "admin") {
       window.location.href = "../pages/dashBoardAdmin.html";
       return;
     }
 
     // lo mando a cliente
-    if (usuarioActivo?.isActive === true && usuarioActivo.role === "client") {
+    if (user?.isActive === true && user.role === "client") {
 
       const saludo = document.getElementById("user");
       if (saludo) {
-        saludo.innerText = `Hola, ${usuarioActivo.name} 🎵`;
+        saludo.innerText = `Hola, ${user.name} 🎵`;
       }
 
       // Rrenderiso
