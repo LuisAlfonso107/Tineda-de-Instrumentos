@@ -1,6 +1,6 @@
 export const footerTemplate = {
 
-    init(obj){
+    init(obj) {
         return `
             <div class="footer-content">
             <!-- Categorías -->
@@ -62,11 +62,11 @@ export const footerTemplate = {
                     <a href="#" class="icon facebook">
                         <img src="../img/f.png" alt="Facebook">
                     </a>
-                    <a href="#" class="icon whatsapp">
-                        <img src="../img/w.png" alt="WhatsApp">
-                    </a>
                     <a href="#" class="icon instagram">
                         <img src="../img/I.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="icon whatsapp">
+                        <img src="../img/w.png" alt="WhatsApp">
                     </a>
                 </div>
 
