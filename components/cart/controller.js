@@ -117,17 +117,25 @@ export const cartController = {
         if (this.cartCount >= 5){
             
             const sortedPrices = [...this.items].sort( (a, b)=> a.precio - b.precio )
-            console.log("precios ordenados")
-            console.log(sortedPrices);
+            let count = 0
 
             sortedPrices.forEach(function(item, index){
-                console.log(item.quantity);
-                
-
-                
-            })
-            
-
+                if (count < 3){
+                    let multiplier = (item.quantity - count) <= count ? 3 - count : item.quantity
+                    if(item.quantity >= 3){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                        count += 3
+                    }
+                    else if (item.quantity === 2){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                        count += 2
+                    }
+                    else if(item.quantity === 1){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)
+                        count += 1
+                    }
+                }
+            })    
                 
         }
         this.subTotalIva = result.subTotalIva
