@@ -4,7 +4,7 @@
       "id": "1",
       "name": "youssef",
       "email": "youssefakka999@gmail.com",
-      "password": "12345678",
+      "password": "c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646",
       "role": "admin",
       "isActive": true
     },
@@ -44,7 +44,7 @@
       "id": "8939",
       "name": "Alfonso",
       "email": "garcialagos20@gmail.com",
-      "password": "12345678",
+      "password": "c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646",
       "role": "client",
       "isActive": true
     },

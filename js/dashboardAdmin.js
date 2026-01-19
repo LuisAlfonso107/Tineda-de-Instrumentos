@@ -35,89 +35,38 @@ dashboardAdmin.init();
 
 // FUNCION #2: Cerrar sesión 
 
-const cerrarSesion = document.querySelector("#cerrar button");
-const mostrar = document.getElementById("modal");
+
+//BOTON PARA CERRAR SESIÓN"
+const cerrarSesion = document.querySelector("#cerrar-link");
+
+
+
+
 
 cerrarSesion.addEventListener("click", () => {
-  // Crear y añadir el modal dinámicamente
+
   const modalHTML = dashboardAdminTemplate.confirmLogout();
   document.body.insertAdjacentHTML('beforeend', modalHTML);
   const modal = document.querySelector(".modal");
-  modal.style.display = "block";
-});
+  modal.style.display = "flex";
 
+  // Ahora que el modal existe, seleccionar los botones y añadir listeners
+  const confirmacion = document.getElementById("confirm-logout");
+  const cancelar = document.getElementById("cancel-logout");
 
-const confirmacion = document.getElementById("confirm-logout");
-const cancelar = document.getElementById("cancel-logout");
-
-if (confirmacion) {
   confirmacion.addEventListener("click", () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
     if (currentUser) {
       currentUser.isActive = false;
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
     window.location.href = "../index.html"; 
   });
-}
 
-if (cancelar) {
   cancelar.addEventListener("click", () => {
     const modal = document.querySelector(".modal");
     if (modal) {
       document.body.removeChild(modal);
     }
   });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* if (botonCerrarSesion) {
-  botonCerrarSesion.addEventListener("click", () => {
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const usuarioActivo = users.find(user => user.isActive === true);
-
-    if (usuarioActivo) {
-     
-      usuarioActivo.isActive = false;
-
-      localStorage.setItem("users", JSON.stringify(users));
-    }
-    window.location.href = "../index.html"; 
-  });
-} 
-dashboardAdmin.init();
- */
+});
