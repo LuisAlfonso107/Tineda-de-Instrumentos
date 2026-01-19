@@ -39,7 +39,11 @@ const cerrarSesion = document.querySelector("#cerrar button");
 const mostrar = document.getElementById("modal");
 
 cerrarSesion.addEventListener("click", () => {
-  mostrar.style.display = "block";
+  // Crear y añadir el modal dinámicamente
+  const modalHTML = dashboardAdminTemplate.confirmLogout();
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  const modal = document.querySelector(".modal");
+  modal.style.display = "block";
 });
 
 
