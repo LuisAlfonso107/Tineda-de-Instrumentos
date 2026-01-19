@@ -7,8 +7,6 @@ export const dashboardAdmin = {
    
     if (!this.container) return;
 
-
-
     const users = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!users || !users.isActive || users.role !== "admin") {
@@ -31,16 +29,11 @@ export const dashboardAdmin = {
 dashboardAdmin.init();
 
 
-
-
 // FUNCION #2: Cerrar sesión 
 
 
 //BOTON PARA CERRAR SESIÓN"
 const cerrarSesion = document.querySelector("#cerrar-link");
-
-
-
 
 
 cerrarSesion.addEventListener("click", () => {
@@ -70,3 +63,6 @@ cerrarSesion.addEventListener("click", () => {
     }
   });
 });
+
+
+/*MODAL DE AGREGAR PRODUCTO */

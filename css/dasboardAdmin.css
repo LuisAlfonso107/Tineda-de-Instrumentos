@@ -264,7 +264,7 @@
         }
     
 
-/* ===== MODAL ===== */
+/*  MODAL  */
 .modal {
     position: fixed;
     top: 0;
@@ -277,7 +277,49 @@
     align-items: center;
     z-index: 1000;
 }
+.modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal input, .modal select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal button[type="submit"] {
+    background-color: var(--color-cta);
+    color: var(--color-text);
+}
+
+.modal button[type="button"] {
+    background-color: #ccc;
+    color: var(--color-text);
+}
 .modal p {
     background-color: white;
     padding: 20px;
@@ -306,3 +348,51 @@
     color: var(--color-text);
 }
     
+
+
+/*  Modal de agregar producto   */
+
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal label {
+  font-weight: 600;
+}
+
+.modal input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
