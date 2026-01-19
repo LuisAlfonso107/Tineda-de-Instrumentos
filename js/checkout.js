@@ -3,10 +3,14 @@
 const form = document.getElementById("checkoutForm");
 const payBtn = document.getElementById("payBtn");
 
-payBtn.addEventListener("click", async function(event){
-  event.preventDefault();
+form.addEventListener("submit", async function(event){  
 
-  // VALIDACIÓN DEL PAGO 
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  event.stopPropagation();
+
+  try {
+    // VALIDACIÓN DEL PAGO 
   const nombreTarjeta = document.getElementById("cname").value.trim();
   const numeroTarjeta = document.getElementById("ccnum").value.trim();
   const mes = document.getElementById("expmonth").value.trim();
@@ -102,98 +106,7 @@ payBtn.addEventListener("click", async function(event){
 
   // GUARDAR EN backend
   /* const ordenes = JSON.parse(localStorage.getItem("ordenes")) || []; */
-    async function existsClient(){
-      const result={}
-      try {
-        const url = `http://localhost:9000/users?email=${email}`
-        const response = await fetch(url)
-        if(!response.ok){
-          result.status=false
-          result.msg="la red respondio con error"
-          throw new Error ("la red respondio con error")
-        }
-        const usersData = await response.json()
-          // Evitar duplicar emails  
-        if(usersData.length > 0){
-          result.status = true
-          result.msg = "cliente existe"        
-        }
-        else{
-          result.status = false
-          result.msg = "cliente no existe"
-        }
-        
-      } catch (error) {
-        result.status = false
-        result.msg = "un problema con existsClient"
-        console.error("un problema con existsClient:", error);
-      }
-      return result
-    }
-
-    async function createClient(){
-      const result={}
-      try{
-        const client = {
-          name: orden.client.name,
-          email: orden.client.email,
-          role: "client",
-          isActive: true,
-        }
-        const url = `http://localhost:9000/users`
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(client),
-        }
-        const response = await fetch(url, options)
-        if(!response.ok){
-          result.status=false
-          result.msg="la red respondio con error"
-          throw new Error ("la red respondio con error") 
-        }
-        result.status=true
-        result.msg="cliente registrado correctamente"
-        result.data = await response.json()
-      }
-      catch (error) {
-        result.status=false
-        result.msg="un problema con createClient"
-        console.error("un problema con createClient:", error);
-      }
-      return result
-    }
-
-    async function createOrder() {
-      const result = {}
-      try {
-        const url = `http://localhost:9000/orders`
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(orden),
-        }
-        const response = await fetch(url, options)
-        if(!response.ok){
-          result.status=false
-          result.msg="la red respondio con error: no se pudo registrar la orden"
-          throw new Error ("la red respondio con error: no se pudo registrar la orden") 
-        }
-        result.status=true
-        result.msg="orden creada"
-        result.data = await response.json()        
-      }
-      catch (error) {
-        result.status=false
-        result.msg="un problema con createOrder"
-        console.error("un problema con createOrder:", error);
-      }  
-      return result    
-    }
+  
   
   /* if (usersData.some(o => o.email === orden.client.email)) {
     return alert("Este email ya ha sido registrado. Por favor usa otro.");
@@ -205,57 +118,167 @@ payBtn.addEventListener("click", async function(event){
 
     /* ordenes.push(orden);
     localStorage.setItem("ordenes", JSON.stringify(ordenes)); */
-  async function generateOrder(){
-    const existsClientR = await existsClient()
-    const result = {}
-    if(existsClientR.status){
-      console.log(existsClientR.status);
-      console.log(existsClientR.msg);
-      
-      const createOrderr = await createOrder()
-      if (createOrderr.status){
-        result.status = true
-      }
-      else{
-        result.status = false
-        result.msg = createOrderr.msg
-      }   
+
+
+    const result = await generateOrder(orden);
+  
+    if(result && result.status){
+      //form.reset();
+      const div = `<div class="divCompleteCheckout">LISTO</div>`
+      const salida= document.querySelector("body")
+      salida.innerHTML=div
+      //alert("Pago aceptado. Pedido generado. ¡Gracias por su compra!");
+      //console.log("Pago aceptado. Pedido generado. ¡Gracias por su compra!");
+      //form.reset();
     }
     else{
-      console.log(existsClientR.status);
-      console.log(existsClientR.msg);
-
-      const createClientr = await createClient()
-      const createOrderr = await createOrder()
-      if(!createClientr.status){
-        result.status=false
-        result.msg= createClientr.msg
-      }
-      else if(!createOrderr.status){
-        result.status = false
-        result.msg = createOrderr.msg
-      }
-      else{
-        result.status= true
-      }
+      //alert(`${result.msg}`);
+        console.log(`${result.msg}`)
     }
-
-    console.log(result);
     
-
-    if(result.status){
-      //form.reset();
-      alert("Pago aceptado. Pedido generado. ¡Gracias por su compra!");
-      return
-      //form.reset();
-    }
-    else{
-        alert(`${result.msg}`);
-        return
-        console.log(`${result.msg}`);
-    }
-
+  } catch (error) {
+    console.error("un problema con el evento click:", error);
   }
-  await generateOrder()
-
+  
 });
+
+  async function existsClient(email){
+    const result={}
+    try {
+      const url = `http://localhost:8000/users?email=${email}`
+      const response = await fetch(url);
+      if(!response.ok){
+        result.status=false
+        result.msg="la red respondio con error"
+        throw new Error ("la red respondio con error")
+      }
+      const usersData = await response.json()
+        // Evitar duplicar emails  
+      if(usersData.length > 0){
+        result.status = true
+        result.msg = "cliente existe"        
+      }
+      else{
+        result.status = false
+        result.msg = "cliente no existe"
+      }
+      
+    } catch (error) {
+      result.status = false
+      result.msg = "un problema con existsClient"
+      console.error("un problema con existsClient:", error);
+    }
+    return result
+  }
+
+  async function createClient(orden){
+    const result={}
+    try{
+      const client = {
+        name: orden.client.name,
+        email: orden.client.email,
+        role: "client",
+        isActive: true,
+      }
+      const url = `http://localhost:8000/users`
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(client),
+      }
+      const response = await fetch(url, options);
+      if(!response.ok){
+        result.status=false
+        result.msg="la red respondio con error"
+        throw new Error ("la red respondio con error") 
+      }
+      result.status=true
+      result.msg="cliente registrado correctamente"
+      result.data = await response.json()
+    }
+    catch (error) {
+      result.status=false
+      result.msg="un problema con createClient"
+      console.error("un problema con createClient:", error);
+    }
+    return result
+  }
+
+  async function createOrder(orden) {
+    const result = {}
+    try {
+      const url = `http://localhost:8000/orders`
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orden),
+      }
+      const response = await fetch(url, options);
+      if(!response.ok){
+        result.status=false
+        result.msg="la red respondio con error: no se pudo registrar la orden"
+        throw new Error ("la red respondio con error: no se pudo registrar la orden") 
+      }
+      result.status=true
+      result.msg="orden creada"
+      result.data = await response.json()        
+    }
+    catch (error) {
+      result.status=false
+      result.msg="un problema con createOrder"
+      console.error("un problema con createOrder:", error);
+    }  
+    return result    
+  }
+
+  async function generateOrder(orden){
+    const result = {}
+    try {
+      const existsClientR = await existsClient(orden.client.email);
+      if(existsClientR.status){
+        console.log(existsClientR.status);
+        console.log(existsClientR.msg);
+        
+        const createOrderr = await createOrder(orden);
+        if (createOrderr.status){
+          result.status = true
+          result.msg = "orden registrada correctaente"
+        }
+        else{
+          result.status = false
+          result.msg = createOrderr.msg
+        }   
+      }
+      else{
+        console.log(existsClientR.status);
+        console.log(existsClientR.msg);
+
+        const createClientr = await createClient(orden);
+        const createOrderr = await createOrder(orden);
+        if(!createClientr.status){
+          result.status=false
+          result.msg= createClientr.msg
+        }
+        else if(!createOrderr.status){
+          result.status = false
+          result.msg = createOrderr.msg
+        }
+        else{
+          result.status = true
+          result.msg = "orden y cliente registrado correctaente"
+        }
+      }
+      
+    } catch (error) {
+      result.status = false
+      result.msg = "error en generateOrder"
+      console.error("un problema con generateOrder:", error);  
+    }
+  
+    console.log(result);
+    return result    
+  }

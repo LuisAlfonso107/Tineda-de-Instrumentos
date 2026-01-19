@@ -5,6 +5,7 @@ export const cartController = {
     items:[],
     subTotalIva: 0,
     subTotalItems: 0,
+    subTotalDiscount: 0,
     totalOrder: 0,
     init(){
         this.setData()
@@ -102,8 +103,10 @@ export const cartController = {
         const result = {
             subTotalIva: 0,
             subTotalItems: 0,
-            totalOrder: 0
+            totalOrder: 0,
+            subTotalDiscount:0
         }
+        const itemsLowerPrice = []
         if (this.items.length > 0) {
             this.items.forEach(function(item, index){
                 result.subTotalIva += item.totalIvaPriceItem
@@ -111,9 +114,34 @@ export const cartController = {
                 result.totalOrder += item.totalPriceItem + item.totalIvaPriceItem
             })
         }
+        if (this.cartCount >= 5){
+            
+            const sortedPrices = [...this.items].sort( (a, b)=> a.precio - b.precio )
+            let count = 0
+
+            sortedPrices.forEach(function(item, index){
+                if (count < 3){
+                    let multiplier = (item.quantity - count) <= count ? 3 - count : item.quantity
+                    if(item.quantity >= 3){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                        count += 3
+                    }
+                    else if (item.quantity === 2){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                        count += 2
+                    }
+                    else if(item.quantity === 1){
+                        result.subTotalDiscount += ((item.precio * 10) / 100)
+                        count += 1
+                    }
+                }
+            })    
+                
+        }
         this.subTotalIva = result.subTotalIva
         this.subTotalItems = result.subTotalItems
         this.totalOrder = result.totalOrder
+        this.subTotalDiscount = result.subTotalDiscount
         result.status = true
         result.msg = `cart totals update`
         return result
