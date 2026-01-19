@@ -6,12 +6,14 @@ export const dashboardClienteTemplate = {
         <aside class="sidebar">
           <h2>MusicStore</h2>
           <ul>
-            <li>Dashboard</li>
+            <li>Ir a la tienda</li>
             <li>Mis Pedidos</li>
             <li>Carrito</li>
-            <li>Favoritos</li>
+            <li>Favoritos</li>  
             <li>Mi Cuenta</li>
-            <li id="logout">Cerrar Sesión</li>
+            <button id="logout"><li>Cerrar Sesión</li></button>
+           
+          
           </ul>
         </aside>
 

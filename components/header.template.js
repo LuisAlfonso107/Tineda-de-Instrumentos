@@ -29,8 +29,8 @@ export const headerTemplate = {
 
                 <div class="separator"></div>
 
-                <div class="user-actions">
-                    <a href="../pages/login.html" id="link-cuenta" style="color: #9370DB;">
+                <div class="user-actions">    
+                    <a href="#" id="link-cuenta" style="color: #9370DB;">
                         <i class="far fa-user" id="icono" style="font-size: 40px;"></i>
                         <span id="texto" data-idioma="header.myAccount">Iniciar sesión</span>
                     </a>

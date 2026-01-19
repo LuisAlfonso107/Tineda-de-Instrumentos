@@ -9,7 +9,6 @@ export const dashboardAdmin = {
 
     const user = JSON.parse(localStorage.getItem("currentUser"));
 
-
     if (!user || !user.isActive || user.role !== "admin") {
       window.location.href = "../index.html"; 
       return;
@@ -27,33 +26,45 @@ export const dashboardAdmin = {
 };
 
 // Ejecutamos la inicialización
+dashboardAdmin.init();
 
-
-
-
-/* 
 
 
 
 // FUNCION #2: Cerrar sesión 
 
-const botonCerrarSesion = document.getElementById("cerrar");
 
-if (botonCerrarSesion) {
-  botonCerrarSesion.addEventListener("click", () => {
+//BOTON PARA CERRAR SESIÓN"
+const cerrarSesion = document.querySelector("#cerrar-link");
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const usuarioActivo = users.find(user => user.isActive === true);
 
-    if (usuarioActivo) {
-     
-      usuarioActivo.isActive = false;
 
-      localStorage.setItem("users", JSON.stringify(users));
+
+cerrarSesion.addEventListener("click", () => {
+
+  const modalHTML = dashboardAdminTemplate.confirmLogout();
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  const modal = document.querySelector(".modal");
+  modal.style.display = "flex";
+
+  // Ahora que el modal existe, seleccionar los botones y añadir listeners
+  const confirmacion = document.getElementById("confirm-logout");
+  const cancelar = document.getElementById("cancel-logout");
+
+  confirmacion.addEventListener("click", () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser) {
+      currentUser.isActive = false;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
     window.location.href = "../index.html"; 
   });
-} */
-dashboardAdmin.init();
 
+  cancelar.addEventListener("click", () => {
+    const modal = document.querySelector(".modal");
+    if (modal) {
+      document.body.removeChild(modal);
+    }
+  });
+});

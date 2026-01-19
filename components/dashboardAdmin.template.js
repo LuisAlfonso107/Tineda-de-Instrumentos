@@ -17,7 +17,7 @@ export const dashboardAdminTemplate = {
                     <li><a href="#reportes">Reportes</a></li>
                     <li><a href="#configuracion">Configuración del Sistema</a></li>
                     <li><a href="#estado">Estado del Sistema</a></li>
-                    <li><a id="cerrar" href="#cerrar">Cerrar Sesión</a></li>
+                   <a href="#cerrar-link"><li id="cerrar-link">Cerrar Sesión</li></a>
                 </ul>
             </nav>
         </aside>
@@ -195,6 +195,15 @@ export const dashboardAdminTemplate = {
    
 
         `
+    },
+    confirmLogout() {
+        return `
+        <div class="modal">
+            <p>¿Estás seguro de que deseas cerrar sesión?</p>
+            <button id="confirm-logout">Sí</button>
+            <button id="cancel-logout">No</button>
+        </div>
+        `;
     }
     
 }

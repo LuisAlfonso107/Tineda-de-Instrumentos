@@ -28,6 +28,8 @@ export const header = {
         if (output) {
             output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
 
+            this.login();
+
             // NO BORRAR: Traduce el contenido nuevo del header
             if (window.idioma) {
                 window.idioma.translatePage();
@@ -77,8 +79,12 @@ login() {
     const enlace = document.getElementById("link-cuenta");
 
 
-    const userStr = localStorage.getItem("currentUser");
-    const user = userStr ? JSON.parse(userStr) : null;
+   const user = JSON.parse(localStorage.getItem("currentUser"));
+
+   console.log(enlace);
+   
+
+
 
     if (user && user.isActive) {
 
@@ -87,32 +93,26 @@ login() {
         texto.textContent = "Mi cuenta";
         icono.style.color = "green";
 
-        enlace.onclick = () => {
-            if (user.role === "admin") {
-                window.location.href = "../pages/dashBoardAdmin.html";
-            } 
-            else if (user.role === "cliente") {   // ← nota: "cliente" en minúscula
-                window.location.href = "../pages/dashboardCliente.html";
-            }
-        
-        };
+     
+        if (user.role === "admin") {
+            enlace.href="../pages/dashBoardAdmin.html";
+            //window.location.href = "../pages/dashBoardAdmin.html";
+        } else if (user.role === "client") {
+            enlace.href="../pages/dashboardCliente.html";
+            //window.location.href = "../pages/dashboardCliente.html";
+        }
+
+   console.log(enlace);
+
+
     } 
     else {
         // para cuando no hay usuario logueado o no está activo
         texto.textContent = "Iniciar sesión";
         icono.style.color = "black";
+            enlace.href="../pages/login.html";
 
-        enlace.onclick = () => {
-            window.location.href = "../pages/login.html";
-        };
     }
 },
 
-render() {
-  const output = document.querySelector(`#${this.id}`);
-  if (output) {
-    output.innerHTML = this.getTemplate({ cartCount: cart.cartCount });
-    headerTemplate.initDateTime(); // Aquí se activa el reloj
-  }
-}
 }

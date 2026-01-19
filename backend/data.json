@@ -776,6 +776,30 @@
       "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
       "role": "admin",
       "isActive": true
+    },
+    {
+      "id": "8939",
+      "name": "Alfonso",
+      "email": "garcialagos20@gmail.com",
+      "password": "c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646",
+      "role": "client",
+      "isActive": true
+    },
+    {
+      "id": "014a",
+      "name": "weraet asetsrts",
+      "email": "luisalgfsybfss@jsvdfjb.com",
+      "password": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "b729",
+      "name": "yoandres la cruz",
+      "email": "ylcruz.dev@gmail.com",
+      "password": "c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646",
+      "role": "client",
+      "isActive": true
     }
   ],
   "orders": [
