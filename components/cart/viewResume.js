@@ -64,10 +64,12 @@ export const cartViewResume = {
         const cartSubTotalIva = document.querySelector(`#cartCheckoutSubTotalIva`)
         const cartSubTotal = document.querySelector(`#cartCheckoutSubTotal`)
         const cartTotal = document.querySelector(`#cartCheckoutTotal`)
+        const cartSubTotalDiscount = document.querySelector(`#cartCheckoutSubTotalDiscount`)
         if (cartSubTotalIva && cartSubTotal && cartTotal) {
             cartSubTotalIva.textContent = `€${cartController.subTotalIva.toFixed(2)}`  
             cartSubTotal.textContent = `€${cartController.subTotalItems.toFixed(2)}`  
-            cartTotal.textContent = `€${cartController.totalOrder.toFixed(2)}`          
+            cartTotal.textContent = `€${cartController.totalOrder.toFixed(2)}`   
+            cartSubTotalDiscount.textContent = `€${cartController.subTotalDiscount.toFixed(2)}`          
         }
         
     },
@@ -133,7 +135,7 @@ export const cartViewResume = {
         if (btnsRemoveItem) {
             btnsRemoveItem.forEach(function(value, index){
                 const bntElement = value
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 bntElement.addEventListener("click", function(e){
                     e.preventDefault()
                     thisArg.removeItem(id)
@@ -159,7 +161,7 @@ export const cartViewResume = {
                     ivaPriceItem: totalIvaPriceItem[index],
                     priceItem: totalPriceItem[index]
                 }
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
                     thisArg.changeQuantity(id, elementsHtml)

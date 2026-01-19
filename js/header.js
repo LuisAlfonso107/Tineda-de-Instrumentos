@@ -81,11 +81,6 @@ login() {
 
    const user = JSON.parse(localStorage.getItem("currentUser"));
 
-   console.log(enlace);
-   
-
-
-
     if (user && user.isActive) {
 
         // para cunado el usuario está logueado y activo

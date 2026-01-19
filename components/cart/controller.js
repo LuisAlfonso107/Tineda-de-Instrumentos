@@ -140,7 +140,7 @@ export const cartController = {
         }
         this.subTotalIva = result.subTotalIva
         this.subTotalItems = result.subTotalItems
-        this.totalOrder = result.totalOrder
+        this.totalOrder = result.totalOrder-result.subTotalDiscount
         this.subTotalDiscount = result.subTotalDiscount
         result.status = true
         result.msg = `cart totals update`
@@ -153,7 +153,8 @@ export const cartController = {
             cartCount: this.cartCount,
             subTotalIva: this.subTotalIva,
             subTotalItems: this.subTotalItems,
-            totalOrder: this.totalOrder
+            totalOrder: this.totalOrder,
+            subTotalDiscount: this.subTotalDiscount
         }
         return result
     },
