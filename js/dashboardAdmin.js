@@ -28,19 +28,78 @@ export const dashboardAdmin = {
 };
 
 // Ejecutamos la inicialización
-
-
-
-
+dashboardAdmin.init();
 
 
 
 
 // FUNCION #2: Cerrar sesión 
 
-const botonCerrarSesion = document.getElementById("cerrar");
+const cerrarSesion = document.querySelector("#cerrar button");
+const mostrar = document.getElementById("modal");
 
-if (botonCerrarSesion) {
+cerrarSesion.addEventListener("click", () => {
+  mostrar.style.display = "block";
+});
+
+
+const confirmacion = document.getElementById("confirm-logout");
+const cancelar = document.getElementById("cancel-logout");
+
+if (confirmacion) {
+  confirmacion.addEventListener("click", () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (currentUser) {
+      currentUser.isActive = false;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
+    window.location.href = "../index.html"; 
+  });
+}
+
+if (cancelar) {
+  cancelar.addEventListener("click", () => {
+    const modal = document.querySelector(".modal");
+    if (modal) {
+      document.body.removeChild(modal);
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* if (botonCerrarSesion) {
   botonCerrarSesion.addEventListener("click", () => {
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -57,4 +116,4 @@ if (botonCerrarSesion) {
   });
 } 
 dashboardAdmin.init();
-
+ */
