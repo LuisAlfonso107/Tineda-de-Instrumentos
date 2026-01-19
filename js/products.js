@@ -398,5 +398,5 @@ export const productsController = {
             console.error("un problema con updateProduct:", error);
         }  
         return result    
-    },
+    }
 }
