@@ -105,7 +105,7 @@ payBtn.addEventListener("click", async function(event){
     async function existsClient(){
       const result={}
       try {
-        const url = `http://localhost:8000/users?email=${email}`
+        const url = `http://localhost:9000/users?email=${email}`
         const response = await fetch(url)
         if(!response.ok){
           result.status=false
@@ -140,7 +140,7 @@ payBtn.addEventListener("click", async function(event){
           role: "client",
           isActive: true,
         }
-        const url = `http://localhost:8000/users`
+        const url = `http://localhost:9000/users`
         const options = {
           method: 'POST',
           headers: {
@@ -169,7 +169,7 @@ payBtn.addEventListener("click", async function(event){
     async function createOrder() {
       const result = {}
       try {
-        const url = `http://localhost:8000/orders`
+        const url = `http://localhost:9000/orders`
         const options = {
           method: 'POST',
           headers: {

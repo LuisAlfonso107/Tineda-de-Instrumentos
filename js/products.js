@@ -8,7 +8,7 @@ export const productsController = {
     async getData(){
         try {
             const result = {}
-            const response = await fetch("http://localhost:8000/products")
+            const response = await fetch("http://localhost:9000/products")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
@@ -129,7 +129,7 @@ export const productsController = {
     render() {
         // 1) Precondiciones
         if (!this.data || this.data.length === 0) {
-            console.warn("No hay productos para renderizar.")
+            console.log("No hay productos para renderizar.")
             return
         }
 

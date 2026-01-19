@@ -770,35 +770,11 @@
   ],
   "users": [
     {
-      "id": "1",
-      "name": "youssef",
-      "email": "youssefakka999@gmail.com",
-      "password": "12345678",
+      "id": "60e8",
+      "name": "Luis Garcia",
+      "email": "garcialagos20@gmail.com",
+      "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
       "role": "admin",
-      "isActive": true
-    },
-    {
-      "id": "2",
-      "name": "yoandres",
-      "email": "ylcruz.dev@gmail.com",
-      "password": "12345678",
-      "role": "client",
-      "isActive": true
-    },
-    {
-      "id": "3",
-      "name": "luis Alfonso",
-      "email": "luisalfonsogarcialagos9@gmail.com",
-      "password": "12345678",
-      "role": "admin",
-      "isActive": true
-    },
-    {
-      "id": "4",
-      "name": "Stiwar",
-      "email": "joimanrami@gmail.com",
-      "password": "12345678",
-      "role": "client",
       "isActive": true
     }
   ],
@@ -1143,6 +1119,153 @@
         "subTotalIva": 85.8837,
         "subTotalItems": 408.97,
         "totalOrder": 494.8537
+      }
+    },
+    {
+      "id": "6bb6",
+      "client": {
+        "name": "qwer",
+        "email": "garcia@gmail.com"
+      },
+      "shipment": {
+        "address": "qwertgf",
+        "city": "awefghj",
+        "state": "asdfg",
+        "zip": "asdfg"
+      },
+      "paymentCard": {
+        "name": "hoja hoa",
+        "number": "1234123412341342",
+        "month": "12",
+        "year": "2027",
+        "cvv": "123"
+      },
+      "order": {
+        "items": [
+          {
+            "id": "5",
+            "nombre": "Violín 4/4",
+            "categoria": "Cuerdas",
+            "precio": 249,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Violín tamaño completo (4/4) con tapa de abeto europeo y fondo de arce flameado. Incluye arco de madera de Brasil con crin natural y estuche rígido con compartimentos para accesorios. Ideal para estudiantes de nivel intermedio.",
+            "caracteristicas": {
+              "materiales": "Abeto y arce flameado",
+              "nivel": "Intermedio",
+              "dimensiones": "60 x 20 x 8 cm (en estuche)",
+              "peso": "1.2 kg (solo violín)",
+              "garantia": "24 meses",
+              "incluye": "Violín, arco, estuche rígido, colofonia y almohadilla",
+              "tipo_cuerdas": "Acero entorchado",
+              "cantidad_cuerdas": 4,
+              "color": "Ámbar",
+              "tamano": "4/4"
+            },
+            "imagenes": [
+              "img/cuerdas/violin_id5.webp",
+              "img/cuerdas/violin2_id5.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 52.29,
+            "totalPriceItem": 249
+          },
+          {
+            "id": "4",
+            "nombre": "Ukelele soprano",
+            "categoria": "Cuerdas",
+            "precio": 89.99,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Ukelele soprano de caoba laminada, perfecto para iniciarse en el instrumento. Sonido brillante y alegre característico del ukelele. Incluye cuerdas Aquila de alta calidad que ofrecen una afinación estable y un timbre cálido.",
+            "caracteristicas": {
+              "materiales": "Caoba laminada",
+              "nivel": "Principiante",
+              "dimensiones": "53 x 18 x 7 cm",
+              "peso": "0.5 kg",
+              "garantia": "12 meses",
+              "incluye": "Ukelele, funda y afinador digital",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 4,
+              "color": "Caoba",
+              "afinacion": "G-C-E-A"
+            },
+            "imagenes": [
+              "img/cuerdas/ukelele_1_id4.webp",
+              "img/cuerdas/ukelele_2_id4.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 18.8979,
+            "totalPriceItem": 89.99
+          },
+          {
+            "id": "2",
+            "nombre": "Bajo eléctrico",
+            "categoria": "Cuerdas",
+            "precio": 349,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
+            "caracteristicas": {
+              "materiales": "Tilo, arce y palisandro",
+              "nivel": "Intermedio",
+              "dimensiones": "115 x 35 x 4 cm",
+              "peso": "4.2 kg",
+              "garantia": "24 meses",
+              "incluye": "Bajo, correa, cable y llaves de afinación",
+              "tipo_cuerdas": "Roundwound",
+              "cantidad_cuerdas": 4,
+              "color": "Negro brillante",
+              "pastillas": "J-style",
+              "controles": "Volumen, tono y selector"
+            },
+            "imagenes": [
+              "img/cuerdas/bajo_4cuerdas_id2.webp",
+              "img/cuerdas/bajo_electrico_id2.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 73.29,
+            "totalPriceItem": 349
+          },
+          {
+            "id": "1",
+            "nombre": "Guitarra clásica",
+            "categoria": "Cuerdas",
+            "precio": 199.99,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
+            "caracteristicas": {
+              "materiales": "Cedro, palisandro y ébano",
+              "nivel": "Principiante",
+              "dimensiones": "99 x 36 x 10 cm",
+              "peso": "1.8 kg",
+              "garantia": "24 meses",
+              "incluye": "Guitarra, funda suave y cuerdas de repuesto",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 6,
+              "color": "Natural"
+            },
+            "imagenes": [
+              "img/cuerdas/guitarra_espanola_clasica_id1.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 41.9979,
+            "totalPriceItem": 199.99
+          }
+        ],
+        "cartCount": 4,
+        "subTotalIva": 186.4758,
+        "subTotalItems": 887.98,
+        "totalOrder": 1074.4558000000002
       }
     }
   ]

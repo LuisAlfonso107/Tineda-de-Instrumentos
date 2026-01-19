@@ -7,10 +7,10 @@ export const dashboardAdmin = {
    
     if (!this.container) return;
 
-    const users = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("currentUser"));
 
 
-    if (!users || !users.isActive || users.role !== "admin") {
+    if (!user || !user.isActive || user.role !== "admin") {
       window.location.href = "../index.html"; 
       return;
     }
