@@ -1,13 +1,12 @@
 :root {
-    --dorado: #D4A857;
+    --dorado: #d4ac57;
     --dorado-suave: #FFD700;
     --negro: #36454E;
     --gris-oscuro: #2A2A2A;
     --blanco: #ffffff;
 }
 body{
-    font-family: 'Montserrat', sans-serif;
-    background: var(--negro);
+    font-family: 'Montserrat', sans-serif;background: linear-gradient(0deg, #9370DB 0%, #ffffff 8%, #ffffff 63%, #ffffff 75%, #9370DB 95%);
     color:var(--blanco);
 }
 /* ------------------ CONTENEDOR PRINCIPAL ------------------ */
@@ -68,7 +67,7 @@ form button {
     width: 100%;
     padding: 14px;
     margin-top: 1rem;
-    background: var(--dorado);
+    background: #FFD700;
     color: #fff;
     border: none;
     border-radius: 8px;
