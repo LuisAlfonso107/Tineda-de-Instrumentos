@@ -7,7 +7,8 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;;
-  background-color:var(--negro);
+  background-color:var(--negro) !important;
+  background: none;
   color: var(--blanco);
 }
 
@@ -57,6 +58,8 @@ body {
   padding: 12px;
   border: 1px solid var(--dorado-suave);
   border-radius: 3px;
+  background-color: white;
+  color:rgb(81, 81, 81);
 }
 
 label {
@@ -71,11 +74,11 @@ label {
 }
 
 .btn {
-  background-color: #04AA6D;
-  color: var(--blanco);
+  background-color: #ffffff;
+  color: var(--negro);
   padding: 12px;
   margin: 10px 0;
-  border: none;
+  /*border: none;*/
   width: 100%;
   border-radius: 3px;
   cursor: pointer;
@@ -83,7 +86,7 @@ label {
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #cdcdcd;
 }
 
 a {
@@ -98,6 +101,18 @@ hr {
 span.price {
   float: right;
   color: grey;
+}
+
+.divCompleteCheckout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: red;
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */

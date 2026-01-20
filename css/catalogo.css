@@ -12,13 +12,14 @@ main h2 {
   gap: 20px;
   padding: 1rem;
 }
+
 /* Estilo del reloj en headerTemplate */
-#datetimeDisplay  {
+#datetimeDisplay {
   font-family: 'Montserrat', sans-serif;
-  color: #9370DB;                     
-  font-size: 14px;                      
-  font-weight: 800;                      
-} 
+  color: #9370DB;
+  font-size: 14px;
+  font-weight: 800;
+}
 
 /* Tarjeta de producto */
 .producto {
@@ -27,7 +28,7 @@ main h2 {
   border-radius: 8px;
   width: 100%;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
@@ -64,12 +65,14 @@ main h2 {
   margin: 0.3rem 0;
   color: rgb(126, 126, 32);
 }
+
 .producto .precio {
   font-weight: bold;
   color: #e91e63;
   margin-top: 0.5rem;
 }
-.cartAddItemBtn{
+
+.cartAddItemBtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,16 +87,20 @@ main h2 {
   border: 2px solid #9370DB;
   margin: 0.5rem;
 }
+
 .cartAddItemBtn i {
   margin-right: 0.5rem;
 }
+
 .cartAddItemBtn:hover {
   background-color: white;
-  color: #36454E;
+  color: #364e39;
 }
+
 .linkToDetails {
   text-decoration: none;
 }
+
 /* Tablet: hasta 1300px */
 @media (max-width: 1300px) {
   .catalogo {
@@ -107,11 +114,10 @@ main h2 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-@media (max-width: 480px) {
   .producto figure {
-    height: 140px;
+    height: 150px;
   }
-}
+
   .producto h3 {
     font-size: 1rem;
   }
@@ -137,13 +143,12 @@ main h2 {
     grid-template-columns: 1fr;
   }
 
-@media (max-width: 480px) {
   .producto figure {
-    height: 120px;
+    height: 140px;
   }
 
   .cartAddItemBtn {
     font-size: 0.85rem;
     padding: 0.3rem 0.8rem;
   }
-}}
+}

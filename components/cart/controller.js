@@ -5,6 +5,7 @@ export const cartController = {
     items:[],
     subTotalIva: 0,
     subTotalItems: 0,
+    subTotalDiscount: 0,
     totalOrder: 0,
     init(){
         this.setData()
@@ -19,6 +20,9 @@ export const cartController = {
             item.totalPriceItem = (item.precio * item.quantity)            
             itemExists.status ? this.items[itemExists.indexItem] = item : this.items.unshift(item)
             this.updateState()
+        }
+        else{
+            console.log(product); 
         }
     },
     removeItem(id){
@@ -99,8 +103,10 @@ export const cartController = {
         const result = {
             subTotalIva: 0,
             subTotalItems: 0,
-            totalOrder: 0
+            totalOrder: 0,
+            subTotalDiscount:0
         }
+        const itemsLowerPrice = []
         if (this.items.length > 0) {
             this.items.forEach(function(item, index){
                 result.subTotalIva += item.totalIvaPriceItem
@@ -108,9 +114,24 @@ export const cartController = {
                 result.totalOrder += item.totalPriceItem + item.totalIvaPriceItem
             })
         }
+        if (this.cartCount >= 5){
+            
+            const sortedPrices = [...this.items].sort( (a, b)=> a.precio - b.precio )
+            let count = 0
+
+            sortedPrices.forEach(function(item, index){
+                if (count < 3){
+                    let multiplier = (item.quantity >= 3 && count < 3) ? (3 - count) : (item.quantity === 2 && count < 2) ? (2 - count) : 1
+                    result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                    count += multiplier                    
+                }
+            })    
+                
+        }
         this.subTotalIva = result.subTotalIva
         this.subTotalItems = result.subTotalItems
-        this.totalOrder = result.totalOrder
+        this.totalOrder = result.totalOrder-result.subTotalDiscount
+        this.subTotalDiscount = result.subTotalDiscount
         result.status = true
         result.msg = `cart totals update`
         return result
@@ -122,7 +143,8 @@ export const cartController = {
             cartCount: this.cartCount,
             subTotalIva: this.subTotalIva,
             subTotalItems: this.subTotalItems,
-            totalOrder: this.totalOrder
+            totalOrder: this.totalOrder,
+            subTotalDiscount: this.subTotalDiscount
         }
         return result
     },
@@ -136,6 +158,7 @@ export const cartController = {
                 this.cartCount = cart.cartCount
                 this.subTotalIva = cart.subTotalIva,
                 this.subTotalItems = cart.subTotalItems,
+                this.subTotalDiscount = cart.subTotalDiscount,
                 this.totalOrder = cart.totalOrder
                 result.status = true
                 result.msg = `data actualizada utiliza getData() para obtenerla`                

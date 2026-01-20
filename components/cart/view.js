@@ -26,7 +26,7 @@ export const cartView = {
 
     getTemplate() {
         try {
-            const obj = cartController.getData()
+            const obj = cartController.getData()            
             const html ={
                 items: ``,
                 footer:``
@@ -81,10 +81,12 @@ export const cartView = {
         const cartSubTotalIva = document.querySelector(`#cartSubTotalIva`)
         const cartSubTotal = document.querySelector(`#cartSubTotal`)
         const cartTotal = document.querySelector(`#cartTotal`)
-        if (cartSubTotalIva && cartSubTotal && cartTotal) {
+        const cartSubTotalDiscount = document.querySelector(`#cartSubTotalDiscount`)
+        if (cartSubTotalIva && cartSubTotal && cartTotal && cartSubTotalDiscount) {
             cartSubTotalIva.textContent = `€${cartController.subTotalIva.toFixed(2)}`  
             cartSubTotal.textContent = `€${cartController.subTotalItems.toFixed(2)}`  
             cartTotal.textContent = `€${cartController.totalOrder.toFixed(2)}`          
+            cartSubTotalDiscount.textContent = `€${cartController.subTotalDiscount.toFixed(2)}`          
         }
         
     },
@@ -191,7 +193,7 @@ export const cartView = {
         if (btnsRemoveItem) {
             btnsRemoveItem.forEach(function(value, index){
                 const bntElement = value
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 bntElement.addEventListener("click", function(e){
                     e.preventDefault()
                     thisArg.removeItem(id)
@@ -217,7 +219,7 @@ export const cartView = {
                     ivaPriceItem: totalIvaPriceItem[index],
                     priceItem: totalPriceItem[index]
                 }
-                let id = Number(value.dataset.id)
+                let id = value.dataset.id
                 inputElement.addEventListener("input", function(e){
                     e.preventDefault()
                     thisArg.changeQuantity(id, elementsHtml)

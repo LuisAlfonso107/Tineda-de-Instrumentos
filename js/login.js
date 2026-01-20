@@ -7,8 +7,7 @@ export const login = {
         const loElement = document.querySelector('#login')
         if (loElement) {
         
-        loElement.innerHTML = loginTemplate.init()
-        console.log("esto");
+            loElement.innerHTML = loginTemplate.init()
         
             const form = document.querySelector('#form-login');
             const feedback = document.querySelector('#login-feedback');
@@ -37,7 +36,7 @@ export const login = {
 
                 try {
                     // json-server: buscar usuario con email y password
-                    const query = `http://localhost:8000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(passHash)}`;
+                    const query = `http://localhost:9000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(passHash)}`;
                     const res = await fetch(query);
                     if (!res.ok) { feedback.textContent = 'Error del servidor'; return; }
                     const users = await res.json();
@@ -48,7 +47,7 @@ export const login = {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     if (remember) localStorage.setItem('rememberUser', email);
 
-                    if (user.role === 'admin') window.location.href = '../pages/dashboardAdmin.html';
+                    if (user.role === 'admin') window.location.href = '../pages/dashBoardAdmin.html';
                     else window.location.href = '../pages/dashboardCliente.html';
                 } catch (err) {
                     feedback.textContent = 'No se pudo conectar con el servidor';

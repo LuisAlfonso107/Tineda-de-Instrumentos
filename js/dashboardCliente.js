@@ -4,7 +4,7 @@ export const dashboardCliente = {
   container: document.getElementById("dashboardCliente-main"),
 
   init() {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const user = JSON.parse(localStorage.getItem("currentUser")) || [];
 
     // 🔐 Redirecciones según rol
     if (!user || !user.isActive) {

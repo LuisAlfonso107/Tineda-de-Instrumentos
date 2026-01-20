@@ -39,7 +39,7 @@ export const registro = {
                 const passHash = await hashPassword(password);
 
                 try {
-                    const existsUser = await fetch(`http://localhost:8000/users?email=${email}`);
+                    const existsUser = await fetch(`http://localhost:9000/users?email=${email}`);
                     
                     if (!existsUser.ok) {
                         feedback.textContent = 'Error registrando usuario';
@@ -52,7 +52,7 @@ export const registro = {
                         return;
                     }
 
-                    const res = await fetch('http://localhost:8000/users', {
+                    const res = await fetch('http://localhost:9000/users', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({

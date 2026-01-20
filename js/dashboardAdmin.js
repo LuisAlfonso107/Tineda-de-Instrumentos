@@ -205,4 +205,8 @@ if (btnAddProduct) {
   btnAddProduct.addEventListener("click", setupModal);
 } else {
   console.log("Botón btn-add-product no encontrado");
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9999c5f0cb03ea24d9f1c337a71077f9155bfc3f
