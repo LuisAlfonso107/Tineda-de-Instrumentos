@@ -773,8 +773,16 @@
       "precio": "123",
       "stock": "12",
       "categoria": "viento",
+      "imagenes": []
+    },
+    {
+      "id": "c06b",
+      "nombre": "sdfs",
+      "precio": "2654",
+      "stock": "5",
+      "categoria": "Viento",
       "imagenes": [
-        
+        {}
       ]
     }
   ],
@@ -788,8 +796,7 @@
       "isActive": true
     },
     {
-<<<<<<< HEAD
-      "id": 1768902379036,
+      "id": "1768902379036",
       "nombre": "Esto es nua prueb",
       "categoria": "Viento",
       "precio": 70,
@@ -804,7 +811,7 @@
       ]
     },
     {
-      "id": 1768905403725,
+      "id": "1768905403725",
       "nombre": "as",
       "categoria": "complemento y accesorios",
       "precio": 80,
@@ -817,7 +824,8 @@
       "imagenes": [
         "img/complemento y accesorios/1768905403724-257806930.png"
       ]
-=======
+    },
+    {
       "id": "8939",
       "name": "Alfonso",
       "email": "garcialagos20@gmail.com",
@@ -1331,7 +1339,6 @@
         "subTotalItems": 887.98,
         "totalOrder": 1074.4558000000002
       }
->>>>>>> 9999c5f0cb03ea24d9f1c337a71077f9155bfc3f
     }
   ]
 }

@@ -149,6 +149,8 @@ function setupModal() {
     const categoria = document.getElementById("category").value;
     const imagenes = document.getElementById("image").files[0];
 
+    
+
     //falta guardar la imagen en la carpeta del proyecto, y luego enviar esa ruta de la imagen en el form data
 
     //console.log("Datos:", { nombre, precio, stock, categoria, imagenes });
@@ -205,8 +207,6 @@ if (btnAddProduct) {
   btnAddProduct.addEventListener("click", setupModal);
 } else {
   console.log("Botón btn-add-product no encontrado");
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 9999c5f0cb03ea24d9f1c337a71077f9155bfc3f
+
