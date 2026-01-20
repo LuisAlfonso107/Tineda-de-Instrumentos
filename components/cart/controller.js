@@ -121,19 +121,9 @@ export const cartController = {
 
             sortedPrices.forEach(function(item, index){
                 if (count < 3){
-                    let multiplier = (item.quantity - count) <= count ? 3 - count : item.quantity
-                    if(item.quantity >= 3){
-                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
-                        count += 3
-                    }
-                    else if (item.quantity === 2){
-                        result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
-                        count += 2
-                    }
-                    else if(item.quantity === 1){
-                        result.subTotalDiscount += ((item.precio * 10) / 100)
-                        count += 1
-                    }
+                    let multiplier = (item.quantity >= 3 && count < 3) ? (3 - count) : (item.quantity === 2 && count < 2) ? (2 - count) : 1
+                    result.subTotalDiscount += ((item.precio * 10) / 100)*multiplier
+                    count += multiplier                    
                 }
             })    
                 
@@ -168,6 +158,7 @@ export const cartController = {
                 this.cartCount = cart.cartCount
                 this.subTotalIva = cart.subTotalIva,
                 this.subTotalItems = cart.subTotalItems,
+                this.subTotalDiscount = cart.subTotalDiscount,
                 this.totalOrder = cart.totalOrder
                 result.status = true
                 result.msg = `data actualizada utiliza getData() para obtenerla`                
