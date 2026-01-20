@@ -105,24 +105,12 @@ export const dashboardAdminTemplate = {
                             <th>Precio</th>
                             <th>Stock</th>
                             <th>Categoría</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Guitarra Eléctrica Fender</td>
-                            <td>$500</td>
-                            <td>20</td>
-                            <td>Guitarras</td>
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Batería Yamaha</td>
-                            <td>$800</td>
-                            <td>5</td>
-                            <td>Percusión</td>
-                        </tr>
-                        <!-- Más filas -->
+                    <tbody id="productos-tbody">
+                        <!-- Productos se cargarán dinámicamente -->
                     </tbody>
                 </table>
             </section>

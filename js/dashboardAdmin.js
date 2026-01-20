@@ -94,7 +94,7 @@ function setupModal() {
     setTimeout(() => modal.remove(), 300);  // Esperar la transición
   });
 
-  // Modificación: Cambié a FormData para enviar imagen junto con datos al servidor
+  // Agregar producto 
   form.addEventListener("submit", async (e) => {
     console.log("Form submit");
     e.preventDefault();
@@ -151,12 +151,5 @@ if (btnAddProduct) {
   console.log("Botón btn-add-product no encontrado");
 }
 
- // Función #3 Para modificar los productos.
+ // Función #3 Para modificar los pro
   
-
-
-
-
-
-
- 
