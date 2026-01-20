@@ -8,24 +8,12 @@ export const productsController = {
     async getData(){
         try {
             const result = {}
-            const response = await fetch("../data/products.json")
+            const response = await fetch("http://localhost:3000/products")
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
             const data = await response.json()
-            const setLS = this.setLocalStorage(data)
-            if (setLS.status) {
-                this.data = data
-            }
-            else{
-                const getLS = this.getLocalStorage()
-                if (getLS.status) {
-                    this.data = getLS.data
-                }
-                else{   
-                    console.log(getLS.msg)
-                }
-            }
+            this.data = data
         }
         catch (error) {
             console.error('Hubo un problema con la petición fetch:', error);

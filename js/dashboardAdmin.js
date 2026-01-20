@@ -66,3 +66,18 @@ cerrarSesion.addEventListener("click", () => {
 
 
 /*MODAL DE AGREGAR PRODUCTO */
+
+const boton = document.getElementById("add-product-btn");
+const contenedor = document.getElementById("product-modal");
+const cerrarModal = document.getElementById("close-product-modal");
+const form = document.getElementById("product-form");
+
+boton.addEventListener("click", () => {
+  const modalHTML = dashboardAdminTemplate.crearNuevoProducto();
+  contenedor.innerHTML = modalHTML;
+  contenedor.style.display = "block";
+
+  
+ 
+
+});
