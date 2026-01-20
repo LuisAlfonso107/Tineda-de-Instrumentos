@@ -9,7 +9,7 @@ import { usuarioCreado } from "./usuarioCreado.js";
 import { login } from "./login.js";
 import { productoDetalleController } from "./productoDetalle.js";
 import { hero } from "./hero.js"
- 
+
 // 1. Cargar datos de productos (con await dentro de async)
 await productsController.getData();
 
@@ -29,10 +29,10 @@ cart.init();
 /* no borrar esto: evento para abrir y cerrar el carrito */
 const btnCart = document.querySelector(`#${cart.idBtnCart}`)
 if (btnCart) {
-    btnCart.addEventListener("click", function(e){
-        e.preventDefault()
-        cart.toggle()
-    })   
+  btnCart.addEventListener("click", function (e) {
+    e.preventDefault()
+    cart.toggle()
+  })
 }
 else {
   console.log("Botón del carrito no encontrado. ¿Está cart.idBtnCart correctamente definido?");
@@ -91,26 +91,26 @@ login.loginF();
   window.addEventListener("hashchange", navigateToHash);
 })();*/
 
-  // Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
-  // navegamos cuando el DOM tenga la sección.
-  const navigateToHash = () => {
-    const hash = window.location.hash;
-    if (!hash) return;
-    const target = document.getElementById(hash.slice(1));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+// Si la URL ya trae un hash (o el usuario clicó antes de que se renderice),
+// navegamos cuando el DOM tenga la sección.
+const navigateToHash = () => {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const target = document.getElementById(hash.slice(1));
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
-  // Intento inmediato por si ya está renderizado:
-  navigateToHash();
+// Intento inmediato por si ya está renderizado:
+navigateToHash();
 
-  // Reintento tras el render del catálogo (por si se llamó después):
-  // Este setTimeout es no invasivo y evita dependencias internas.
-  setTimeout(navigateToHash, 0);
+// Reintento tras el render del catálogo (por si se llamó después):
+// Este setTimeout es no invasivo y evita dependencias internas.
+setTimeout(navigateToHash, 0);
 
-  // Además, reaccionamos a cambios de hash (navegación manual del usuario):
-  window.addEventListener("hashchange", navigateToHash);
+// Además, reaccionamos a cambios de hash (navegación manual del usuario):
+window.addEventListener("hashchange", navigateToHash);
 
 /* De manera atenta se les notifica la importancia de la presente; no alteren la naturaleza del codigo que parte desde la linea posterior a este comentario
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
@@ -121,13 +121,13 @@ if (!input) {
   /* return; */
 }
 input.addEventListener("keyup", async () => {
-    const texto = input.value.trim();
-    if (texto === "") {
-        document.getElementById("search-results").innerHTML = "";
-        return;
-    }
-    const resultados = await header.buscarInstrumentos(texto);
-    header.mostrarResultados(resultados);
+  const texto = input.value.trim();
+  if (texto === "") {
+    document.getElementById("search-results").innerHTML = "";
+    return;
+  }
+  const resultados = await header.buscarInstrumentos(texto);
+  header.mostrarResultados(resultados);
 });
 // Fin de la funcion de la barra del buscador en el header.
 
@@ -141,5 +141,5 @@ productoDetalleController.renderProductDetail()
 // fin de pdetalle */
 
 /*Login */
- login.loginF()
+login.loginF()
 /*Seguimiento no borrar */
