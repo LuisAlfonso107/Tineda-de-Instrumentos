@@ -28,6 +28,8 @@ export const header = {
         if (output) {
             output.innerHTML = this.getTemplate({ cartCount: this.cartCount });
 
+            this.login();
+
             // NO BORRAR: Traduce el contenido nuevo del header
             if (window.idioma) {
                 window.idioma.translatePage();
@@ -70,12 +72,42 @@ export const header = {
             contenedor.appendChild(div);
         });
     },
+    // Función para actualizar el enlace de cuenta (login / mi cuenta)
+login() {
+    const texto = document.getElementById("texto");
+    const icono = document.getElementById("icono");
+    const enlace = document.getElementById("link-cuenta");
 
-render() {
-  const output = document.querySelector(`#${this.id}`);
-  if (output) {
-    output.innerHTML = this.getTemplate({ cartCount: cart.cartCount });
-    headerTemplate.initDateTime(); // Aquí se activa el reloj
-  }
-}
+
+   const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (user && user.isActive) {
+
+        // para cunado el usuario está logueado y activo
+
+        texto.textContent = "Mi cuenta";
+        icono.style.color = "green";
+
+     
+        if (user.role === "admin") {
+            enlace.href="../pages/dashBoardAdmin.html";
+            //window.location.href = "../pages/dashBoardAdmin.html";
+        } else if (user.role === "client") {
+            enlace.href="../pages/dashboardCliente.html";
+            //window.location.href = "../pages/dashboardCliente.html";
+        }
+
+   console.log(enlace);
+
+
+    } 
+    else {
+        // para cuando no hay usuario logueado o no está activo
+        texto.textContent = "Iniciar sesión";
+        icono.style.color = "black";
+            enlace.href="../pages/login.html";
+
+    }
+},
+
 }

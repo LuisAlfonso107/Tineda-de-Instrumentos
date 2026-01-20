@@ -22,7 +22,7 @@ export const productoDetalleController = {
   traerProductoURL() {
     const params = new URLSearchParams(window.location.search); // Lee URL
     const id = params.get("id");  
-    return id ? Number(id) : null;   
+    return id ? id : null;   
   },
 
  render() {

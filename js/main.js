@@ -17,8 +17,8 @@ await productsController.getData();
 header.init();
 navbar.render();
 footer.render();
-hero.render()
-footer.render()
+hero.render();
+footer.render();
 productsController.render();
 
 /* no borrar: cart.init() funcion para inicializar el estado del carrito */
@@ -116,19 +116,17 @@ window.addEventListener("hashchange", navigateToHash);
 dicha modificacion significaria la interrupcion de la sincronia y repercutiria como desencadenante de posiles fallos en el desarrollo del proyecto  
 (funcion de la barra del header) */
 const input = document.getElementById("buscador-input");
-if (!input) {
-  console.error("No se encontró el input del buscador");
-  /* return; */
+if (input) {
+  input.addEventListener("keyup", async () => {
+      const texto = input.value.trim();
+      if (texto === "") {
+          document.getElementById("search-results").innerHTML = "";
+          return;
+      }
+      const resultados = await header.buscarInstrumentos(texto);
+      header.mostrarResultados(resultados);
+  });
 }
-input.addEventListener("keyup", async () => {
-  const texto = input.value.trim();
-  if (texto === "") {
-    document.getElementById("search-results").innerHTML = "";
-    return;
-  }
-  const resultados = await header.buscarInstrumentos(texto);
-  header.mostrarResultados(resultados);
-});
 // Fin de la funcion de la barra del buscador en el header.
 
 const inpt = document.querySelector("#registro-section");
@@ -141,5 +139,5 @@ productoDetalleController.renderProductDetail()
 // fin de pdetalle */
 
 /*Login */
-login.loginF()
+ login.loginF()
 /*Seguimiento no borrar */

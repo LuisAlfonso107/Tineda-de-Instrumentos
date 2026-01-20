@@ -84,6 +84,10 @@ export const cartTemplate = {
                     <div id="cartSubTotal" class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
                 </div>
                 <div class="cartTotalRow">
+                    <div class="cartSubTotal" data-idioma="cart.subTotalDiscount">Descuento:</div>
+                    <div id="cartSubTotalDiscount" class="cartSubTotalPrice">€${obj.subTotalDiscount.toFixed(2)}</div>
+                </div>
+                <div class="cartTotalRow">
                     <div class="cartSubTotal" data-idioma="cart.total">Total:</div>
                     <div id="cartTotal" class="cartSubTotalPrice">€${obj.totalOrder.toFixed(2)}</div>
                 </div>
@@ -165,6 +169,10 @@ export const cartTemplate = {
                 <div class="cartTotalRow">
                     <div class="cartSubTotal" data-idioma="cart.subTotalProducts">Subtotal Productos:</div>
                     <div id="cartCheckoutSubTotal" class="cartSubTotalPrice">€${obj.subTotalItems.toFixed(2)}</div>
+                </div>
+                <div class="cartTotalRow">
+                    <div class="cartSubTotal" data-idioma="cart.subTotalDiscount">Descuento:</div>
+                    <div id="cartCheckoutSubTotalDiscount" class="cartSubTotalPrice">€${obj.subTotalDiscount.toFixed(2)}</div>
                 </div>
                 <div class="cartTotalRow">
                     <div class="cartSubTotal" data-idioma="cart.total">Total:</div>

@@ -17,19 +17,18 @@ export const footer = {
 
     },
 
-    render() {
-        let output = document.querySelector(`#${this.id}`)
-        if (output){
-            output.innerHTML = this.getTemplate()
-        }
-        else{
-            console.log('No se encontro el elemento con id:', this.id)
-        }
+   render() {
+    const output = document.querySelector(`#${this.id}`);
 
-        // NO BORRAR: Traduce el contenido nuevo del footer
-        if (window.idioma) {
-            window.idioma.translatePage();
-        }
+    if (!output) return; // 👈 CLAVE
+
+    output.innerHTML = this.getTemplate();
+
+    // Traducción
+    if (window.idioma) {
+        window.idioma.translatePage();
     }
+}
+
 
 }
