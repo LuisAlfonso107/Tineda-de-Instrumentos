@@ -211,10 +211,10 @@ export const dashboardAdminTemplate = {
     crearNuevoProducto() {
         return `
       <div class="product-modal">
-        
-          <h2>Agregar / Editar Producto</h2>
+        <div>
+          <h2>Agregar Producto</h2>
 
-          <form id="product-form" enctype="multipart/form-data">
+          <form id="product-form">
             <input type="hidden" id="product-id">
 
             <label>Nombre</label>
@@ -229,17 +229,16 @@ export const dashboardAdminTemplate = {
             <label>Categoría</label>
             <input type="text" id="category" required>
 
-            <label>Imagen</label>
-            <input type="file" id="image" accept="image/*" required>
+            <label>URL de la Imagen</label>
+            <input type="text" id="image" placeholder="Ej: img/cuerdas/guitarra.jpg">
 
             <div class="actions">
               <button type="submit">Guardar Producto</button>
               <button type="button" id="cancel-product">Cancelar</button>
             </div>
           </form>
-    
-
         </div>
+      </div>
         `;
     }
     

@@ -67,17 +67,96 @@ cerrarSesion.addEventListener("click", () => {
 
 /*MODAL DE AGREGAR PRODUCTO */
 
-const boton = document.getElementById("add-product-btn");
-const contenedor = document.getElementById("product-modal");
-const cerrarModal = document.getElementById("close-product-modal");
-const form = document.getElementById("product-form");
+const addProductBtn = document.getElementById("add-product-btn");
+const btnAddProduct = document.getElementById("btn-add-product");
 
-boton.addEventListener("click", () => {
+function setupModal() {
+  console.log("Configurando modal");
+  // Insertamos el modal
   const modalHTML = dashboardAdminTemplate.crearNuevoProducto();
-  contenedor.innerHTML = modalHTML;
-  contenedor.style.display = "block";
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
 
-  
+  const modal = document.querySelector(".product-modal");
+  const form = document.getElementById("product-form");
+  const cancelBtn = document.getElementById("cancel-product");
+
+  if (modal) {
+    console.log("Modal insertado");
+    modal.classList.add("show");  // Mostrar el modal con animación
+  }
+  if (form) console.log("Form encontrado");
+  if (cancelBtn) console.log("Botón cancelar encontrado");
+
+  // Cerrar modal
+  cancelBtn.addEventListener("click", () => {
+    console.log("Cerrando modal");
+    modal.classList.remove("show");
+    setTimeout(() => modal.remove(), 300);  // Esperar la transición
+  });
+
+  // Enviar producto al servidor
+  form.addEventListener("submit", async (e) => {
+    console.log("Form submit");
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const price = document.getElementById("price").value;
+    const stock = document.getElementById("stock").value;
+    const category = document.getElementById("category").value;
+    const image = document.getElementById("image").value;
+
+    console.log("Datos:", { name, price, stock, category, image });
+
+    const product = {
+      nombre: name,
+      categoria: category,
+      precio: parseFloat(price),
+      descuento: 0,
+      IVA: 21,
+      stock: parseInt(stock),
+      status: 'available',
+      descripcion: 'Descripción por defecto',
+      caracteristicas: {},
+      imagenes: [image]
+    };
+
+    try {
+      console.log("Enviando fetch a", "http://localhost:3000/products");
+      const response = await fetch("http://localhost:3000/products", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(product)
+      });
+
+      console.log("Respuesta:", response.status);
+      if (!response.ok) throw new Error("Error al crear producto");
+
+      alert("✅ Producto agregado correctamente");
+      modal.classList.remove("show");
+      setTimeout(() => modal.remove(), 300);
+
+    } catch (error) {
+      console.error("Error en fetch:", error);
+      alert("❌ Error al agregar producto");
+    }
+  });
+}
+
+if (addProductBtn) {
+  console.log("Botón add-product-btn encontrado, asignando event listener");
+  addProductBtn.addEventListener("click", setupModal);
+} else {
+  console.log("Botón add-product-btn no encontrado");
+}
+
+if (btnAddProduct) {
+  console.log("Botón btn-add-product encontrado, asignando event listener");
+  btnAddProduct.addEventListener("click", setupModal);
+} else {
+  console.log("Botón btn-add-product no encontrado");
+}
+
  
-
-});
+  

@@ -837,6 +837,32 @@
       "descripcion": "Test",
       "caracteristicas": {},
       "imagenes": []
+    },
+    {
+      "id": "940e",
+      "nombre": "Test2",
+      "categoria": "Test",
+      "precio": 20,
+      "descuento": 0,
+      "IVA": 21,
+      "stock": 2,
+      "status": "available",
+      "descripcion": "Test",
+      "caracteristicas": {},
+      "imagenes": []
+    },
+    {
+      "id": "061f",
+      "nombre": "coala ",
+      "categoria": "cuerda",
+      "precio": 85,
+      "descuento": 0,
+      "IVA": 21,
+      "stock": 12,
+      "status": "available",
+      "descripcion": "Descripción por defecto",
+      "caracteristicas": {},
+      "imagenes": []
     }
   ]
 }
