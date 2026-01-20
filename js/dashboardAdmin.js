@@ -29,7 +29,6 @@ export const dashboardAdmin = {
 dashboardAdmin.init();
 
 
-// FUNCION #2: Cerrar sesión 
 
 
 //BOTON PARA CERRAR SESIÓN"
@@ -72,7 +71,8 @@ const btnAddProduct = document.getElementById("btn-add-product");
 
 function setupModal() {
   console.log("Configurando modal");
-  // Insertamos el modal
+
+  // Insertar el modal
   const modalHTML = dashboardAdminTemplate.crearNuevoProducto();
   document.body.insertAdjacentHTML("beforeend", modalHTML);
 
@@ -133,13 +133,13 @@ function setupModal() {
       console.log("Respuesta:", response.status);
       if (!response.ok) throw new Error("Error al crear producto");
 
-      alert("✅ Producto agregado correctamente");
+      alert("Producto agregado correctamente");
       modal.classList.remove("show");
       setTimeout(() => modal.remove(), 300);
 
     } catch (error) {
       console.error("Error en fetch:", error);
-      alert("❌ Error al agregar producto");
+      alert("Error al agregar producto");
     }
   });
 }
