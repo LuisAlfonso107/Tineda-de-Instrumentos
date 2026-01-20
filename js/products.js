@@ -390,7 +390,7 @@ export const productsController = {
     async deleteProduct(product) {
         const result = {}
         try {
-            const url = `http://localhost:8000/products/${product.id}`
+            const url = `http://localhost:9000/products/${product.id}`
             const options = {
                 method: 'DELETE',
                 headers: {
@@ -406,6 +406,7 @@ export const productsController = {
             result.status=true
             result.msg="producto Eliminado"
             result.data = await response.json()
+            this.getData()
         }
         catch (error) {
             result.status=false

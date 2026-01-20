@@ -768,13 +768,13 @@
       ]
     },
     {
-      "id": "16b0",
-      "nombre": "qwertyu",
-      "precio": "123",
-      "stock": "12",
-      "categoria": "viento",
+      "id": "c997",
+      "nombre": "123",
+      "precio": "23",
+      "stock": "23",
+      "categoria": "123",
       "imagenes": [
-        
+        {}
       ]
     }
   ],

@@ -24,31 +24,9 @@ export const dashboardAdmin = {
       saludo.innerText = `Bienvenido ${users.name} 🎵`;
     }
 
-    /* ver los productos */
-    const productsOut = document.querySelector("#productsOut")
-    const products = await this.getProducts()
-    if(products.status){
-      let productsHtml = "";
-      products.data.forEach(product => {
-        productsHtml +=  dashboardAdminTemplate.productCard(product)
-      });
-
-      if(productsOut){
-        productsOut.innerHTML = productsHtml
-      }
-      else{
-        console.log("no se encontro el div para dibujar los productos")
-      }
-
-    }
-    else{
-      if(productsOut){
-        productsOut.innerHTML = dashboardAdminTemplate.productNoData()
-      }
-      else{
-        console.log("no se encontro el div para dibujar los productos")
-      }
-    }
+    //renderizar productos
+    await this.renderProducts()
+    
   },
 
   async getProducts(){
@@ -65,6 +43,71 @@ export const dashboardAdmin = {
       result.msg = "No hay productos para mostrar"
     }
     return result
+  },
+
+  async renderProducts(){
+    /* ver los productos */
+    const productsOut = document.querySelector("#productsOut")
+    const products = await this.getProducts()
+    console.log(products.data);
+    
+    if(products.status){
+      let productsHtml = "";
+      products.data.forEach(product => {
+        productsHtml +=  dashboardAdminTemplate.productCard(product)
+      });
+
+      if(productsOut){
+        productsOut.innerHTML = productsHtml
+        this.addListeners()
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+
+    }
+    else{
+      if(productsOut){
+        productsOut.innerHTML = dashboardAdminTemplate.productNoData()
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+    }
+  },
+
+  async deleteProduct(id, e){
+    e.preventDefault()
+    const product = {
+      id: id
+    }
+    const response = await productsController.deleteProduct(product)
+    if(response.status){
+      this.renderProducts()
+      alert("producto eliminado")
+    }
+    else{
+      alert(response.msg)
+    }
+
+  },
+
+  addListeners(){
+      const thisArg = this
+      const btnsDeletedProducts = document.querySelectorAll(".productDeleteBtn")
+      if (btnsDeletedProducts) {
+          btnsDeletedProducts.forEach(function(value, index){
+              const bntElement = value
+              let id = value.dataset.id
+              bntElement.addEventListener("click", async function(e){
+                  e.preventDefault()
+                  await thisArg.deleteProduct(id, e)
+                  return
+              })                
+          })                        
+      } else {
+          console.log(`no se encontraron los botones de eliminar producto`);                        
+      }
   }
 
 };
