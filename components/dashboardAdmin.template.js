@@ -229,8 +229,9 @@ export const dashboardAdminTemplate = {
             <label>Categoría</label>
             <input type="text" id="category" required>
 
-            <label>URL de la Imagen</label>
-            <input type="text" id="image" placeholder="Ej: img/cuerdas/guitarra.jpg">
+            <!-- Modificación: Cambié de input text a file para subir imagen -->
+            <label>Imagen</label>
+            <input type="file" id="image" accept="image/*">
 
             <div class="actions">
               <button type="submit">Guardar Producto</button>

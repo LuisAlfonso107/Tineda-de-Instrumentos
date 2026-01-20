@@ -94,7 +94,7 @@ function setupModal() {
     setTimeout(() => modal.remove(), 300);  // Esperar la transición
   });
 
-  // Enviar producto al servidor
+  // Modificación: Cambié a FormData para enviar imagen junto con datos al servidor
   form.addEventListener("submit", async (e) => {
     console.log("Form submit");
     e.preventDefault();
@@ -103,31 +103,24 @@ function setupModal() {
     const price = document.getElementById("price").value;
     const stock = document.getElementById("stock").value;
     const category = document.getElementById("category").value;
-    const image = document.getElementById("image").value;
+    const image = document.getElementById("image").files[0];
 
     console.log("Datos:", { name, price, stock, category, image });
 
-    const product = {
-      nombre: name,
-      categoria: category,
-      precio: parseFloat(price),
-      descuento: 0,
-      IVA: 21,
-      stock: parseInt(stock),
-      status: 'available',
-      descripcion: 'Descripción por defecto',
-      caracteristicas: {},
-      imagenes: [image]
-    };
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('price', price);
+    formData.append('stock', stock);
+    formData.append('category', category);
+    if (image) {
+      formData.append('image', image);
+    }
 
     try {
       console.log("Enviando fetch a", "http://localhost:3000/products");
       const response = await fetch("http://localhost:3000/products", {
         method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(product)
+        body: formData
       });
 
       console.log("Respuesta:", response.status);
@@ -158,5 +151,12 @@ if (btnAddProduct) {
   console.log("Botón btn-add-product no encontrado");
 }
 
- 
+ // Función #3 Para modificar los productos.
   
+
+
+
+
+
+
+ 
