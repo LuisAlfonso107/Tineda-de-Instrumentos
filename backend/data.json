@@ -766,6 +766,16 @@
       "imagenes": [
         "img/cuerdas/cuatro_venezolano_id30.webp"
       ]
+    },
+    {
+      "id": "16b0",
+      "nombre": "qwertyu",
+      "precio": "123",
+      "stock": "12",
+      "categoria": "viento",
+      "imagenes": [
+        
+      ]
     }
   ],
   "users": [

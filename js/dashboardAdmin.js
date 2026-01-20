@@ -138,40 +138,45 @@ function setupModal() {
     setTimeout(() => modal.remove(), 300);  // Esperar la transición
   });
 
-  // Enviar producto al servidor
+  // Modificación: Cambié a FormData para enviar imagen junto con datos al servidor
   form.addEventListener("submit", async (e) => {
-    console.log("Form submit");
     e.preventDefault();
+    console.log("Form submit");
 
-    const name = document.getElementById("name").value;
-    const price = document.getElementById("price").value;
+    const nombre = document.getElementById("name").value;
+    const precio = document.getElementById("price").value;
     const stock = document.getElementById("stock").value;
-    const category = document.getElementById("category").value;
-    const image = document.getElementById("image").value;
+    const categoria = document.getElementById("category").value;
+    const imagenes = document.getElementById("image").files[0];
 
-    console.log("Datos:", { name, price, stock, category, image });
+    //falta guardar la imagen en la carpeta del proyecto, y luego enviar esa ruta de la imagen en el form data
 
-    const product = {
-      nombre: name,
-      categoria: category,
-      precio: parseFloat(price),
-      descuento: 0,
-      IVA: 21,
-      stock: parseInt(stock),
-      status: 'available',
-      descripcion: 'Descripción por defecto',
-      caracteristicas: {},
-      imagenes: [image]
-    };
+    //console.log("Datos:", { nombre, precio, stock, categoria, imagenes });
+
+    /* const formData = new );
+    formData.append('precio', pFormData();
+    formData.append('nombre', nombrerecio);
+    formData.append('stock', stock);
+    formData.append('categoria', categoria);
+    if (imagenes) {
+      formData.append('imagenes', imagenes);
+    } */
+   const formData = {
+    nombre: nombre,
+    precio: precio,
+    stock:stock,
+    categoria: categoria,
+    imagenes: [imagenes]
+   }
 
     try {
       console.log("Enviando fetch a", "http://localhost:9000/products");
       const response = await fetch("http://localhost:9000/products", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
         },
-        body: JSON.stringify(product)
+        body: JSON.stringify(formData)
       });
 
       console.log("Respuesta:", response.status);
@@ -201,6 +206,3 @@ if (btnAddProduct) {
 } else {
   console.log("Botón btn-add-product no encontrado");
 }
-
- 
-  
