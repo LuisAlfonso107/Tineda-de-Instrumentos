@@ -12,7 +12,8 @@ export const dashboardAdminTemplate = {
                     <li><a href="#usuarios">Gestión de Usuarios</a></li>
                     <li><a href="#administradores">Gestión de Administradores</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><a href="#pedidos">Pedidos</a></li>
+                    <li><button id="btn-add-product">Agregar Producto</button>
+</li>
                     <li><a href="#ventas">Ventas</a></li>
                     <li><a href="#reportes">Reportes</a></li>
                     <li><a href="#configuracion">Configuración del Sistema</a></li>
@@ -95,6 +96,7 @@ export const dashboardAdminTemplate = {
             </section>
             <section id="productos">
                 <h2>Gestión de Productos</h2>
+                <button id="add-product-btn">Agregar Producto</button>
                 <table>
                     <thead>
                         <tr>
@@ -203,6 +205,40 @@ export const dashboardAdminTemplate = {
             <button id="confirm-logout">Sí</button>
             <button id="cancel-logout">No</button>
         </div>
+        `;
+    },
+
+    crearNuevoProducto() {
+        return `
+      <div class="product-modal">
+        <div>
+          <h2>Agregar Producto</h2>
+
+          <form id="product-form">
+            <input type="hidden" id="product-id">
+
+            <label>Nombre</label>
+            <input type="text" id="name" required>
+
+            <label>Precio</label>
+            <input type="number" id="price" required>
+
+            <label>Stock</label>
+            <input type="number" id="stock" required>
+
+            <label>Categoría</label>
+            <input type="text" id="category" required>
+
+            <label>URL de la Imagen</label>
+            <input type="text" id="image" placeholder="Ej: img/cuerdas/guitarra.jpg">
+
+            <div class="actions">
+              <button type="submit">Guardar Producto</button>
+              <button type="button" id="cancel-product">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
         `;
     }
     
