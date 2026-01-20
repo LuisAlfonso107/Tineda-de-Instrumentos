@@ -1,9 +1,10 @@
 import { dashboardAdminTemplate } from "../components/dashboardAdmin.template.js";
+import { productsController } from "./products.js"
 
 export const dashboardAdmin = {
   container: document.getElementById("dashBoardAdmin"),
 
-  init() {
+  async init() {
    
     if (!this.container) return;
 
@@ -22,7 +23,50 @@ export const dashboardAdmin = {
     if (saludo) {
       saludo.innerText = `Bienvenido ${users.name} 🎵`;
     }
+
+    /* ver los productos */
+    const productsOut = document.querySelector("#productsOut")
+    const products = await this.getProducts()
+    if(products.status){
+      let productsHtml = "";
+      products.data.forEach(product => {
+        productsHtml +=  dashboardAdminTemplate.productCard(product)
+      });
+
+      if(productsOut){
+        productsOut.innerHTML = productsHtml
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+
+    }
+    else{
+      if(productsOut){
+        productsOut.innerHTML = dashboardAdminTemplate.productNoData()
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+    }
+  },
+
+  async getProducts(){
+    const result ={}
+    await productsController.getData()
+    const products = productsController.data
+    if (products.length > 0){
+      result.status = true
+      result.msg = "hay productos"
+      result.data = products
+    }
+    else{
+      result.status = false
+      result.msg = "No hay productos para mostrar"
+    }
+    return result
   }
+
 };
 
 // Ejecutamos la inicialización

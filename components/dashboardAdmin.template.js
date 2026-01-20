@@ -2,22 +2,13 @@ export const dashboardAdminTemplate = {
 
     init(obj){
         return `
-         
-
          <div class="container">
         <aside>
             <nav>
                 <ul>
-                    <li><a href="#general">Ir a la tienda</a></li>
-                    <li><a href="#usuarios">Gestión de Usuarios</a></li>
-                    <li><a href="#administradores">Gestión de Administradores</a></li>
+                    <li><a href="../index.html">Ir a la tienda</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><button id="btn-add-product">Agregar Producto</button>
-</li>
-                    <li><a href="#ventas">Ventas</a></li>
-                    <li><a href="#reportes">Reportes</a></li>
-                    <li><a href="#configuracion">Configuración del Sistema</a></li>
-                    <li><a href="#estado">Estado del Sistema</a></li>
+                    <li><button id="btn-add-product">Agregar Producto</button></li>
                    <a href="#cerrar-link"><li id="cerrar-link">Cerrar Sesión</li></a>
                 </ul>
             </nav>
@@ -44,158 +35,14 @@ export const dashboardAdminTemplate = {
                     </div>
                 </div>
             </section>
-            <section id="usuarios">
-                <h2>Gestión de Usuarios</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Rol</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="client">
-                            <td>Juan Pérez</td>
-                            <td>juan@example.com</td>
-                            <td>Cliente</td>
-                            <td>Activo</td>
-                        </tr>
-                        <tr class="admin">
-                            <td>Ana López</td>
-                            <td>ana@admin.com</td>
-                            <td>Administrador</td>
-                            <td>Activo</td>
-                        </tr>
-                        <tr class="client">
-                            <td>Carlos Ruiz</td>
-                            <td>carlos@example.com</td>
-                            <td>Cliente</td>
-                            <td>Inactivo</td>
-                        </tr>
-                        <!-- Más filas según sea necesario -->
-                    </tbody>
-                </table>
-            </section>
-            <section id="administradores">
-                <h2>Gestión de Administradores</h2>
-                <p>Agrega un nuevo administrador mediante correo electrónico.</p>
-                <form>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Nombre completo">
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="email" id="correo" placeholder="correo@ejemplo.com">
-                    <label for="rol">Rol</label>
-                    <select id="rol">
-                    
-                        <option>Administrador Principal</option>
-                    </select>
-                    <button type="submit">Agregar Administrador</button>
-                </form>
-            </section>
+            
             <section id="productos">
                 <h2>Gestión de Productos</h2>
                 <button id="add-product-btn">Agregar Producto</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
-                            <th>Categoría</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Guitarra Eléctrica Fender</td>
-                            <td>$500</td>
-                            <td>20</td>
-                            <td>Guitarras</td>
-                        </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Batería Yamaha</td>
-                            <td>$800</td>
-                            <td>5</td>
-                            <td>Percusión</td>
-                        </tr>
-                        <!-- Más filas -->
-                    </tbody>
-                </table>
-            </section>
-            <section id="pedidos">
-                <h2>Gestión de Pedidos</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID Pedido</th>
-                            <th>Cliente</th>
-                            <th>Fecha</th>
-                            <th>Total</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1001</td>
-                            <td>Juan Pérez</td>
-                            <td>2026-01-10</td>
-                            <td>$500</td>
-                            <td>Enviado</td>
-                        </tr>
-                        <tr>
-                            <td>1002</td>
-                            <td>Ana López</td>
-                            <td>2026-01-11</td>
-                            <td>$800</td>
-                            <td>Pendiente</td>
-                        </tr>
-                        <!-- Más filas -->
-                    </tbody>
-                </table>
-            </section>
-            <section id="ventas">
-                <h2>Ventas</h2>
-                <p>Resumen de ventas recientes y métricas.</p>
-                <!-- Contenido adicional como gráficos placeholders si es necesario -->
-            </section>
-            <section id="reportes">
-                <h2>Reportes</h2>
-                <p>Genera reportes detallados de usuarios, ventas y productos.</p>
-            </section>
-            <section id="configuracion">
-                <h2>Configuración del Sistema</h2>
-                <p>Ajustes generales de la plataforma.</p>
-            </section>
-            <section id="estado">
-                <h2>Estado del Sistema</h2>
-                <div class="status">
-                    <div class="status-item">
-                        <span>Estado del Servidor:</span>
-                        <span class="good">Operativo</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Estado de la Base de Datos:</span>
-                        <span class="good">Conectada</span>
-                    </div>
-                    <div class="status-item">
-                        <span>Último Respaldo:</span>
-                        <span>2026-01-11 23:00</span>
-                    </div>
-                </div>
-            </section>
-            <section id="cerrar">
-                <h2>Cerrar Sesión</h2>
-                <p>Presiona el botón para cerrar sesión de forma segura.</p>
-                <button>Cerrar Sesión</button>
+                <div class="productsOut" id="productsOut"></div>
             </section>
         </main>
     </div>
-   
-
         `
     },
     confirmLogout() {
@@ -240,6 +87,37 @@ export const dashboardAdminTemplate = {
         </div>
       </div>
         `;
+    },
+
+    productCard(obj){
+        return `
+            <div class="products" id="product-${obj.id}">
+                <a class="linkToDetails" data-id="${obj.id}" href="../pages/paginaDetalle.html?id=${obj.id}">
+                    <div class="productImg">
+                        <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
+                    </div>
+                    <h3 class="productTitle" data-idioma="products.name">${obj.nombre}</h3>
+                    <p class="productCategory"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.cuerdas">${obj.categoria}</span></p>
+                    <p class="productPrice"><span data-idioma="products.priceLabel">Precio:</span> €${obj.precio}</p>
+                </a>
+                <a class="productUpdateBtn" href="#" data-id="${obj.id}">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    <span data-idioma="products.updateBtn">Editar</span>
+                </a>
+                <a class="productDeleteBtn" href="#" data-id="${obj.id}">
+                    <i class="fa-regular fa-trash-can"></i>
+                    <span data-idioma="products.deleteBtn">Eliminar</span>
+                </a>
+            </div>
+        `
+    },
+
+    productNoData(obj){
+        return `
+            <div class="products" id="productNoData">
+                <p>No Hay Products para mostrar</p>
+            </div>
+        `
     }
     
 }
