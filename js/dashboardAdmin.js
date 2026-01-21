@@ -49,7 +49,6 @@ export const dashboardAdmin = {
     /* ver los productos */
     const productsOut = document.querySelector("#productsOut")
     const products = await this.getProducts()
-    console.log(products.data);
     
     if(products.status){
       let productsHtml = "";
@@ -102,6 +101,7 @@ export const dashboardAdmin = {
     const modal = document.querySelector("#updateProductModal");
     const cancelBtn = document.querySelector("#cancelUpdateProduct");
     const saveBtn = document.querySelector("#saveUpdateProduct");
+    const form = document.querySelector("#updateProductForm");
 
     if (modal) {
       modal.classList.add("show");  // Mostrar el modal con animación
@@ -114,17 +114,15 @@ export const dashboardAdmin = {
     });
 
     // llamar la funcion de guardar producto
-    saveBtn.addEventListener("click", (e) => {
-      e.preventDefault()
-      thisArg.updateProduct(id, product).then(response => {
-        alert(response.msg)
-      })
+    form.addEventListener("submit", function(event){
+      event.preventDefault();
+      thisArg.updateProduct(id, product);      
     });
 
   },
 
-  async updateProduct(id, productObj){
-    const result = {}    
+  updateProduct(id, productObj){
+          
     const product = {
       id: id,
       nombre: document.querySelector("#updateProductName").value,
@@ -139,17 +137,20 @@ export const dashboardAdmin = {
       imagenes: [
         productObj.data[0].imagenes[0]
       ]
-
     }
 
-    const response = await productsController.updateProduct(product)
+    /* const response = productsController.updateProduct(product)
     if(response.status){
       this.renderProducts()
       alert("producto actualizado")
+      console.log("producto actalizado");
     }
     else{
       alert(response.msg)
-    }
+    } */
+   productsController.updateProduct(product).then(response => {
+    console.log(response);
+   })
   },
 
   addListeners(){

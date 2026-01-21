@@ -28,13 +28,13 @@
     {
       "id": "2",
       "nombre": "Bajo eléctrico",
-      "categoria": "Cuerdas",
       "precio": 349,
+      "stock": 12,
+      "categoria": "Cuerdas",
+      "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
       "descuento": 0,
       "IVA": 21,
-      "stock": 12,
       "status": "available",
-      "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
       "caracteristicas": {
         "materiales": "Tilo, arce y palisandro",
         "nivel": "Intermedio",
@@ -49,8 +49,7 @@
         "controles": "Volumen, tono y selector"
       },
       "imagenes": [
-        "img/cuerdas/bajo_4cuerdas_id2.webp",
-        "img/cuerdas/bajo_electrico_id2.webp"
+        "img/cuerdas/bajo_4cuerdas_id2.webp"
       ]
     },
     {
@@ -618,13 +617,13 @@
     {
       "id": "25",
       "nombre": "Set de percusión infantil",
-      "categoria": "Percusión",
       "precio": 59.99,
+      "stock": 15,
+      "categoria": "Percusión",
+      "descripcion": "Set completo de percusión para niños de 3 a 8 años, incluye pandereta, maracas, claves, triángulo y platillo. Todos los instrumentos fabricados con materiales no tóxicos y bordes redondeados para máxima seguridad.",
       "descuento": 0,
       "IVA": 21,
-      "stock": 15,
       "status": "available",
-      "descripcion": "Set completo de percusión para niños de 3 a 8 años, incluye pandereta, maracas, claves, triángulo y platillo. Todos los instrumentos fabricados con materiales no tóxicos y bordes redondeados para máxima seguridad.",
       "caracteristicas": {
         "materiales": "Madera y metal no tóxicos",
         "nivel": "Infantil",
@@ -718,13 +717,13 @@
     {
       "id": "29",
       "nombre": "Violonchelo",
-      "categoria": "Cuerdas",
       "precio": 299.99,
+      "stock": 10,
+      "categoria": "Cuerdas",
+      "descripcion": "Violonchelo 4/4 con tapa de abeto europeo seleccionado y fondo de arce flameado. Incluye arco de madera pernambuco, estuche rígido con ruedas, colofonia y puente ajustado profesionalmente. Perfecto para estudiantes avanzados.",
       "descuento": 0,
       "IVA": 21,
-      "stock": 10,
       "status": "available",
-      "descripcion": "Violonchelo 4/4 con tapa de abeto europeo seleccionado y fondo de arce flameado. Incluye arco de madera pernambuco, estuche rígido con ruedas, colofonia y puente ajustado profesionalmente. Perfecto para estudiantes avanzados.",
       "caracteristicas": {
         "materiales": "Abeto y arce flameado",
         "nivel": "Intermedio",
@@ -744,13 +743,13 @@
     {
       "id": "30",
       "nombre": "Cuatro Venezolano",
-      "categoria": "Cuerdas",
       "precio": 399.99,
+      "stock": 10,
+      "categoria": "Cuerdas",
+      "descripcion": "Cuatro venezolano tradicional construido en madera de cedro con tapa de picea. Cuatro órdenes de cuerdas (5 cuerdas en total) afinación tradicional A3 D4 F#4 B3 E4. Ideal para música folclórica venezolana y latinoamericana.",
       "descuento": 0,
       "IVA": 21,
-      "stock": 10,
       "status": "available",
-      "descripcion": "Cuatro venezolano tradicional construido en madera de cedro con tapa de picea. Cuatro órdenes de cuerdas (5 cuerdas en total) afinación tradicional A3 D4 F#4 B3 E4. Ideal para música folclórica venezolana y latinoamericana.",
       "caracteristicas": {
         "materiales": "Cedro y picea",
         "nivel": "Intermedio-Profesional",
@@ -765,6 +764,25 @@
       },
       "imagenes": [
         "img/cuerdas/cuatro_venezolano_id30.webp"
+      ]
+    },
+    {
+      "id": "1d52",
+      "nombre": "nuevo producto",
+      "precio": 123,
+      "stock": 12,
+      "categoria": "caja",
+      "descripcion": "default",
+      "descuento": 0,
+      "IVA": 21,
+      "status": "available",
+      "caracteristicas": {
+        "material": "default"
+      },
+      "imagenes": [
+        [
+          "img/productDefault.jpg"
+        ]
       ]
     }
   ],

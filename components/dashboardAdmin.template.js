@@ -115,10 +115,13 @@ export const dashboardAdminTemplate = {
             <textarea id="updateProductDescription" name="updateProductDescription" rows="5" value="${obj.descripcion}">${obj.descripcion}</textarea>
 
             <div class="actions">
-              <button class="productUpdateBtn" type="button" id="saveUpdateProduct">Guardar Producto</button>
+              <button class="productUpdateBtn" type="submit" id="saveUpdateProduct">Guardar Producto</button>
               <button type="button" id="cancelUpdateProduct">Cancelar</button>
             </div>
+
+            
           </form>
+          
         </div>
       </div>
         `;

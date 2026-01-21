@@ -1,6 +1,7 @@
 /* no borrar este import es necesario para llamar a la funcion de addItem(id) para agregar item al carrito
 se usa en el escuchador del evento click que esta al final*/
 import { cart } from "../components/cart/cart.js"
+import { config } from "./config.js"
 /* no borrar :) */
 
 export const productsController = {
@@ -8,13 +9,15 @@ export const productsController = {
     async getData(){
         try {
             const result = {}
-            const response = await fetch("http://localhost:9000/products")
+            const response = await fetch(`${config.endPoints().products}`)
             if (!response.ok) {
                 throw new Error('La red respondió con un error.')
             }
-            const data = await response.json()
-            /*const setLS =*/ this.setLocalStorage(data)
-            this.data = data           
+            else{
+                const data = await response.json()
+                /*const setLS =*/ this.setLocalStorage(data)
+                this.data = data 
+            }                 
             
             /* if (setLS.status) {
                 this.data = data
@@ -288,11 +291,11 @@ export const productsController = {
                     result.msg = existsProduct.msg
                 }
                 else{
-                    const url = `http://localhost:8000/products`
+                    const url = `${config.endPoints().products}`
                     const options = {
                         method: 'POST',
                         headers: {
-                        'Content-Type': 'application/json',
+                            'Content-Type': 'application/json',
                         },
                         body: JSON.stringify(product),
                     }
@@ -302,10 +305,11 @@ export const productsController = {
                         result.msg="la red respondio con error: no se pudo registrar el producto"
                         throw new Error ("la red respondio con error: no se pudo registrar el product") 
                     }
-                    result.status=true
-                    result.msg="producto creado"
-                    result.data = await response.json()
-
+                    else{
+                        result.status=true
+                        result.msg="producto creado"
+                        result.data = await response.json()
+                    }
                 }
             }
             else{
@@ -323,22 +327,24 @@ export const productsController = {
     async existsProduct(nombre){
         const result={}
         try {
-            const url = `http://localhost:8000/products?nombre=${nombre}`
+            const url = `${config.endPoints().products}?nombre=${nombre}`
             const response = await fetch(url);
             if(!response.ok){
                 result.status=false
                 result.msg="la red respondio con error"
                 throw new Error ("la red respondio con error")
             }
-            const productData = await response.json()
-                // Evitar duplicar productos  
-            if(productData.length > 0){
-                result.status = true
-                result.msg = "producto existe"        
-            }
             else{
-                result.status = false
-                result.msg = "producto no existe"
+                const productData = await response.json()
+                // Evitar duplicar productos  
+                if(productData.length > 0){
+                    result.status = true
+                    result.msg = "producto existe"        
+                }
+                else{
+                    result.status = false
+                    result.msg = "producto no existe"
+                }
             }
         
         } catch (error) {
@@ -351,16 +357,14 @@ export const productsController = {
     async updateProduct(product) {
         const result = {}
         try {
-            
             const validate = this.validateProduct(product)
 
             if(validate.status){
-                
-                const url = `http://localhost:9000/products/${product.id}`
+                const url = `${config.endPoints().products}/${product.id}`
                 const options = {
                     method: 'PUT',
                     headers: {
-                    'Content-Type': 'application/json',
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(product),
                 }
@@ -370,10 +374,11 @@ export const productsController = {
                     result.msg="la red respondio con error: no se pudo registrar el producto"
                     throw new Error ("la red respondio con error: no se pudo registrar el product") 
                 }
-                result.status=true
-                result.msg="producto actualizado"
-                result.data = await response.json()
-                
+                else{
+                    result.status=true
+                    result.msg="producto actualizado"
+                    result.data = await response.json()
+                }
             }
             else{
                 result.status = false
@@ -390,11 +395,11 @@ export const productsController = {
     async deleteProduct(product) {
         const result = {}
         try {
-            const url = `http://localhost:9000/products/${product.id}`
+            const url = `${config.endPoints().products}/${product.id}`
             const options = {
                 method: 'DELETE',
                 headers: {
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
             }
             const response = await fetch(url, options);
@@ -403,9 +408,11 @@ export const productsController = {
                 result.msg="la red respondio con error: no se pudo eliminar el producto"
                 throw new Error ("la red respondio con error: no se pudo registrar el product") 
             }
-            result.status=true
-            result.msg="producto Eliminado"
-            result.data = await response.json()
+            else {
+                result.status=true
+                result.msg="producto Eliminado"
+                result.data = await response.json()
+            }            
         }
         catch (error) {
             result.status=false
