@@ -92,6 +92,66 @@ export const dashboardAdmin = {
 
   },
 
+  drawModalUpdatedProduct(id){
+    const thisArg = this
+  // Insertar el modal
+    const product = productsController.getById(id)    
+    const modalHTML = dashboardAdminTemplate.updateProduct(product.data[0]);
+    document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+    const modal = document.querySelector("#updateProductModal");
+    const cancelBtn = document.querySelector("#cancelUpdateProduct");
+    const saveBtn = document.querySelector("#saveUpdateProduct");
+
+    if (modal) {
+      modal.classList.add("show");  // Mostrar el modal con animación
+    }
+
+    // Cerrar modal
+    cancelBtn.addEventListener("click", () => {
+      modal.classList.remove("show");
+      setTimeout(() => modal.remove(), 300);  // Esperar la transición
+    });
+
+    // llamar la funcion de guardar producto
+    saveBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      thisArg.updateProduct(id, product).then(response => {
+        alert(response.msg)
+      })
+    });
+
+  },
+
+  async updateProduct(id, productObj){
+    const result = {}    
+    const product = {
+      id: id,
+      nombre: document.querySelector("#updateProductName").value,
+      precio: Number(document.querySelector("#updateProductPrice").value),
+      stock: Number(document.querySelector("#updateProductStock").value),
+      categoria: document.querySelector("#updateProductCategory").value,
+      descripcion: document.querySelector("#updateProductDescription").value,
+      descuento: Number(productObj.data[0].descuento),
+      IVA: Number(productObj.data[0].IVA),
+      status: productObj.data[0].status,
+      caracteristicas: productObj.data[0].caracteristicas,
+      imagenes: [
+        productObj.data[0].imagenes[0]
+      ]
+
+    }
+
+    const response = await productsController.updateProduct(product)
+    if(response.status){
+      this.renderProducts()
+      alert("producto actualizado")
+    }
+    else{
+      alert(response.msg)
+    }
+  },
+
   addListeners(){
       const thisArg = this
       const btnsDeletedProducts = document.querySelectorAll(".productDeleteBtn")
@@ -107,6 +167,19 @@ export const dashboardAdmin = {
           })                        
       } else {
           console.log(`no se encontraron los botones de eliminar producto`);                        
+      }
+      const btnsUpdateProducts = document.querySelectorAll(".productUpdateBtn")
+      if (btnsUpdateProducts) {
+          btnsUpdateProducts.forEach(function(value, index){
+              const bntElement = value
+              let id = value.dataset.id
+              bntElement.addEventListener("click", function(e){
+                  e.preventDefault()
+                  thisArg.drawModalUpdatedProduct(id, e)
+              })                
+          })                        
+      } else {
+          console.log(`no se encontraron los botones de editar producto`);                        
       }
   }
 
@@ -190,26 +263,22 @@ function setupModal() {
     const precio = document.getElementById("price").value;
     const stock = document.getElementById("stock").value;
     const categoria = document.getElementById("category").value;
-    const imagenes = document.getElementById("image").files[0];
+    const imagenes = ["img/productDefault.jpg"];
 
-    //falta guardar la imagen en la carpeta del proyecto, y luego enviar esa ruta de la imagen en el form data
-
-    //console.log("Datos:", { nombre, precio, stock, categoria, imagenes });
-
-    /* const formData = new );
-    formData.append('precio', pFormData();
-    formData.append('nombre', nombrerecio);
-    formData.append('stock', stock);
-    formData.append('categoria', categoria);
-    if (imagenes) {
-      formData.append('imagenes', imagenes);
-    } */
    const formData = {
     nombre: nombre,
     precio: precio,
     stock:stock,
     categoria: categoria,
-    imagenes: [imagenes]
+    imagenes: [imagenes],
+    caracteristicas: {
+      material: "default"
+    },
+    descuento: 0,
+    IVA: 21,
+    status:"available",
+    descripcion: "default",
+
    }
 
     try {
@@ -225,7 +294,7 @@ function setupModal() {
       console.log("Respuesta:", response.status);
       if (!response.ok) throw new Error("Error al crear producto");
 
-      alert("Producto agregado correctamente");
+      //alert("Producto agregado correctamente");
       modal.classList.remove("show");
       setTimeout(() => modal.remove(), 300);
 
