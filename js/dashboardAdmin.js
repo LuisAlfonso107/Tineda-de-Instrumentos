@@ -24,31 +24,9 @@ export const dashboardAdmin = {
       saludo.innerText = `Bienvenido ${users.name} 🎵`;
     }
 
-    /* ver los productos */
-    const productsOut = document.querySelector("#productsOut")
-    const products = await this.getProducts()
-    if(products.status){
-      let productsHtml = "";
-      products.data.forEach(product => {
-        productsHtml +=  dashboardAdminTemplate.productCard(product)
-      });
-
-      if(productsOut){
-        productsOut.innerHTML = productsHtml
-      }
-      else{
-        console.log("no se encontro el div para dibujar los productos")
-      }
-
-    }
-    else{
-      if(productsOut){
-        productsOut.innerHTML = dashboardAdminTemplate.productNoData()
-      }
-      else{
-        console.log("no se encontro el div para dibujar los productos")
-      }
-    }
+    //renderizar productos
+    await this.renderProducts()
+    
   },
 
   async getProducts(){
@@ -65,6 +43,144 @@ export const dashboardAdmin = {
       result.msg = "No hay productos para mostrar"
     }
     return result
+  },
+
+  async renderProducts(){
+    /* ver los productos */
+    const productsOut = document.querySelector("#productsOut")
+    const products = await this.getProducts()
+    console.log(products.data);
+    
+    if(products.status){
+      let productsHtml = "";
+      products.data.forEach(product => {
+        productsHtml +=  dashboardAdminTemplate.productCard(product)
+      });
+
+      if(productsOut){
+        productsOut.innerHTML = productsHtml
+        this.addListeners()
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+
+    }
+    else{
+      if(productsOut){
+        productsOut.innerHTML = dashboardAdminTemplate.productNoData()
+      }
+      else{
+        console.log("no se encontro el div para dibujar los productos")
+      }
+    }
+  },
+
+  async deleteProduct(id, e){
+    e.preventDefault()
+    const product = {
+      id: id
+    }
+    const response = await productsController.deleteProduct(product)
+    if(response.status){
+      this.renderProducts()
+      alert("producto eliminado")
+    }
+    else{
+      alert(response.msg)
+    }
+
+  },
+
+  drawModalUpdatedProduct(id){
+    const thisArg = this
+  // Insertar el modal
+    const product = productsController.getById(id)    
+    const modalHTML = dashboardAdminTemplate.updateProduct(product.data[0]);
+    document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+    const modal = document.querySelector("#updateProductModal");
+    const cancelBtn = document.querySelector("#cancelUpdateProduct");
+    const saveBtn = document.querySelector("#saveUpdateProduct");
+
+    if (modal) {
+      modal.classList.add("show");  // Mostrar el modal con animación
+    }
+
+    // Cerrar modal
+    cancelBtn.addEventListener("click", () => {
+      modal.classList.remove("show");
+      setTimeout(() => modal.remove(), 300);  // Esperar la transición
+    });
+
+    // llamar la funcion de guardar producto
+    saveBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      thisArg.updateProduct(id, product).then(response => {
+        alert(response.msg)
+      })
+    });
+
+  },
+
+  async updateProduct(id, productObj){
+    const result = {}    
+    const product = {
+      id: id,
+      nombre: document.querySelector("#updateProductName").value,
+      precio: Number(document.querySelector("#updateProductPrice").value),
+      stock: Number(document.querySelector("#updateProductStock").value),
+      categoria: document.querySelector("#updateProductCategory").value,
+      descripcion: document.querySelector("#updateProductDescription").value,
+      descuento: Number(productObj.data[0].descuento),
+      IVA: Number(productObj.data[0].IVA),
+      status: productObj.data[0].status,
+      caracteristicas: productObj.data[0].caracteristicas,
+      imagenes: [
+        productObj.data[0].imagenes[0]
+      ]
+
+    }
+
+    const response = await productsController.updateProduct(product)
+    if(response.status){
+      this.renderProducts()
+      alert("producto actualizado")
+    }
+    else{
+      alert(response.msg)
+    }
+  },
+
+  addListeners(){
+      const thisArg = this
+      const btnsDeletedProducts = document.querySelectorAll(".productDeleteBtn")
+      if (btnsDeletedProducts) {
+          btnsDeletedProducts.forEach(function(value, index){
+              const bntElement = value
+              let id = value.dataset.id
+              bntElement.addEventListener("click", async function(e){
+                  e.preventDefault()
+                  await thisArg.deleteProduct(id, e)
+                  return
+              })                
+          })                        
+      } else {
+          console.log(`no se encontraron los botones de eliminar producto`);                        
+      }
+      const btnsUpdateProducts = document.querySelectorAll(".productUpdateBtn")
+      if (btnsUpdateProducts) {
+          btnsUpdateProducts.forEach(function(value, index){
+              const bntElement = value
+              let id = value.dataset.id
+              bntElement.addEventListener("click", function(e){
+                  e.preventDefault()
+                  thisArg.drawModalUpdatedProduct(id, e)
+              })                
+          })                        
+      } else {
+          console.log(`no se encontraron los botones de editar producto`);                        
+      }
   }
 
 };
@@ -114,7 +230,6 @@ const addProductBtn = document.getElementById("add-product-btn");
 const btnAddProduct = document.getElementById("btn-add-product");
 
 function setupModal() {
-  console.log("Configurando modal");
 
   // Insertar el modal
   const modalHTML = dashboardAdminTemplate.crearNuevoProducto();
@@ -125,17 +240,14 @@ function setupModal() {
   const cancelBtn = document.getElementById("cancel-product");
 
   if (modal) {
-    console.log("Modal insertado");
+   
     modal.classList.add("show");  // Mostrar el modal con animación
   }
-  if (form) console.log("Form encontrado");
-  if (cancelBtn) console.log("Botón cancelar encontrado");
 
   // Cerrar modal
   cancelBtn.addEventListener("click", () => {
-    console.log("Cerrando modal");
     modal.classList.remove("show");
-    setTimeout(() => modal.remove(), 300);  // Esperar la transición
+    
   });
 
   // Modificación: Cambié a FormData para enviar imagen junto con datos al servidor
@@ -147,32 +259,25 @@ function setupModal() {
     const precio = document.getElementById("price").value;
     const stock = document.getElementById("stock").value;
     const categoria = document.getElementById("category").value;
-    const imagenes = document.getElementById("image").files[0];
+    const imagenes = ["img/productDefault.jpg"];
 
-    
-
-    //falta guardar la imagen en la carpeta del proyecto, y luego enviar esa ruta de la imagen en el form data
-
-    //console.log("Datos:", { nombre, precio, stock, categoria, imagenes });
-
-    /* const formData = new );
-    formData.append('precio', pFormData();
-    formData.append('nombre', nombrerecio);
-    formData.append('stock', stock);
-    formData.append('categoria', categoria);
-    if (imagenes) {
-      formData.append('imagenes', imagenes);
-    } */
    const formData = {
     nombre: nombre,
     precio: precio,
     stock:stock,
     categoria: categoria,
-    imagenes: [imagenes]
+    imagenes: [imagenes],
+    caracteristicas: {
+      material: "default"
+    },
+    descuento: 0,
+    IVA: 21,
+    status:"available",
+    descripcion: "default",
+
    }
 
     try {
-      console.log("Enviando fetch a", "http://localhost:9000/products");
       const response = await fetch("http://localhost:9000/products", {
         method: "POST",
         headers: {
@@ -181,32 +286,23 @@ function setupModal() {
         body: JSON.stringify(formData)
       });
 
-      console.log("Respuesta:", response.status);
       if (!response.ok) throw new Error("Error al crear producto");
 
-      alert("Producto agregado correctamente");
+      //alert("Producto agregado correctamente");
       modal.classList.remove("show");
       setTimeout(() => modal.remove(), 300);
 
     } catch (error) {
-      console.error("Error en fetch:", error);
       alert("Error al agregar producto");
     }
   });
 }
 
 if (addProductBtn) {
-  console.log("Botón add-product-btn encontrado, asignando event listener");
   addProductBtn.addEventListener("click", setupModal);
-} else {
-  console.log("Botón add-product-btn no encontrado");
+
 }
 
 if (btnAddProduct) {
-  console.log("Botón btn-add-product encontrado, asignando event listener");
   btnAddProduct.addEventListener("click", setupModal);
-} else {
-  console.log("Botón btn-add-product no encontrado");
-
-}
-
+} 

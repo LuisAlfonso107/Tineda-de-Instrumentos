@@ -3,13 +3,13 @@
     {
       "id": "1",
       "nombre": "Guitarra clásica",
+      "precio": 189.99,
+      "stock": 24,
       "categoria": "Cuerdas",
-      "precio": 199.99,
+      "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
       "descuento": 0,
       "IVA": 21,
-      "stock": 12,
       "status": "available",
-      "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
       "caracteristicas": {
         "materiales": "Cedro, palisandro y ébano",
         "nivel": "Principiante",
@@ -765,24 +765,6 @@
       },
       "imagenes": [
         "img/cuerdas/cuatro_venezolano_id30.webp"
-      ]
-    },
-    {
-      "id": "16b0",
-      "nombre": "qwertyu",
-      "precio": "123",
-      "stock": "12",
-      "categoria": "viento",
-      "imagenes": []
-    },
-    {
-      "id": "c06b",
-      "nombre": "sdfs",
-      "precio": "2654",
-      "stock": "5",
-      "categoria": "Viento",
-      "imagenes": [
-        {}
       ]
     }
   ],

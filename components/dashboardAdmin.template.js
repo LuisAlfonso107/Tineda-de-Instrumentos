@@ -90,6 +90,40 @@ export const dashboardAdminTemplate = {
         `;
     },
 
+    updateProduct(obj) {
+        return `
+      <div id="updateProductModal" class="product-modal">
+        <div>
+          <h2>Editar Producto</h2>
+
+          <form id="updateProductForm">
+            <input type="hidden" id="updateProductId" value="${obj.id}">
+
+            <label>Nombre</label>
+            <input type="text" id="updateProductName" value="${obj.nombre}"required>
+
+            <label>Precio</label>
+            <input type="number" id="updateProductPrice" value="${obj.precio}" required>
+
+            <label>Stock</label>
+            <input type="number" id="updateProductStock" value="${obj.stock}" required>
+
+            <label>Categoría</label>
+            <input type="text" id="updateProductCategory" value="${obj.categoria}" required>
+
+            <label>Descripción</label>
+            <textarea id="updateProductDescription" name="updateProductDescription" rows="5" value="${obj.descripcion}">${obj.descripcion}</textarea>
+
+            <div class="actions">
+              <button class="productUpdateBtn" type="button" id="saveUpdateProduct">Guardar Producto</button>
+              <button type="button" id="cancelUpdateProduct">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        `;
+    },
+
     productCard(obj){
         return `
             <div class="products" id="product-${obj.id}">
@@ -97,18 +131,18 @@ export const dashboardAdminTemplate = {
                     <div class="productImg">
                         <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
                     </div>
-                    <h3 class="productTitle" data-idioma="products.name">${obj.nombre}</h3>
+                    <h3 class="productTitle" data-idioma="products.nombre">${obj.nombre}</h3>
                     <p class="productCategory"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.cuerdas">${obj.categoria}</span></p>
                     <p class="productPrice"><span data-idioma="products.priceLabel">Precio:</span> €${obj.precio}</p>
                 </a>
-                <a class="productUpdateBtn" href="#" data-id="${obj.id}">
+                <button class="productUpdateBtn" data-id="${obj.id}">
                     <i class="fa-regular fa-pen-to-square"></i>
                     <span data-idioma="products.updateBtn">Editar</span>
-                </a>
-                <a class="productDeleteBtn" href="#" data-id="${obj.id}">
+                </button>
+                <button class="productDeleteBtn" data-id="${obj.id}">
                     <i class="fa-regular fa-trash-can"></i>
                     <span data-idioma="products.deleteBtn">Eliminar</span>
-                </a>
+                </button>
             </div>
         `
     },

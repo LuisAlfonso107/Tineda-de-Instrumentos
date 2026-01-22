@@ -247,7 +247,7 @@ export const productsController = {
             result.status = false
             result.msg = "el IVA no es valido, debe ser un number no vacio"     
         }
-        else if(product.stock === "" || typeof(product.stock) !== "number" || Number.isInteger(product.stock)){
+        else if(product.stock === "" || typeof(product.stock) !== "number" || !Number.isInteger(product.stock)){
             result.status = false
             result.msg = "el stock no es valido, debe ser un numero entero no vacio"   
         }
@@ -356,7 +356,7 @@ export const productsController = {
 
             if(validate.status){
                 
-                const url = `http://localhost:8000/products/${product.id}`
+                const url = `http://localhost:9000/products/${product.id}`
                 const options = {
                     method: 'PUT',
                     headers: {
@@ -390,7 +390,7 @@ export const productsController = {
     async deleteProduct(product) {
         const result = {}
         try {
-            const url = `http://localhost:8000/products/${product.id}`
+            const url = `http://localhost:9000/products/${product.id}`
             const options = {
                 method: 'DELETE',
                 headers: {
