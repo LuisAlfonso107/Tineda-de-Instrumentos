@@ -12,10 +12,6 @@ body {
   color: var(--blanco);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
