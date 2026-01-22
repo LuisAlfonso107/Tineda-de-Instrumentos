@@ -1,5 +1,5 @@
 import { registroTemplate } from "../components/registro.template.js"
-
+import { config } from "./config.js"
 export const registro = {
 
     f() {
@@ -39,7 +39,7 @@ export const registro = {
                 const passHash = await hashPassword(password);
 
                 try {
-                    const existsUser = await fetch(`http://localhost:9000/users?email=${email}`);
+                    const existsUser = await fetch(`${config.endPoints().users}?email=${email}`);
                     
                     if (!existsUser.ok) {
                         feedback.textContent = 'Error registrando usuario';
@@ -52,7 +52,7 @@ export const registro = {
                         return;
                     }
 
-                    const res = await fetch('http://localhost:9000/users', {
+                    const res = await fetch(`${config.endPoints().users}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({

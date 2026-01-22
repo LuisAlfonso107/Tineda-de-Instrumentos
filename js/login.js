@@ -1,5 +1,6 @@
 import { loginTemplate } from "../components/login.template.js"
 import { registro } from "./registro.js"
+import { config } from "./config.js"
 
 export const login = {
 
@@ -36,7 +37,7 @@ export const login = {
 
                 try {
                     // json-server: buscar usuario con email y password
-                    const query = `http://localhost:9000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(passHash)}`;
+                    const query = `${config.endPoints().users}?email=${encodeURIComponent(email)}&password=${encodeURIComponent(passHash)}`;
                     const res = await fetch(query);
                     if (!res.ok) { feedback.textContent = 'Error del servidor'; return; }
                     const users = await res.json();
