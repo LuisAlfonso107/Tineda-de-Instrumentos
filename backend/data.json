@@ -765,25 +765,6 @@
       "imagenes": [
         "img/cuerdas/cuatro_venezolano_id30.webp"
       ]
-    },
-    {
-      "id": "1d52",
-      "nombre": "nuevo producto",
-      "precio": 123,
-      "stock": 12,
-      "categoria": "caja",
-      "descripcion": "default",
-      "descuento": 0,
-      "IVA": 21,
-      "status": "available",
-      "caracteristicas": {
-        "material": "default"
-      },
-      "imagenes": [
-        [
-          "img/productDefault.jpg"
-        ]
-      ]
     }
   ],
   "users": [
@@ -1308,6 +1289,357 @@
         "subTotalIva": 186.4758,
         "subTotalItems": 887.98,
         "totalOrder": 1074.4558000000002
+      }
+    },
+    {
+      "id": "3f7c",
+      "client": {
+        "name": "qw",
+        "email": "ylcruz.dev@gmail.com"
+      },
+      "shipment": {
+        "address": "qwe",
+        "city": "qwerty",
+        "state": "qwe",
+        "zip": "1234"
+      },
+      "paymentCard": {
+        "name": "aqwert",
+        "number": "1234567890123456",
+        "month": "12",
+        "year": "2027",
+        "cvv": "123"
+      },
+      "order": {
+        "items": [
+          {
+            "id": "1",
+            "nombre": "Guitarra clásica",
+            "precio": 189.99,
+            "stock": 24,
+            "categoria": "Cuerdas",
+            "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Cedro, palisandro y ébano",
+              "nivel": "Principiante",
+              "dimensiones": "99 x 36 x 10 cm",
+              "peso": "1.8 kg",
+              "garantia": "24 meses",
+              "incluye": "Guitarra, funda suave y cuerdas de repuesto",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 6,
+              "color": "Natural"
+            },
+            "imagenes": [
+              "img/cuerdas/guitarra_espanola_clasica_id1.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 39.8979,
+            "totalPriceItem": 189.99
+          },
+          {
+            "id": "2",
+            "nombre": "Bajo eléctrico",
+            "precio": 349,
+            "stock": 12,
+            "categoria": "Cuerdas",
+            "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Tilo, arce y palisandro",
+              "nivel": "Intermedio",
+              "dimensiones": "115 x 35 x 4 cm",
+              "peso": "4.2 kg",
+              "garantia": "24 meses",
+              "incluye": "Bajo, correa, cable y llaves de afinación",
+              "tipo_cuerdas": "Roundwound",
+              "cantidad_cuerdas": 4,
+              "color": "Negro brillante",
+              "pastillas": "J-style",
+              "controles": "Volumen, tono y selector"
+            },
+            "imagenes": [
+              "img/cuerdas/bajo_4cuerdas_id2.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 146.58,
+            "totalPriceItem": 698
+          },
+          {
+            "id": "3",
+            "nombre": "Arpa celta portátil",
+            "categoria": "Cuerdas",
+            "precio": 599,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Arpa celta portátil con 22 cuerdas de nylon, cuerpo de abedul macizo y columna de arce curvada. Sonido cálido y envolvente perfecto para música celta, medieval y contemporánea. Incluye sistema de levas para semitonos.",
+            "caracteristicas": {
+              "materiales": "Abedul y arce",
+              "nivel": "Intermedio",
+              "dimensiones": "85 x 45 x 30 cm",
+              "peso": "5.8 kg",
+              "garantia": "36 meses",
+              "incluye": "Arpa, funda acolchada y llaves de afinación",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 22,
+              "color": "Natural",
+              "afinacion": "Do mayor",
+              "octavas": 3
+            },
+            "imagenes": [
+              "img/cuerdas/arpa_celta_id3.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 251.58,
+            "totalPriceItem": 1198
+          }
+        ],
+        "cartCount": 5,
+        "subTotalIva": 438.0579,
+        "subTotalItems": 2085.99,
+        "totalOrder": 2410.2489,
+        "subTotalDiscount": 113.799
+      }
+    },
+    {
+      "id": "5415",
+      "client": {
+        "name": "qw",
+        "email": "ylcruz.dev@gmail.com"
+      },
+      "shipment": {
+        "address": "qwe",
+        "city": "qwerty",
+        "state": "qwe",
+        "zip": "1234"
+      },
+      "paymentCard": {
+        "name": "aqwert",
+        "number": "1234567890123456",
+        "month": "12",
+        "year": "2027",
+        "cvv": "123"
+      },
+      "order": {
+        "items": [
+          {
+            "id": "1",
+            "nombre": "Guitarra clásica",
+            "precio": 189.99,
+            "stock": 24,
+            "categoria": "Cuerdas",
+            "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Cedro, palisandro y ébano",
+              "nivel": "Principiante",
+              "dimensiones": "99 x 36 x 10 cm",
+              "peso": "1.8 kg",
+              "garantia": "24 meses",
+              "incluye": "Guitarra, funda suave y cuerdas de repuesto",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 6,
+              "color": "Natural"
+            },
+            "imagenes": [
+              "img/cuerdas/guitarra_espanola_clasica_id1.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 39.8979,
+            "totalPriceItem": 189.99
+          },
+          {
+            "id": "2",
+            "nombre": "Bajo eléctrico",
+            "precio": 349,
+            "stock": 12,
+            "categoria": "Cuerdas",
+            "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Tilo, arce y palisandro",
+              "nivel": "Intermedio",
+              "dimensiones": "115 x 35 x 4 cm",
+              "peso": "4.2 kg",
+              "garantia": "24 meses",
+              "incluye": "Bajo, correa, cable y llaves de afinación",
+              "tipo_cuerdas": "Roundwound",
+              "cantidad_cuerdas": 4,
+              "color": "Negro brillante",
+              "pastillas": "J-style",
+              "controles": "Volumen, tono y selector"
+            },
+            "imagenes": [
+              "img/cuerdas/bajo_4cuerdas_id2.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 146.58,
+            "totalPriceItem": 698
+          },
+          {
+            "id": "3",
+            "nombre": "Arpa celta portátil",
+            "categoria": "Cuerdas",
+            "precio": 599,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Arpa celta portátil con 22 cuerdas de nylon, cuerpo de abedul macizo y columna de arce curvada. Sonido cálido y envolvente perfecto para música celta, medieval y contemporánea. Incluye sistema de levas para semitonos.",
+            "caracteristicas": {
+              "materiales": "Abedul y arce",
+              "nivel": "Intermedio",
+              "dimensiones": "85 x 45 x 30 cm",
+              "peso": "5.8 kg",
+              "garantia": "36 meses",
+              "incluye": "Arpa, funda acolchada y llaves de afinación",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 22,
+              "color": "Natural",
+              "afinacion": "Do mayor",
+              "octavas": 3
+            },
+            "imagenes": [
+              "img/cuerdas/arpa_celta_id3.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 251.58,
+            "totalPriceItem": 1198
+          }
+        ],
+        "cartCount": 5,
+        "subTotalIva": 438.0579,
+        "subTotalItems": 2085.99,
+        "totalOrder": 2410.2489,
+        "subTotalDiscount": 113.799
+      }
+    },
+    {
+      "id": "35bb",
+      "client": {
+        "name": "qw",
+        "email": "ylcruz.dev@gmail.com"
+      },
+      "shipment": {
+        "address": "qwe",
+        "city": "qwerty",
+        "state": "qwe",
+        "zip": "1234"
+      },
+      "paymentCard": {
+        "name": "aqwert",
+        "number": "1234567890123456",
+        "month": "12",
+        "year": "2027",
+        "cvv": "123"
+      },
+      "order": {
+        "items": [
+          {
+            "id": "1",
+            "nombre": "Guitarra clásica",
+            "precio": 189.99,
+            "stock": 24,
+            "categoria": "Cuerdas",
+            "descripcion": "Guitarra clásica de madera maciza de cedro en la tapa armónica y palisandro en fondo y aros. Ideal para principiantes y estudiantes que buscan un sonido cálido y tradicional. El mástil de cedro con diapasón de ébano ofrece una comodidad excepcional para la mano izquierda.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Cedro, palisandro y ébano",
+              "nivel": "Principiante",
+              "dimensiones": "99 x 36 x 10 cm",
+              "peso": "1.8 kg",
+              "garantia": "24 meses",
+              "incluye": "Guitarra, funda suave y cuerdas de repuesto",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 6,
+              "color": "Natural"
+            },
+            "imagenes": [
+              "img/cuerdas/guitarra_espanola_clasica_id1.webp"
+            ],
+            "quantity": 1,
+            "totalIvaPriceItem": 39.8979,
+            "totalPriceItem": 189.99
+          },
+          {
+            "id": "2",
+            "nombre": "Bajo eléctrico",
+            "precio": 349,
+            "stock": 12,
+            "categoria": "Cuerdas",
+            "descripcion": "Bajo eléctrico de 4 cuerdas con cuerpo de tilo y acabado brillante poliuretano. Mástil atornillado de arce con diapasón de palisandro y 24 trastes. Pastillas J-style de alta salida para un sonido potente y definido en cualquier estilo musical.",
+            "descuento": 0,
+            "IVA": 21,
+            "status": "available",
+            "caracteristicas": {
+              "materiales": "Tilo, arce y palisandro",
+              "nivel": "Intermedio",
+              "dimensiones": "115 x 35 x 4 cm",
+              "peso": "4.2 kg",
+              "garantia": "24 meses",
+              "incluye": "Bajo, correa, cable y llaves de afinación",
+              "tipo_cuerdas": "Roundwound",
+              "cantidad_cuerdas": 4,
+              "color": "Negro brillante",
+              "pastillas": "J-style",
+              "controles": "Volumen, tono y selector"
+            },
+            "imagenes": [
+              "img/cuerdas/bajo_4cuerdas_id2.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 146.58,
+            "totalPriceItem": 698
+          },
+          {
+            "id": "3",
+            "nombre": "Arpa celta portátil",
+            "categoria": "Cuerdas",
+            "precio": 599,
+            "descuento": 0,
+            "IVA": 21,
+            "stock": 12,
+            "status": "available",
+            "descripcion": "Arpa celta portátil con 22 cuerdas de nylon, cuerpo de abedul macizo y columna de arce curvada. Sonido cálido y envolvente perfecto para música celta, medieval y contemporánea. Incluye sistema de levas para semitonos.",
+            "caracteristicas": {
+              "materiales": "Abedul y arce",
+              "nivel": "Intermedio",
+              "dimensiones": "85 x 45 x 30 cm",
+              "peso": "5.8 kg",
+              "garantia": "36 meses",
+              "incluye": "Arpa, funda acolchada y llaves de afinación",
+              "tipo_cuerdas": "Nylon",
+              "cantidad_cuerdas": 22,
+              "color": "Natural",
+              "afinacion": "Do mayor",
+              "octavas": 3
+            },
+            "imagenes": [
+              "img/cuerdas/arpa_celta_id3.webp"
+            ],
+            "quantity": 2,
+            "totalIvaPriceItem": 251.58,
+            "totalPriceItem": 1198
+          }
+        ],
+        "cartCount": 5,
+        "subTotalIva": 438.0579,
+        "subTotalItems": 2085.99,
+        "totalOrder": 2410.2489,
+        "subTotalDiscount": 113.799
       }
     }
   ]

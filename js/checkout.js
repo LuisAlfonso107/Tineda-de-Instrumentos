@@ -1,4 +1,5 @@
-/* import { cart } from "../components/cart/cart.js" */
+import { config } from "./config.js"
+import { cart } from "../components/cart/cart.js"
 
 const form = document.getElementById("checkoutForm");
 const payBtn = document.getElementById("payBtn");
@@ -127,13 +128,15 @@ form.addEventListener("submit", async function(event){
       const div = `<div class="divCompleteCheckout">LISTO</div>`
       const salida= document.querySelector("body")
       salida.innerHTML=div
+      cart.resetEstate()
+      window.location.assign('../index.html')
       //alert("Pago aceptado. Pedido generado. ¡Gracias por su compra!");
       //console.log("Pago aceptado. Pedido generado. ¡Gracias por su compra!");
       //form.reset();
     }
     else{
-      //alert(`${result.msg}`);
-        console.log(`${result.msg}`)
+      alert(`${result.msg}`);
+      console.log(`${result.msg}`)
     }
     
   } catch (error) {
@@ -145,7 +148,7 @@ form.addEventListener("submit", async function(event){
   async function existsClient(email){
     const result={}
     try {
-      const url = `http://localhost:8000/users?email=${email}`
+      const url = `${config.endPoints().users}?email=${email}`
       const response = await fetch(url);
       if(!response.ok){
         result.status=false
@@ -180,7 +183,7 @@ form.addEventListener("submit", async function(event){
         role: "client",
         isActive: true,
       }
-      const url = `http://localhost:8000/users`
+      const url = `${config.endPoints().users}`
       const options = {
         method: 'POST',
         headers: {
@@ -209,7 +212,7 @@ form.addEventListener("submit", async function(event){
   async function createOrder(orden) {
     const result = {}
     try {
-      const url = `http://localhost:8000/orders`
+      const url = `${config.endPoints().orders}`
       const options = {
         method: 'POST',
         headers: {

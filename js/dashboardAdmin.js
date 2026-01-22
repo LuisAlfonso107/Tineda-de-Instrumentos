@@ -1,5 +1,6 @@
 import { dashboardAdminTemplate } from "../components/dashboardAdmin.template.js";
 import { productsController } from "./products.js"
+import { config } from "./config.js"
 
 export const dashboardAdmin = {
   container: document.getElementById("dashBoardAdmin"),
@@ -149,7 +150,13 @@ export const dashboardAdmin = {
       alert(response.msg)
     } */
    productsController.updateProduct(product).then(response => {
-    console.log(response);
+      console.log(response);
+      if(response.status){
+        this.renderProducts()
+      }
+      else{
+        alert(response.msg)
+      }
    })
   },
 
@@ -283,16 +290,16 @@ function setupModal() {
    }
 
     try {
-      console.log("Enviando fetch a", "http://localhost:9000/products");
-      const response = await fetch("http://localhost:9000/products", {
+      //console.log("Enviando fetch a", "http://localhost:9000/products");
+      const response = await fetch(`${config.endPoints().products}`, {
         method: "POST",
         headers: {
-        'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData)
       });
 
-      console.log("Respuesta:", response.status);
+      //console.log("Respuesta:", response.status);
       if (!response.ok) throw new Error("Error al crear producto");
 
       //alert("Producto agregado correctamente");
@@ -300,22 +307,22 @@ function setupModal() {
       setTimeout(() => modal.remove(), 300);
 
     } catch (error) {
-      console.error("Error en fetch:", error);
+      //console.error("Error en fetch:", error);
       alert("Error al agregar producto");
     }
   });
 }
 
 if (addProductBtn) {
-  console.log("Botón add-product-btn encontrado, asignando event listener");
+  //console.log("Botón add-product-btn encontrado, asignando event listener");
   addProductBtn.addEventListener("click", setupModal);
-} else {
+} /* else {
   console.log("Botón add-product-btn no encontrado");
-}
+} */
 
 if (btnAddProduct) {
-  console.log("Botón btn-add-product encontrado, asignando event listener");
+  //console.log("Botón btn-add-product encontrado, asignando event listener");
   btnAddProduct.addEventListener("click", setupModal);
-} else {
+} /* else {
   console.log("Botón btn-add-product no encontrado");
-}
+} */

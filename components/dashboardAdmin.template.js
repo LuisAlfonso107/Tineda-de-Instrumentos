@@ -135,7 +135,7 @@ export const dashboardAdminTemplate = {
                         <img src="../${obj.imagenes[0]}" alt="${obj.nombre}">
                     </div>
                     <h3 class="productTitle" data-idioma="products.nombre">${obj.nombre}</h3>
-                    <p class="productCategory"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.cuerdas">${obj.categoria}</span></p>
+                    <p class="productCategory"><span data-idioma="products.categoryLabel">Categoría:</span> <span data-idioma="products.category.category">${obj.categoria}</span></p>
                     <p class="productPrice"><span data-idioma="products.priceLabel">Precio:</span> €${obj.precio}</p>
                 </a>
                 <button class="productUpdateBtn" data-id="${obj.id}">

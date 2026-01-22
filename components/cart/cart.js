@@ -15,5 +15,8 @@ export const cart = {
     },
     addItem(id){
         cartView.addItem(id)
+    },
+    resetEstate(){
+        cartController.resetEstate()
     }
 };

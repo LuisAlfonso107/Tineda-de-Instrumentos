@@ -205,5 +205,14 @@ export const cartController = {
         } catch (error) {
             console.error('No se pudo actualizar el estado del carrito:', error);                      
         }
+    },
+    resetEstate(){
+        this.items = [] 
+        this.cartCount = 0
+        this.subTotalIva = 0
+        this.subTotalItems = 0
+        this.subTotalDiscount = 0
+        this.totalOrder = 0
+        this.updateState()
     }
 }
