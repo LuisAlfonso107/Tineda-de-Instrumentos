@@ -796,6 +796,36 @@
       "isActive": true
     },
     {
+      "id": "1768902379036",
+      "nombre": "Esto es nua prueb",
+      "categoria": "Viento",
+      "precio": 70,
+      "descuento": 0,
+      "IVA": 21,
+      "stock": 20,
+      "status": "available",
+      "descripcion": "Descripción por defecto",
+      "caracteristicas": {},
+      "imagenes": [
+        "img/Viento/1768902379028-735993506.png"
+      ]
+    },
+    {
+      "id": "1768905403725",
+      "nombre": "as",
+      "categoria": "complemento y accesorios",
+      "precio": 80,
+      "descuento": 0,
+      "IVA": 21,
+      "stock": 75,
+      "status": "available",
+      "descripcion": "Descripción por defecto",
+      "caracteristicas": {},
+      "imagenes": [
+        "img/complemento y accesorios/1768905403724-257806930.png"
+      ]
+    },
+    {
       "id": "8939",
       "name": "Alfonso",
       "email": "garcialagos20@gmail.com",

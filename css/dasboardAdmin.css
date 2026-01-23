@@ -565,3 +565,51 @@
 .actions button[type="button"]:hover {
   background-color: #bbb;
 }
+
+/* Tabla de productos editable */
+#productos table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-medium);
+}
+
+#productos th, #productos td {
+  padding: var(--spacing-small);
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#productos th {
+  background-color: var(--color-header);
+  color: var(--color-bg);
+}
+
+#productos td[contenteditable="true"] {
+  background-color: #f9f9f9;
+  cursor: text;
+}
+
+#productos td[contenteditable="true"]:focus {
+  background-color: #fff;
+  outline: 2px solid var(--color-cta);
+}
+
+#productos select {
+  width: 100%;
+  padding: var(--spacing-small);
+  border: none;
+  background: transparent;
+}
+
+.save-btn {
+  background-color: var(--color-cta);
+  color: var(--color-text);
+  border: none;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #e6b800;
+}
